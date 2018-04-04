@@ -27,7 +27,12 @@ namespace capaPresentacion
         int[] noRepetir;
         int numeroPrueba;
         int i = 0;
-        int countUp = 0; 
+        int countUp = 0;
+        int score_1 = 0;
+        int lifes_1 = 3;
+        int score_2 = 0;
+        int lifes_2 = 3;
+        int turno = 1;
         E_focusedBible objEntidad = new E_focusedBible();
         N_focusedBible objNego = new N_focusedBible();
 
@@ -104,11 +109,13 @@ namespace capaPresentacion
                 {
                     correctAnswer();
                     MessageBox.Show("Correct Answer");
+                    score_1++;
                 }
                 else
                 {
                     reproducirSonido("retro-lose.wav", false);
                     MessageBox.Show("Wrong Answer");
+                    lifes_1--;
                 }
             }else
                 if (rbtn_b.Checked == true)
@@ -117,11 +124,13 @@ namespace capaPresentacion
                 {
                     correctAnswer();
                     MessageBox.Show("Correct Answer");
+                    score_1++;
                 }
                 else
                 {
                     reproducirSonido("retro-lose.wav", false);
                     MessageBox.Show("Wrong Answer");
+                    lifes_1--;
                 }
             }
             else
@@ -131,11 +140,14 @@ namespace capaPresentacion
                 {
                     correctAnswer();
                     MessageBox.Show("Correct Answer");
+                    score_1++;
                 }
                 else
                 {
                     reproducirSonido("retro-lose.wav", false);
                     MessageBox.Show("Wrong Answer");
+                    lifes_1--;
+
                 }
             }
             else
@@ -145,12 +157,47 @@ namespace capaPresentacion
                 {
                     correctAnswer();
                     MessageBox.Show("Correct Answer");
+                    score_1++;
                 }
                 else
                 {
                     reproducirSonido("retro-lose.wav", false);
                     MessageBox.Show("Wrong Answer");
+                    lifes_1--;
                 }
+            }
+
+            //marcadores
+            lab_LifesNum2.Text = Convert.ToString(lifes_1);
+            lab_ScoreNum2.Text = Convert.ToString(score_1);
+
+            //condicion para perder
+            if (lifes_1 == 0)
+            {
+                //condicion para saber quien perdió
+                if (turno == 1)
+                {
+                    MessageBox.Show("Player 1 Lose!");
+                    Application.Exit();
+                }
+                else
+                {
+                    MessageBox.Show("Player 2 Lose!");
+                    Application.Exit();
+                }
+                
+            }
+
+            // Cambio de Jugador
+            if(turno == 1)
+            {
+                PlayerFocus(2);
+                turno = 2; //Player 2
+            }
+            else
+            {
+                PlayerFocus(1);
+                turno = 1; //Player 1
             }
 
 
@@ -187,6 +234,63 @@ namespace capaPresentacion
             reproducirSonido("correctAnswer3.wav", false);
             Thread.Sleep(400);
             reproducirSonido("cheering-and-clapping2.wav", false);
+        }
+
+        void PlayerFocus(int turno)
+        {
+            if (turno == 1)
+            {
+                //para poder cambiar el tamaño de la fuente hay que instanciarla y pasarle los parametros siguientes.
+                lab_Player1.Font = new Font(lab_Player1.Font.Name, 20, lab_Player1.Font.Style, lab_Player1.Font.Unit);
+                //para cambiar el color a gris
+                lab_Player1.ForeColor = Color.FromArgb(228, 161, 24);
+
+                lab_Player2.Font = new Font(lab_Player2.Font.Name, 10, lab_Player2.Font.Style, lab_Player2.Font.Unit);
+                //para cambiar el color a orange
+                lab_Player2.ForeColor = Color.FromArgb(237, 237, 237);
+
+
+                cambiarColoryJugador(turno);
+
+            }
+            else // si el turno es 2
+            {
+                lab_Player2.Font = new Font(lab_Player2.Font.Name, 20, lab_Player2.Font.Style, lab_Player2.Font.Unit);
+                lab_Player2.ForeColor = Color.FromArgb(228, 161, 24);
+
+                lab_Player1.Font = new Font(lab_Player1.Font.Name, 10, lab_Player1.Font.Style, lab_Player1.Font.Unit);
+                lab_Player1.ForeColor = Color.FromArgb(237, 237, 237);
+
+                cambiarColoryJugador(turno);
+            }
+        }
+
+        void cambiarColoryJugador(int turno)
+        {
+            if (turno == 1)
+            {
+                lab_Lifes.ForeColor = Color.FromArgb(135, 135, 135);
+                lab_LifesNum.ForeColor = Color.FromArgb(228, 161, 24);
+                lab_Score.ForeColor = Color.FromArgb(135, 135, 135);
+                lab_ScoreNum.ForeColor = Color.FromArgb(228, 161, 24);
+
+                lab_Lifes2.ForeColor = Color.FromArgb(237, 237, 237);
+                lab_LifesNum2.ForeColor = Color.FromArgb(237, 237, 237);
+                lab_Score2.ForeColor = Color.FromArgb(237, 237, 237);
+                lab_ScoreNum2.ForeColor = Color.FromArgb(237, 237, 237);
+            }
+            else // si el turno es 2
+            {
+                lab_Lifes2.ForeColor = Color.FromArgb(135, 135, 135);
+                lab_LifesNum2.ForeColor = Color.FromArgb(228, 161, 24);
+                lab_Score2.ForeColor = Color.FromArgb(135, 135, 135);
+                lab_ScoreNum2.ForeColor = Color.FromArgb(228, 161, 24);
+
+                lab_Lifes.ForeColor = Color.FromArgb(237, 237, 237);
+                lab_LifesNum.ForeColor = Color.FromArgb(237, 237, 237);
+                lab_Score.ForeColor = Color.FromArgb(237, 237, 237);
+                lab_ScoreNum.ForeColor = Color.FromArgb(237, 237, 237);
+            }
         }
     }
 }
