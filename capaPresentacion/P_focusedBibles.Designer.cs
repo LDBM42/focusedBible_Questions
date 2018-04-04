@@ -302,12 +302,12 @@
         private System.Windows.Forms.Label lab_ScoreNum2;
         private System.Windows.Forms.Label lab_Score2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label lab_Player1;
-        private System.Windows.Forms.Label lab_Player2;
         private System.Windows.Forms.Label lab_ScoreNum;
         private System.Windows.Forms.Label lab_Score;
         private System.Windows.Forms.Label lab_LifesNum;
         private System.Windows.Forms.Label lab_Lifes;
+        public System.Windows.Forms.Label lab_Player1;
+        public System.Windows.Forms.Label lab_Player2;
     }
 }
 

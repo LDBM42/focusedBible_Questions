@@ -310,12 +310,12 @@ namespace capaPresentacion
                 //condicion para saber quien perdió
                 if (turno == 1)
                 {
-                    MessageBox.Show("Player 1 Lose!\n\nPlayer 2 Wins\nLifes: " + lifes_2 + "\nScore: " + score_2);
+                    MessageBox.Show(lab_Player1.Text +" Lose!\n\n"+ lab_Player2.Text +" Wins\nLifes: " + lifes_2 + "\nScore: " + score_2);
                     Application.Exit();
                 }
                 else
                 {
-                    MessageBox.Show("Player 2 Lose!\n\nPlayer 1 Wins\nLifes: " + lifes_1 + "\nScore: " + score_1);
+                    MessageBox.Show(lab_Player2.Text + " Lose!\n\n"+ lab_Player1.Text +" Wins\nLifes: " + lifes_1 + "\nScore: " + score_1);
                     Application.Exit();
                 }
             }
