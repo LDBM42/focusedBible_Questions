@@ -107,30 +107,30 @@ namespace capaPresentacion
             {
                 if (objEntidad.resp == 'a')
                 {
-                    correctAnswer();
+                    correctAnswerSound();
                     MessageBox.Show("Correct Answer");
-                    score_1++;
+                    cambioDeTurno(turno, true);
                 }
                 else
                 {
                     reproducirSonido("retro-lose.wav", false);
                     MessageBox.Show("Wrong Answer");
-                    lifes_1--;
+                    cambioDeTurno(turno, false);
                 }
             }else
                 if (rbtn_b.Checked == true)
             {
                 if (objEntidad.resp == 'b')
                 {
-                    correctAnswer();
+                    correctAnswerSound();
                     MessageBox.Show("Correct Answer");
-                    score_1++;
+                    cambioDeTurno(turno, true);
                 }
                 else
                 {
                     reproducirSonido("retro-lose.wav", false);
                     MessageBox.Show("Wrong Answer");
-                    lifes_1--;
+                    cambioDeTurno(turno, false);
                 }
             }
             else
@@ -138,16 +138,15 @@ namespace capaPresentacion
             {
                 if (objEntidad.resp == 'c')
                 {
-                    correctAnswer();
+                    correctAnswerSound();
                     MessageBox.Show("Correct Answer");
-                    score_1++;
+                    cambioDeTurno(turno, true);
                 }
                 else
                 {
                     reproducirSonido("retro-lose.wav", false);
                     MessageBox.Show("Wrong Answer");
-                    lifes_1--;
-
+                    cambioDeTurno(turno, false);
                 }
             }
             else
@@ -155,37 +154,16 @@ namespace capaPresentacion
             {
                 if (objEntidad.resp == 'd')
                 {
-                    correctAnswer();
+                    correctAnswerSound();
                     MessageBox.Show("Correct Answer");
-                    score_1++;
+                    cambioDeTurno(turno, true);
                 }
                 else
                 {
                     reproducirSonido("retro-lose.wav", false);
                     MessageBox.Show("Wrong Answer");
-                    lifes_1--;
+                    cambioDeTurno(turno, false);
                 }
-            }
-
-            //marcadores
-            lab_LifesNum2.Text = Convert.ToString(lifes_1);
-            lab_ScoreNum2.Text = Convert.ToString(score_1);
-
-            //condicion para perder
-            if (lifes_1 == 0)
-            {
-                //condicion para saber quien perdió
-                if (turno == 1)
-                {
-                    MessageBox.Show("Player 1 Lose!");
-                    Application.Exit();
-                }
-                else
-                {
-                    MessageBox.Show("Player 2 Lose!");
-                    Application.Exit();
-                }
-                
             }
 
             // Cambio de Jugador
@@ -199,7 +177,6 @@ namespace capaPresentacion
                 PlayerFocus(1);
                 turno = 1; //Player 1
             }
-
 
             listarFocusedBible(objEntidad);
         }
@@ -229,7 +206,7 @@ namespace capaPresentacion
             }
         }
 
-        void correctAnswer()
+        void correctAnswerSound()
         {
             reproducirSonido("correctAnswer3.wav", false);
             Thread.Sleep(400);
@@ -290,6 +267,57 @@ namespace capaPresentacion
                 lab_LifesNum.ForeColor = Color.FromArgb(237, 237, 237);
                 lab_Score.ForeColor = Color.FromArgb(237, 237, 237);
                 lab_ScoreNum.ForeColor = Color.FromArgb(237, 237, 237);
+            }
+        }
+
+        void cambioDeTurno(int turno, bool answerCorrect) // si el turno es uno y la respuesta fue correcta
+        {
+            if(turno == 1)
+            {
+                if(answerCorrect == true)
+                {
+                    score_1++;
+                    lab_ScoreNum.Text = Convert.ToString(score_1);
+                }
+                else
+                {
+                    lifes_1--;
+                    lab_LifesNum.Text = Convert.ToString(lifes_1);
+                    perder_Ganar();
+                }
+            }
+            else
+            {
+                if (answerCorrect == true)
+                {
+                    score_2++;
+                    lab_ScoreNum2.Text = Convert.ToString(score_2);
+                }
+                else
+                {
+                    lifes_2--;
+                    lab_LifesNum2.Text = Convert.ToString(lifes_2);
+                    perder_Ganar();
+                }
+            }
+        }
+
+        void perder_Ganar()
+        {
+            //condicion para perder
+            if (lifes_1 == 0 || lifes_2 == 0)
+            {
+                //condicion para saber quien perdió
+                if (turno == 1)
+                {
+                    MessageBox.Show("Player 1 Lose!\n\nPlayer 2 Wins\nLifes: " + lifes_2 + "\nScore: " + score_2);
+                    Application.Exit();
+                }
+                else
+                {
+                    MessageBox.Show("Player 2 Lose!\n\nPlayer 1 Wins\nLifes: " + lifes_1 + "\nScore: " + score_1);
+                    Application.Exit();
+                }
             }
         }
     }
