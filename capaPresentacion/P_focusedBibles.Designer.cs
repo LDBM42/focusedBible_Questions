@@ -41,19 +41,19 @@
             this.lab_Pregunta.AutoSize = true;
             this.lab_Pregunta.Location = new System.Drawing.Point(39, 41);
             this.lab_Pregunta.Name = "lab_Pregunta";
-            this.lab_Pregunta.Size = new System.Drawing.Size(46, 17);
+            this.lab_Pregunta.Size = new System.Drawing.Size(126, 17);
             this.lab_Pregunta.TabIndex = 0;
-            this.lab_Pregunta.Text = "label1";
+            this.lab_Pregunta.Text = "Pregunta Aleatoria";
             // 
             // rbtn_a
             // 
             this.rbtn_a.AutoSize = true;
             this.rbtn_a.Location = new System.Drawing.Point(42, 96);
             this.rbtn_a.Name = "rbtn_a";
-            this.rbtn_a.Size = new System.Drawing.Size(110, 21);
+            this.rbtn_a.Size = new System.Drawing.Size(134, 21);
             this.rbtn_a.TabIndex = 1;
             this.rbtn_a.TabStop = true;
-            this.rbtn_a.Text = "radioButton1";
+            this.rbtn_a.Text = "a) Resopuesta a";
             this.rbtn_a.UseVisualStyleBackColor = true;
             // 
             // rbtn_b
@@ -61,10 +61,10 @@
             this.rbtn_b.AutoSize = true;
             this.rbtn_b.Location = new System.Drawing.Point(42, 133);
             this.rbtn_b.Name = "rbtn_b";
-            this.rbtn_b.Size = new System.Drawing.Size(110, 21);
+            this.rbtn_b.Size = new System.Drawing.Size(134, 21);
             this.rbtn_b.TabIndex = 2;
             this.rbtn_b.TabStop = true;
-            this.rbtn_b.Text = "radioButton2";
+            this.rbtn_b.Text = "b) Resopuesta b";
             this.rbtn_b.UseVisualStyleBackColor = true;
             // 
             // rbtn_c
@@ -72,10 +72,10 @@
             this.rbtn_c.AutoSize = true;
             this.rbtn_c.Location = new System.Drawing.Point(42, 170);
             this.rbtn_c.Name = "rbtn_c";
-            this.rbtn_c.Size = new System.Drawing.Size(110, 21);
+            this.rbtn_c.Size = new System.Drawing.Size(132, 21);
             this.rbtn_c.TabIndex = 3;
             this.rbtn_c.TabStop = true;
-            this.rbtn_c.Text = "radioButton3";
+            this.rbtn_c.Text = "c) Resopuesta c";
             this.rbtn_c.UseVisualStyleBackColor = true;
             // 
             // rbtn_d
@@ -83,10 +83,10 @@
             this.rbtn_d.AutoSize = true;
             this.rbtn_d.Location = new System.Drawing.Point(42, 207);
             this.rbtn_d.Name = "rbtn_d";
-            this.rbtn_d.Size = new System.Drawing.Size(110, 21);
+            this.rbtn_d.Size = new System.Drawing.Size(134, 21);
             this.rbtn_d.TabIndex = 4;
             this.rbtn_d.TabStop = true;
-            this.rbtn_d.Text = "radioButton4";
+            this.rbtn_d.Text = "d) Resopuesta d";
             this.rbtn_d.UseVisualStyleBackColor = true;
             // 
             // btn_Submit
@@ -111,7 +111,8 @@
             this.Controls.Add(this.rbtn_a);
             this.Controls.Add(this.lab_Pregunta);
             this.Name = "P_focusedBibles";
-            this.Text = "Form1";
+            this.Text = "focusedBible Questions";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.P_focusedBibles_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
