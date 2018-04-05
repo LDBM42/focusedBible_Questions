@@ -108,6 +108,7 @@
             this.rbtn_a.TabStop = true;
             this.rbtn_a.Text = "a) Respuesta a";
             this.rbtn_a.UseVisualStyleBackColor = true;
+            this.rbtn_a.CheckedChanged += new System.EventHandler(this.rbtn_a_CheckedChanged);
             this.rbtn_a.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.rbtn_a_KeyPress);
             // 
             // rbtn_b
@@ -125,6 +126,7 @@
             this.rbtn_b.TabStop = true;
             this.rbtn_b.Text = "b) Respuesta b";
             this.rbtn_b.UseVisualStyleBackColor = true;
+            this.rbtn_b.CheckedChanged += new System.EventHandler(this.rbtn_b_CheckedChanged);
             this.rbtn_b.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.rbtn_b_KeyPress);
             // 
             // rbtn_c
@@ -142,6 +144,7 @@
             this.rbtn_c.TabStop = true;
             this.rbtn_c.Text = "c) Respuesta c";
             this.rbtn_c.UseVisualStyleBackColor = true;
+            this.rbtn_c.CheckedChanged += new System.EventHandler(this.rbtn_c_CheckedChanged);
             this.rbtn_c.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.rbtn_c_KeyPress);
             // 
             // rbtn_d
@@ -159,6 +162,7 @@
             this.rbtn_d.TabStop = true;
             this.rbtn_d.Text = "d) Respuesta d";
             this.rbtn_d.UseVisualStyleBackColor = true;
+            this.rbtn_d.CheckedChanged += new System.EventHandler(this.rbtn_d_CheckedChanged);
             this.rbtn_d.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.rbtn_d_KeyPress);
             // 
             // btn_Submit
@@ -175,6 +179,7 @@
             this.btn_Submit.Text = "Submit";
             this.btn_Submit.UseVisualStyleBackColor = false;
             this.btn_Submit.Click += new System.EventHandler(this.btn_Submit_Click);
+            this.btn_Submit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.btn_Submit_KeyPress);
             // 
             // lab_ScoreNum
             // 
@@ -536,6 +541,7 @@
             this.btn_Exit.Text = "Exit";
             this.btn_Exit.UseVisualStyleBackColor = false;
             this.btn_Exit.Click += new System.EventHandler(this.btn_Exit_Click);
+            this.btn_Exit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.btn_Exit_KeyPress);
             // 
             // tableLayoutPanel4
             // 
