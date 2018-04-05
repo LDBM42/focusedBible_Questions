@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(P_players));
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_submit = new System.Windows.Forms.Button();
             this.lab_Player1 = new System.Windows.Forms.Label();
             this.tbx_Player1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -39,20 +39,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // btn_submit
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(24)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(460, 292);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(157, 85);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Submit";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btn_submit.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_submit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(24)))));
+            this.btn_submit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_submit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_submit.ForeColor = System.Drawing.Color.White;
+            this.btn_submit.Location = new System.Drawing.Point(471, 292);
+            this.btn_submit.Name = "btn_submit";
+            this.btn_submit.Size = new System.Drawing.Size(157, 85);
+            this.btn_submit.TabIndex = 2;
+            this.btn_submit.Text = "Submit";
+            this.btn_submit.UseVisualStyleBackColor = false;
+            this.btn_submit.Click += new System.EventHandler(this.button1_Click);
             // 
             // lab_Player1
             // 
@@ -60,7 +60,7 @@
             this.lab_Player1.AutoSize = true;
             this.lab_Player1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.lab_Player1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.lab_Player1.Location = new System.Drawing.Point(106, 298);
+            this.lab_Player1.Location = new System.Drawing.Point(117, 298);
             this.lab_Player1.Name = "lab_Player1";
             this.lab_Player1.Size = new System.Drawing.Size(139, 29);
             this.lab_Player1.TabIndex = 1;
@@ -70,10 +70,14 @@
             // 
             this.tbx_Player1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbx_Player1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.tbx_Player1.Location = new System.Drawing.Point(252, 295);
+            this.tbx_Player1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.tbx_Player1.Location = new System.Drawing.Point(268, 295);
             this.tbx_Player1.Name = "tbx_Player1";
             this.tbx_Player1.Size = new System.Drawing.Size(187, 36);
-            this.tbx_Player1.TabIndex = 2;
+            this.tbx_Player1.TabIndex = 0;
+            this.tbx_Player1.Text = "Player One";
+            this.tbx_Player1.TextChanged += new System.EventHandler(this.tbx_Player1_TextChanged);
+            this.tbx_Player1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbx_Player1_KeyPress);
             // 
             // label1
             // 
@@ -91,10 +95,14 @@
             // 
             this.tbx_Player2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbx_Player2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.tbx_Player2.Location = new System.Drawing.Point(252, 337);
+            this.tbx_Player2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.tbx_Player2.Location = new System.Drawing.Point(268, 337);
             this.tbx_Player2.Name = "tbx_Player2";
             this.tbx_Player2.Size = new System.Drawing.Size(187, 36);
-            this.tbx_Player2.TabIndex = 5;
+            this.tbx_Player2.TabIndex = 1;
+            this.tbx_Player2.Text = "Player Two";
+            this.tbx_Player2.TextChanged += new System.EventHandler(this.tbx_Player2_TextChanged);
+            this.tbx_Player2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbx_Player2_KeyPress);
             // 
             // label2
             // 
@@ -102,7 +110,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.label2.Location = new System.Drawing.Point(106, 340);
+            this.label2.Location = new System.Drawing.Point(117, 340);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(139, 29);
             this.label2.TabIndex = 4;
@@ -131,7 +139,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbx_Player1);
             this.Controls.Add(this.lab_Player1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_submit);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "P_players";
@@ -146,7 +154,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_submit;
         private System.Windows.Forms.Label lab_Player1;
         private System.Windows.Forms.TextBox tbx_Player1;
         private System.Windows.Forms.Label label1;

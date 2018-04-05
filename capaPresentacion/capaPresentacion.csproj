@@ -46,6 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="P_players.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,13 +70,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="P_focusedBibles.resx">
       <DependentUpon>P_focusedBibles.cs</DependentUpon>
     </EmbeddedResource>
@@ -97,6 +98,21 @@
       <Project>{6d584920-0b44-4220-b19f-59cc14396e55}</Project>
       <Name>capaNegocio</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\50-percent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\50-percentClic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\50-percentEnter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\50-percent_On.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\50-percent_MouseOn.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
