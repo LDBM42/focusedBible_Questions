@@ -55,6 +55,7 @@ namespace capaPresentacion
 
         private void P_focusedBibles_Load(object sender, EventArgs e)
         {
+            reproducirSonido("levelclearer.wav", true);
             noRepetir = new int[objNego.N_NumFilas()]; // el tamaño es el tamaño del numero de filas
             listarFocusedBible(objEntidad);
             focoRbtn();
@@ -227,11 +228,13 @@ namespace capaPresentacion
                 //condicion para saber quien perdió
                 if (turno == 1)
                 {
+                    reproducirSonido("game-over.wav", false);
                     MessageBox.Show(lab_Player1.Text + " Lose!\n\n" + lab_Player2.Text + " Wins\nLifes: " + lifes_2 + "\nScore: " + score_2);
 
                     DialogResult respuesta = MessageBox.Show("Do you want to Play Again?", "Game Over", MessageBoxButtons.YesNo);
                     if (respuesta == DialogResult.Yes)
                     {
+                        reproducirSonido("start-ready-go.wav", true);
                         reset_PlayAgain();
                     }
                     else
@@ -246,6 +249,7 @@ namespace capaPresentacion
                     DialogResult respuesta = MessageBox.Show("Do you want to Play Again?", "Game Over", MessageBoxButtons.YesNo);
                     if (respuesta == DialogResult.Yes)
                     {
+                        reproducirSonido("start-ready-go.wav", true);
                         reset_PlayAgain();
                     }
                     else
@@ -692,11 +696,13 @@ namespace capaPresentacion
                 {
                     activarComidin(1);
                     PlayerFocus(1);
+                    reproducirSonido("levelclearer.wav", true);
                 }
                 else
                 {
                     activarComidin(2);
                     PlayerFocus(2);
+                    reproducirSonido("levelclearer.wav", true);
                 }
             }
         }
@@ -830,7 +836,7 @@ namespace capaPresentacion
 
         private void rbtn_a_CheckedChanged(object sender, EventArgs e)
         {
-            if(btn_Submit.Enabled == false)
+            if (btn_Submit.Enabled == false)
             btn_Submit.Enabled = true;
         }
         private void rbtn_b_CheckedChanged(object sender, EventArgs e)
@@ -848,5 +854,6 @@ namespace capaPresentacion
             if (btn_Submit.Enabled == false)
                 btn_Submit.Enabled = true;
         }
+        
     }
 }

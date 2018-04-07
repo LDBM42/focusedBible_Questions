@@ -144,7 +144,7 @@
             this.MinimizeBox = false;
             this.Name = "P_players";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Players";
+            this.Text = "Questions focusedBible";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
