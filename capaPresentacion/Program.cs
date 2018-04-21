@@ -16,7 +16,7 @@ namespace capaPresentacion
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new P_players());
+            Application.Run(new Settings());
         }
     }
 }

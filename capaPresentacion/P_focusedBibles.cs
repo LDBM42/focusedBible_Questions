@@ -18,8 +18,10 @@ namespace capaPresentacion
 {
     public partial class P_focusedBibles : Form
     {
-        public P_focusedBibles()
+        public P_focusedBibles(string player1 = "Player One", string player2 = "Player Two")
         {
+            this.player1 = player1;
+            this.player2 = player2;
             InitializeComponent();
         }
 
@@ -27,6 +29,8 @@ namespace capaPresentacion
 
 
         //variables
+        string player1;
+        string player2;
         SoundPlayer sonido;
         int[] noRepetir;
         int numeroPrueba;
@@ -46,6 +50,7 @@ namespace capaPresentacion
         char[] desaparecer50 = new char[] { 'a', 'b', 'c', 'd' };
         int countDownComodin_1 = 2;
         int countDownComodin_2 = 2;
+        Settings settings = new Settings();
         E_focusedBible objEntidad = new E_focusedBible();
         N_focusedBible objNego = new N_focusedBible();
 
@@ -55,6 +60,8 @@ namespace capaPresentacion
 
         private void P_focusedBibles_Load(object sender, EventArgs e)
         {
+            lab_Player1.Text = player1;
+            lab_Player2.Text = player2;
             reproducirSonido("levelclearer.wav", true);
             noRepetir = new int[objNego.N_NumFilas()]; // el tamaño es el tamaño del numero de filas
             listarFocusedBible(objEntidad);
@@ -854,6 +861,40 @@ namespace capaPresentacion
             if (btn_Submit.Enabled == false)
                 btn_Submit.Enabled = true;
         }
-        
+
+
+
+
+        private void Btn_Settings_Click(object sender, EventArgs e)
+        {
+            // mostrar los nombres que estan jugando
+            settings.tbx_Player1.Text = lab_Player1.Text;
+            settings.tbx_Player2.Text = lab_Player2.Text;
+
+            try
+            {   // para saber si el formulario existe, o sea si está abierto o cerrado
+                Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "Settings").SingleOrDefault<Form>();
+
+                if (existe != null)
+
+                {
+                    settings.Show();
+                }
+            }
+            catch (Exception)
+            {
+                settings.Show();
+            }
+
+            
+        }
+        private void Btn_Settings_MouseEnter(object sender, EventArgs e)
+        {
+            Btn_Settings.Image = Properties.Resources.Settings_MouseUp;
+        }
+        private void Btn_Settings_MouseLeave(object sender, EventArgs e)
+        {
+            Btn_Settings.Image = Properties.Resources.Settings;
+        }
     }
 }
