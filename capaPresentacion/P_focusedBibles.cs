@@ -18,10 +18,12 @@ namespace capaPresentacion
 {
     public partial class P_focusedBibles : Form
     {
-        public P_focusedBibles(string player1 = "Player One", string player2 = "Player Two")
+        public P_focusedBibles(string player1 = "Player One", string player2 = "Player Two", int numRounds = 0, int time2Answer = 20)
         {
             this.player1 = player1;
             this.player2 = player2;
+            this.numRounds = numRounds;
+            this.time2Answer = time2Answer;
             InitializeComponent();
         }
 
@@ -31,6 +33,8 @@ namespace capaPresentacion
         //variables
         string player1;
         string player2;
+        int numRounds;
+        int time2Answer;
         SoundPlayer sonido;
         int[] noRepetir;
         int numeroPrueba;
@@ -38,7 +42,8 @@ namespace capaPresentacion
         int click50_2 = 0; // para saber si el jugador 1 ya ha entrado al evento click de el comodin 50%
         int i = 0;
         int countUp = 0;
-        int countDownTimer = 2;
+        int countDownTimer = 3;
+        int countDownTimer2;
         int score_1 = 0;
         int lifes_1 = 3;
         int score_2 = 0;
@@ -62,6 +67,8 @@ namespace capaPresentacion
         {
             lab_Player1.Text = player1;
             lab_Player2.Text = player2;
+            countDownTimer2 = time2Answer;
+            Timer_2Answer.Start();
             reproducirSonido("levelclearer.wav", true);
             noRepetir = new int[objNego.N_NumFilas()]; // el tamaño es el tamaño del numero de filas
             listarFocusedBible(objEntidad);
@@ -77,12 +84,16 @@ namespace capaPresentacion
             randomQuestions();
 
             DataTable dt = objNego.N_listado(preg);
-            lab_Pregunta.Text = Convert.ToString(enumerate) + ". " + dt.Rows[0]["preg"].ToString();
-            rbtn_a.Text = "a)   " + dt.Rows[0]["a"].ToString();
-            rbtn_b.Text = "b)   " + dt.Rows[0]["b"].ToString();
-            rbtn_c.Text = "c)   " + dt.Rows[0]["c"].ToString();
-            rbtn_d.Text = "d)   " + dt.Rows[0]["d"].ToString();
-            preg.resp = Convert.ToChar(dt.Rows[0]["resp"].ToString());
+
+            if (dt.Rows.Count > 0)
+            {
+                lab_Pregunta.Text = Convert.ToString(enumerate) + ". " + dt.Rows[0]["preg"].ToString();
+                rbtn_a.Text = "a)   " + dt.Rows[0]["a"].ToString();
+                rbtn_b.Text = "b)   " + dt.Rows[0]["b"].ToString();
+                rbtn_c.Text = "c)   " + dt.Rows[0]["c"].ToString();
+                rbtn_d.Text = "d)   " + dt.Rows[0]["d"].ToString();
+                preg.resp = Convert.ToChar(dt.Rows[0]["resp"].ToString());
+            }
 
             enumerate++;
         }
@@ -135,6 +146,8 @@ namespace capaPresentacion
 
         private void btn_Submit_Click(object sender, EventArgs e)
         {
+            RestartTimer_2Answer();
+
             if (rbtn_a.Checked == true)
             {
                 if (objEntidad.resp == 'a')
@@ -232,16 +245,22 @@ namespace capaPresentacion
             //condicion para perder
             if (lifes_1 == 0 || lifes_2 == 0)
             {
+                Timer_2Answer.Stop(); //detener conteo
+                reproducirSonido("game-over.wav", false);
+
+
                 //condicion para saber quien perdió
                 if (turno == 1)
                 {
-                    reproducirSonido("game-over.wav", false);
                     MessageBox.Show(lab_Player1.Text + " Lose!\n\n" + lab_Player2.Text + " Wins\nLifes: " + lifes_2 + "\nScore: " + score_2);
+
+                    sonido.Stop();
+                    Timer_2Answer.Stop(); //detener conteo
 
                     DialogResult respuesta = MessageBox.Show("Do you want to Play Again?", "Game Over", MessageBoxButtons.YesNo);
                     if (respuesta == DialogResult.Yes)
                     {
-                        reproducirSonido("start-ready-go.wav", true);
+                        reproducirSonido("start-ready-go.wav", false);
                         reset_PlayAgain();
                     }
                     else
@@ -253,10 +272,13 @@ namespace capaPresentacion
                 {
                     MessageBox.Show(lab_Player2.Text + " Lose!\n\n" + lab_Player1.Text + " Wins\nLifes: " + lifes_1 + "\nScore: " + score_1);
 
+                    sonido.Stop();
+                    Timer_2Answer.Stop(); //detener conteo
+
                     DialogResult respuesta = MessageBox.Show("Do you want to Play Again?", "Game Over", MessageBoxButtons.YesNo);
                     if (respuesta == DialogResult.Yes)
                     {
-                        reproducirSonido("start-ready-go.wav", true);
+                        reproducirSonido("start-ready-go.wav", false);
                         reset_PlayAgain();
                     }
                     else
@@ -268,9 +290,12 @@ namespace capaPresentacion
         }
         void reset_PlayAgain()
         {
+            Timer_2Answer.Stop(); //detener conteo
             i = 0;
             countUp = 0;
-            countDownTimer = 2;
+            countDownTimer = 3;
+            countDownTimer2 = time2Answer;
+
             score_1 = 0;
             lifes_1 = 3;
             score_2 = 0;
@@ -448,6 +473,8 @@ namespace capaPresentacion
 
                 cambiarColoryJugador(turno);
 
+                Timer_2Answer.Start();
+
             }
             else // si el turno es 2
             {
@@ -458,6 +485,8 @@ namespace capaPresentacion
                 lab_Player1.ForeColor = Color.FromArgb(237, 237, 237);
 
                 cambiarColoryJugador(turno);
+
+                Timer_2Answer.Start();
             }
         }
         void cambiarColoryJugador(int turno)
@@ -687,7 +716,7 @@ namespace capaPresentacion
             }
             else
             {
-                countDownTimer = 2;
+                countDownTimer = 3;
                 countDown.Stop();
                 lab_Anuncios.Text = "";
 
@@ -746,23 +775,24 @@ namespace capaPresentacion
 
         void selectAnswer(KeyPressEventArgs e)
         {
-
             // 'e' almacena la tecla presionada
-            if (e.KeyChar == (char)13 && btn_Submit.Enabled == true) //si la tecla pesionada es igual a ENTER (13)
+            if (e.KeyChar == (char)27) //si la tecla pesionada es igual a ESC (27)
             {
-                e.Handled = true; //.Handled significa que nosotros nos haremos cargo del codigo
-                                  //al ser true, evita que apareca la tecla presionada
-
-                // si el foco esta en exit entonces se da clic a Exit, pero si esta en otro lado, da clic en Submit
-                if (btn_Exit.Focused == true)
-                {
-                    btn_Exit.PerformClick();
-                }
-                else
-                {
-                    btn_Submit.PerformClick();
-                }
+                OpenSettings();
             }
+            else
+                if (e.KeyChar == (char)13 && btn_Submit.Enabled == true) //si la tecla pesionada es igual a ENTER (13)
+                {
+                    // si el foco esta en exit entonces se da clic a Exit, pero si esta en otro lado, da clic en Submit
+                    if (btn_Exit.Focused == true)
+                    {
+                        btn_Exit.PerformClick();
+                    }
+                    else
+                    {
+                        btn_Submit.PerformClick();
+                    }
+                }
             else
                 if ((e.KeyChar == (char)49 || e.KeyChar == (char)97 || e.KeyChar == (char)65) && rbtn_a.Visible == true)
             {
@@ -867,9 +897,17 @@ namespace capaPresentacion
 
         private void Btn_Settings_Click(object sender, EventArgs e)
         {
+            OpenSettings();
+        }
+
+        private void OpenSettings()
+        {
             // mostrar los nombres que estan jugando
             settings.tbx_Player1.Text = lab_Player1.Text;
             settings.tbx_Player2.Text = lab_Player2.Text;
+
+            Timer_2Answer.Stop();
+            sonido.Stop();
 
             try
             {   // para saber si el formulario existe, o sea si está abierto o cerrado
@@ -886,7 +924,6 @@ namespace capaPresentacion
                 settings.Show();
             }
 
-            
         }
         private void Btn_Settings_MouseEnter(object sender, EventArgs e)
         {
@@ -895,6 +932,50 @@ namespace capaPresentacion
         private void Btn_Settings_MouseLeave(object sender, EventArgs e)
         {
             Btn_Settings.Image = Properties.Resources.Settings;
+        }
+
+        private void Timer_2Answer_Tick(object sender, EventArgs e)
+        {
+            if (countDownTimer2 != 0)
+            {
+                lab_Anuncios.Text = Convert.ToString(countDownTimer2);
+                countDownTimer2--;
+            }
+            else
+            {
+                countDownTimer2 = time2Answer;
+                Timer_2Answer.Stop();
+
+                lab_correctWrong(0);
+
+                // Cambio de Jugador
+                if (turno == 1)
+                {
+                    countDown.Start();
+                    turno = 2; //Player 2
+                }
+                else
+                {
+                    countDown.Start();
+                    turno = 1; //Player 1
+                }
+            }
+        }
+
+        private void RestartTimer_2Answer()
+        {
+            Timer_2Answer.Stop();
+            countDownTimer2 = time2Answer;
+        }
+
+        private void P_focusedBibles_Activated(object sender, EventArgs e)
+        {
+            Timer_2Answer.Start();
+
+            if (sonido != null)
+            {
+                sonido.PlayLooping();
+            }
         }
     }
 }

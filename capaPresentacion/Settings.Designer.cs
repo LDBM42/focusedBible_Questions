@@ -39,7 +39,7 @@
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.btn_NewQuests = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.gbx_AddQuest = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.tbx_Resp = new System.Windows.Forms.TextBox();
             this.tbx_d = new System.Windows.Forms.TextBox();
@@ -53,9 +53,22 @@
             this.lab_Preg = new System.Windows.Forms.Label();
             this.tbx_Preg = new System.Windows.Forms.TextBox();
             this.lab_a = new System.Windows.Forms.Label();
+            this.tlyo_AddQuest = new System.Windows.Forms.TableLayoutPanel();
+            this.lab_NoQuest = new System.Windows.Forms.Label();
+            this.lab_Quest = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_Settings = new System.Windows.Forms.Button();
+            this.tlyo_Settings = new System.Windows.Forms.TableLayoutPanel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.gbx_Settings = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lbx_Rounds = new System.Windows.Forms.ListBox();
+            this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
+            this.lbx_time2Answer = new System.Windows.Forms.ListBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.Pxb_Logo = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
@@ -65,10 +78,15 @@
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.gbx_AddQuest.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
+            this.tlyo_AddQuest.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
+            this.tlyo_Settings.SuspendLayout();
+            this.gbx_Settings.SuspendLayout();
+            this.tableLayoutPanel9.SuspendLayout();
+            this.tableLayoutPanel10.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Pxb_Logo)).BeginInit();
             this.tableLayoutPanel5.SuspendLayout();
@@ -85,7 +103,7 @@
             this.btn_submit.Location = new System.Drawing.Point(3, 489);
             this.btn_submit.Name = "btn_submit";
             this.btn_submit.Size = new System.Drawing.Size(418, 52);
-            this.btn_submit.TabIndex = 0;
+            this.btn_submit.TabIndex = 1;
             this.btn_submit.Text = "Start New Game";
             this.btn_submit.UseVisualStyleBackColor = false;
             this.btn_submit.Click += new System.EventHandler(this.button1_Click);
@@ -184,7 +202,8 @@
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel6, 1, 3);
-            this.tableLayoutPanel4.Controls.Add(this.groupBox2, 1, 2);
+            this.tableLayoutPanel4.Controls.Add(this.gbx_AddQuest, 1, 2);
+            this.tableLayoutPanel4.Controls.Add(this.tlyo_AddQuest, 1, 1);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(863, 3);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
@@ -222,19 +241,20 @@
             this.btn_NewQuests.Name = "btn_NewQuests";
             this.btn_NewQuests.Size = new System.Drawing.Size(307, 53);
             this.btn_NewQuests.TabIndex = 0;
-            this.btn_NewQuests.Text = "Add New Questions";
+            this.btn_NewQuests.Text = "Add New Question";
             this.btn_NewQuests.UseVisualStyleBackColor = false;
             this.btn_NewQuests.Click += new System.EventHandler(this.btn_NewQuests_Click);
             // 
-            // groupBox2
+            // gbx_AddQuest
             // 
-            this.groupBox2.Controls.Add(this.tableLayoutPanel8);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(45, 228);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(313, 314);
-            this.groupBox2.TabIndex = 0;
-            this.groupBox2.TabStop = false;
+            this.gbx_AddQuest.Controls.Add(this.tableLayoutPanel8);
+            this.gbx_AddQuest.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gbx_AddQuest.Location = new System.Drawing.Point(45, 228);
+            this.gbx_AddQuest.Name = "gbx_AddQuest";
+            this.gbx_AddQuest.Size = new System.Drawing.Size(313, 314);
+            this.gbx_AddQuest.TabIndex = 0;
+            this.gbx_AddQuest.TabStop = false;
+            this.gbx_AddQuest.Visible = false;
             // 
             // tableLayoutPanel8
             // 
@@ -435,6 +455,52 @@
             this.lab_a.Text = "a)";
             this.lab_a.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // tlyo_AddQuest
+            // 
+            this.tlyo_AddQuest.ColumnCount = 4;
+            this.tlyo_AddQuest.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tlyo_AddQuest.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tlyo_AddQuest.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tlyo_AddQuest.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tlyo_AddQuest.Controls.Add(this.lab_NoQuest, 2, 0);
+            this.tlyo_AddQuest.Controls.Add(this.lab_Quest, 1, 0);
+            this.tlyo_AddQuest.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlyo_AddQuest.Location = new System.Drawing.Point(45, 185);
+            this.tlyo_AddQuest.Name = "tlyo_AddQuest";
+            this.tlyo_AddQuest.RowCount = 1;
+            this.tlyo_AddQuest.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlyo_AddQuest.Size = new System.Drawing.Size(313, 37);
+            this.tlyo_AddQuest.TabIndex = 2;
+            this.tlyo_AddQuest.Visible = false;
+            // 
+            // lab_NoQuest
+            // 
+            this.lab_NoQuest.AutoSize = true;
+            this.lab_NoQuest.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lab_NoQuest.Font = new System.Drawing.Font("Rockwell", 20F, System.Drawing.FontStyle.Bold);
+            this.lab_NoQuest.ForeColor = System.Drawing.Color.Brown;
+            this.lab_NoQuest.Location = new System.Drawing.Point(234, 0);
+            this.lab_NoQuest.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this.lab_NoQuest.Name = "lab_NoQuest";
+            this.lab_NoQuest.Size = new System.Drawing.Size(59, 37);
+            this.lab_NoQuest.TabIndex = 3;
+            this.lab_NoQuest.Text = "0";
+            this.lab_NoQuest.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            // 
+            // lab_Quest
+            // 
+            this.lab_Quest.AutoSize = true;
+            this.lab_Quest.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lab_Quest.Font = new System.Drawing.Font("Rockwell", 20F, System.Drawing.FontStyle.Bold);
+            this.lab_Quest.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(24)))));
+            this.lab_Quest.Location = new System.Drawing.Point(18, 0);
+            this.lab_Quest.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.lab_Quest.Name = "lab_Quest";
+            this.lab_Quest.Size = new System.Drawing.Size(216, 37);
+            this.lab_Quest.TabIndex = 0;
+            this.lab_Quest.Text = "Add Question No.";
+            this.lab_Quest.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 3;
@@ -442,13 +508,15 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel7, 1, 3);
+            this.tableLayoutPanel3.Controls.Add(this.tlyo_Settings, 1, 1);
+            this.tableLayoutPanel3.Controls.Add(this.gbx_Settings, 1, 2);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 4;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 42F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 44F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(424, 729);
             this.tableLayoutPanel3.TabIndex = 2;
@@ -457,30 +525,253 @@
             // 
             this.tableLayoutPanel7.ColumnCount = 1;
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel7.Controls.Add(this.button1, 0, 0);
+            this.tableLayoutPanel7.Controls.Add(this.btn_Settings, 0, 0);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(66, 549);
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(66, 548);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 3;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(312, 177);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(312, 178);
             this.tableLayoutPanel7.TabIndex = 2;
             // 
-            // button1
+            // btn_Settings
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Rockwell", 20F, System.Drawing.FontStyle.Bold);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(306, 53);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Choose Rounds";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btn_Settings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.btn_Settings.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_Settings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Settings.Font = new System.Drawing.Font("Rockwell", 20F, System.Drawing.FontStyle.Bold);
+            this.btn_Settings.ForeColor = System.Drawing.Color.White;
+            this.btn_Settings.Location = new System.Drawing.Point(3, 3);
+            this.btn_Settings.Name = "btn_Settings";
+            this.btn_Settings.Size = new System.Drawing.Size(306, 53);
+            this.btn_Settings.TabIndex = 0;
+            this.btn_Settings.Text = "Show Settings";
+            this.btn_Settings.UseVisualStyleBackColor = false;
+            this.btn_Settings.Click += new System.EventHandler(this.btn_Settings_Click);
+            // 
+            // tlyo_Settings
+            // 
+            this.tlyo_Settings.ColumnCount = 3;
+            this.tlyo_Settings.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.545455F));
+            this.tlyo_Settings.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 90.90909F));
+            this.tlyo_Settings.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.545455F));
+            this.tlyo_Settings.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlyo_Settings.Controls.Add(this.label3, 1, 0);
+            this.tlyo_Settings.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlyo_Settings.Location = new System.Drawing.Point(66, 185);
+            this.tlyo_Settings.Name = "tlyo_Settings";
+            this.tlyo_Settings.RowCount = 1;
+            this.tlyo_Settings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlyo_Settings.Size = new System.Drawing.Size(312, 37);
+            this.tlyo_Settings.TabIndex = 3;
+            this.tlyo_Settings.Visible = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label3.Font = new System.Drawing.Font("Rockwell", 20F, System.Drawing.FontStyle.Bold);
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(24)))));
+            this.label3.Location = new System.Drawing.Point(17, 0);
+            this.label3.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(280, 37);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Game Settings";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
+            // gbx_Settings
+            // 
+            this.gbx_Settings.Controls.Add(this.tableLayoutPanel9);
+            this.gbx_Settings.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gbx_Settings.Location = new System.Drawing.Point(66, 228);
+            this.gbx_Settings.Name = "gbx_Settings";
+            this.gbx_Settings.Size = new System.Drawing.Size(312, 314);
+            this.gbx_Settings.TabIndex = 6;
+            this.gbx_Settings.TabStop = false;
+            this.gbx_Settings.Visible = false;
+            // 
+            // tableLayoutPanel9
+            // 
+            this.tableLayoutPanel9.ColumnCount = 3;
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.555555F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 88.88889F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.555555F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel9.Controls.Add(this.label4, 1, 3);
+            this.tableLayoutPanel9.Controls.Add(this.label2, 1, 1);
+            this.tableLayoutPanel9.Controls.Add(this.lbx_Rounds, 1, 2);
+            this.tableLayoutPanel9.Controls.Add(this.tableLayoutPanel10, 1, 4);
+            this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel9.Location = new System.Drawing.Point(3, 18);
+            this.tableLayoutPanel9.Name = "tableLayoutPanel9";
+            this.tableLayoutPanel9.RowCount = 7;
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.669985F));
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66602F));
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66602F));
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66602F));
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66602F));
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66602F));
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.99992F));
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(306, 293);
+            this.tableLayoutPanel9.TabIndex = 5;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label4.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Bold);
+            this.label4.ForeColor = System.Drawing.Color.Brown;
+            this.label4.Location = new System.Drawing.Point(19, 103);
+            this.label4.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(268, 48);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Time to Answer";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.Brown;
+            this.label2.Location = new System.Drawing.Point(19, 7);
+            this.label2.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(268, 48);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "How many round?";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
+            // lbx_Rounds
+            // 
+            this.lbx_Rounds.AllowDrop = true;
+            this.lbx_Rounds.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.lbx_Rounds.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbx_Rounds.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbx_Rounds.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(24)))));
+            this.lbx_Rounds.FormattingEnabled = true;
+            this.lbx_Rounds.ItemHeight = 58;
+            this.lbx_Rounds.Items.AddRange(new object[] {
+            "0",
+            "1",
+            "3",
+            "5",
+            "7",
+            "9",
+            "11",
+            "13",
+            "15",
+            "17",
+            "19"});
+            this.lbx_Rounds.Location = new System.Drawing.Point(19, 58);
+            this.lbx_Rounds.Name = "lbx_Rounds";
+            this.lbx_Rounds.ScrollAlwaysVisible = true;
+            this.lbx_Rounds.Size = new System.Drawing.Size(265, 42);
+            this.lbx_Rounds.TabIndex = 4;
+            // 
+            // tableLayoutPanel10
+            // 
+            this.tableLayoutPanel10.ColumnCount = 2;
+            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel10.Controls.Add(this.lbx_time2Answer, 0, 0);
+            this.tableLayoutPanel10.Controls.Add(this.label5, 1, 0);
+            this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel10.Location = new System.Drawing.Point(19, 154);
+            this.tableLayoutPanel10.Name = "tableLayoutPanel10";
+            this.tableLayoutPanel10.RowCount = 1;
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(265, 42);
+            this.tableLayoutPanel10.TabIndex = 8;
+            // 
+            // lbx_time2Answer
+            // 
+            this.lbx_time2Answer.AllowDrop = true;
+            this.lbx_time2Answer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.lbx_time2Answer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbx_time2Answer.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbx_time2Answer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(24)))));
+            this.lbx_time2Answer.FormattingEnabled = true;
+            this.lbx_time2Answer.ItemHeight = 58;
+            this.lbx_time2Answer.Items.AddRange(new object[] {
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31",
+            "32",
+            "33",
+            "34",
+            "35",
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42",
+            "43",
+            "44",
+            "45",
+            "46",
+            "47",
+            "48",
+            "49",
+            "50",
+            "51",
+            "52",
+            "53",
+            "54",
+            "55",
+            "56",
+            "57",
+            "58",
+            "59",
+            "60"});
+            this.lbx_time2Answer.Location = new System.Drawing.Point(3, 3);
+            this.lbx_time2Answer.Name = "lbx_time2Answer";
+            this.lbx_time2Answer.ScrollAlwaysVisible = true;
+            this.lbx_time2Answer.Size = new System.Drawing.Size(153, 36);
+            this.lbx_time2Answer.TabIndex = 6;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label5.Font = new System.Drawing.Font("Rockwell", 20F, System.Drawing.FontStyle.Bold);
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label5.Location = new System.Drawing.Point(162, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(100, 42);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "Seconds";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // tableLayoutPanel2
             // 
@@ -530,7 +821,7 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel5.Size = new System.Drawing.Size(418, 179);
-            this.tableLayoutPanel5.TabIndex = 0;
+            this.tableLayoutPanel5.TabIndex = 2;
             // 
             // btn_Exit
             // 
@@ -557,10 +848,11 @@
             this.Btn_Cancel.Location = new System.Drawing.Point(3, 3);
             this.Btn_Cancel.Name = "Btn_Cancel";
             this.Btn_Cancel.Size = new System.Drawing.Size(203, 53);
-            this.Btn_Cancel.TabIndex = 2;
+            this.Btn_Cancel.TabIndex = 0;
             this.Btn_Cancel.Text = "Cancel";
             this.Btn_Cancel.UseVisualStyleBackColor = false;
             this.Btn_Cancel.Click += new System.EventHandler(this.Btn_Cancel_Click);
+            this.Btn_Cancel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Btn_Cancel_KeyPress);
             // 
             // groupBox1
             // 
@@ -595,11 +887,20 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
+            this.gbx_AddQuest.ResumeLayout(false);
             this.tableLayoutPanel8.ResumeLayout(false);
             this.tableLayoutPanel8.PerformLayout();
+            this.tlyo_AddQuest.ResumeLayout(false);
+            this.tlyo_AddQuest.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel7.ResumeLayout(false);
+            this.tlyo_Settings.ResumeLayout(false);
+            this.tlyo_Settings.PerformLayout();
+            this.gbx_Settings.ResumeLayout(false);
+            this.tableLayoutPanel9.ResumeLayout(false);
+            this.tableLayoutPanel9.PerformLayout();
+            this.tableLayoutPanel10.ResumeLayout(false);
+            this.tableLayoutPanel10.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Pxb_Logo)).EndInit();
             this.tableLayoutPanel5.ResumeLayout(false);
@@ -626,11 +927,11 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.Button btn_NewQuests;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_Settings;
         private System.Windows.Forms.Button Btn_Cancel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
         private System.Windows.Forms.Label lab_Preg;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox gbx_AddQuest;
         private System.Windows.Forms.TextBox tbx_Preg;
         private System.Windows.Forms.Label lab_Resp;
         private System.Windows.Forms.Label lab_d;
@@ -644,5 +945,18 @@
         private System.Windows.Forms.TextBox tbx_a;
         public System.Windows.Forms.TextBox tbx_Player1;
         public System.Windows.Forms.TextBox tbx_Player2;
+        private System.Windows.Forms.TableLayoutPanel tlyo_AddQuest;
+        private System.Windows.Forms.Label lab_Quest;
+        private System.Windows.Forms.Label lab_NoQuest;
+        private System.Windows.Forms.TableLayoutPanel tlyo_Settings;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
+        public System.Windows.Forms.ListBox lbx_Rounds;
+        public System.Windows.Forms.ListBox lbx_time2Answer;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.GroupBox gbx_Settings;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
+        private System.Windows.Forms.Label label5;
     }
 }
