@@ -41,7 +41,6 @@
             this.btn_NewQuests = new System.Windows.Forms.Button();
             this.gbx_AddQuest = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
-            this.tbx_Resp = new System.Windows.Forms.TextBox();
             this.tbx_d = new System.Windows.Forms.TextBox();
             this.tbx_c = new System.Windows.Forms.TextBox();
             this.tbx_b = new System.Windows.Forms.TextBox();
@@ -53,6 +52,10 @@
             this.lab_Preg = new System.Windows.Forms.Label();
             this.tbx_Preg = new System.Windows.Forms.TextBox();
             this.lab_a = new System.Windows.Forms.Label();
+            this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
+            this.lbx_Dificultad = new System.Windows.Forms.ListBox();
+            this.tbx_Pasage = new System.Windows.Forms.TextBox();
+            this.tbx_Resp = new System.Windows.Forms.TextBox();
             this.tlyo_AddQuest = new System.Windows.Forms.TableLayoutPanel();
             this.lab_NoQuest = new System.Windows.Forms.Label();
             this.lab_Quest = new System.Windows.Forms.Label();
@@ -63,6 +66,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.gbx_Settings = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
+            this.lbx_Dificuldad_Setting = new System.Windows.Forms.ListBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lbx_Rounds = new System.Windows.Forms.ListBox();
@@ -70,16 +75,17 @@
             this.lbx_time2Answer = new System.Windows.Forms.ListBox();
             this.label5 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.Pxb_Logo = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.btn_Exit = new System.Windows.Forms.Button();
             this.Btn_Cancel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.Pxb_Logo = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.gbx_AddQuest.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
+            this.tableLayoutPanel11.SuspendLayout();
             this.tlyo_AddQuest.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
@@ -88,9 +94,9 @@
             this.tableLayoutPanel9.SuspendLayout();
             this.tableLayoutPanel10.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Pxb_Logo)).BeginInit();
             this.tableLayoutPanel5.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Pxb_Logo)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_submit
@@ -263,7 +269,6 @@
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tableLayoutPanel8.Controls.Add(this.tbx_Resp, 2, 6);
             this.tableLayoutPanel8.Controls.Add(this.tbx_d, 2, 5);
             this.tableLayoutPanel8.Controls.Add(this.tbx_c, 2, 4);
             this.tableLayoutPanel8.Controls.Add(this.tbx_b, 2, 3);
@@ -275,6 +280,7 @@
             this.tableLayoutPanel8.Controls.Add(this.lab_Preg, 1, 1);
             this.tableLayoutPanel8.Controls.Add(this.tbx_Preg, 2, 1);
             this.tableLayoutPanel8.Controls.Add(this.lab_a, 1, 2);
+            this.tableLayoutPanel8.Controls.Add(this.tableLayoutPanel11, 2, 6);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel8.Location = new System.Drawing.Point(3, 18);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
@@ -289,32 +295,20 @@
             this.tableLayoutPanel8.Size = new System.Drawing.Size(307, 293);
             this.tableLayoutPanel8.TabIndex = 0;
             // 
-            // tbx_Resp
-            // 
-            this.tbx_Resp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbx_Resp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.tbx_Resp.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbx_Resp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(24)))));
-            this.tbx_Resp.Location = new System.Drawing.Point(79, 252);
-            this.tbx_Resp.Name = "tbx_Resp";
-            this.tbx_Resp.Size = new System.Drawing.Size(208, 36);
-            this.tbx_Resp.TabIndex = 11;
-            this.tbx_Resp.Text = "d";
-            this.tbx_Resp.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tbx_Resp_MouseClick);
-            // 
             // tbx_d
             // 
             this.tbx_d.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.tbx_d.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbx_d.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbx_d.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(24)))));
-            this.tbx_d.Location = new System.Drawing.Point(79, 202);
+            this.tbx_d.Location = new System.Drawing.Point(81, 202);
+            this.tbx_d.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.tbx_d.Multiline = true;
             this.tbx_d.Name = "tbx_d";
             this.tbx_d.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tbx_d.Size = new System.Drawing.Size(208, 42);
+            this.tbx_d.Size = new System.Drawing.Size(204, 42);
             this.tbx_d.TabIndex = 9;
-            this.tbx_d.Text = "33";
+            this.tbx_d.Text = "Este es el..";
             this.tbx_d.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tbx_d_MouseClick);
             // 
             // tbx_c
@@ -323,13 +317,14 @@
             this.tbx_c.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbx_c.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbx_c.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(24)))));
-            this.tbx_c.Location = new System.Drawing.Point(79, 154);
+            this.tbx_c.Location = new System.Drawing.Point(81, 154);
+            this.tbx_c.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.tbx_c.Multiline = true;
             this.tbx_c.Name = "tbx_c";
             this.tbx_c.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tbx_c.Size = new System.Drawing.Size(208, 42);
+            this.tbx_c.Size = new System.Drawing.Size(204, 42);
             this.tbx_c.TabIndex = 7;
-            this.tbx_c.Text = "36";
+            this.tbx_c.Text = "Y vio Dios..";
             this.tbx_c.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tbx_c_MouseClick);
             // 
             // tbx_b
@@ -338,13 +333,14 @@
             this.tbx_b.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbx_b.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbx_b.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(24)))));
-            this.tbx_b.Location = new System.Drawing.Point(79, 106);
+            this.tbx_b.Location = new System.Drawing.Point(81, 106);
+            this.tbx_b.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.tbx_b.Multiline = true;
             this.tbx_b.Name = "tbx_b";
             this.tbx_b.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tbx_b.Size = new System.Drawing.Size(208, 42);
+            this.tbx_b.Size = new System.Drawing.Size(204, 42);
             this.tbx_b.TabIndex = 5;
-            this.tbx_b.Text = "48";
+            this.tbx_b.Text = "En el principio...";
             this.tbx_b.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tbx_b_MouseClick);
             // 
             // tbx_a
@@ -353,13 +349,14 @@
             this.tbx_a.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbx_a.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbx_a.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(24)))));
-            this.tbx_a.Location = new System.Drawing.Point(79, 58);
+            this.tbx_a.Location = new System.Drawing.Point(81, 58);
+            this.tbx_a.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.tbx_a.Multiline = true;
             this.tbx_a.Name = "tbx_a";
             this.tbx_a.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tbx_a.Size = new System.Drawing.Size(208, 42);
+            this.tbx_a.Size = new System.Drawing.Size(204, 42);
             this.tbx_a.TabIndex = 3;
-            this.tbx_a.Text = "25";
+            this.tbx_a.Text = "En las llanuras..";
             this.tbx_a.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tbx_a_MouseClick);
             // 
             // lab_Resp
@@ -370,9 +367,10 @@
             this.lab_Resp.ForeColor = System.Drawing.Color.Brown;
             this.lab_Resp.Location = new System.Drawing.Point(18, 247);
             this.lab_Resp.Name = "lab_Resp";
+            this.lab_Resp.Padding = new System.Windows.Forms.Padding(0, 0, 0, 18);
             this.lab_Resp.Size = new System.Drawing.Size(55, 46);
             this.lab_Resp.TabIndex = 10;
-            this.lab_Resp.Text = "Resp.";
+            this.lab_Resp.Text = "Ans";
             this.lab_Resp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lab_d
@@ -424,7 +422,7 @@
             this.lab_Preg.Name = "lab_Preg";
             this.lab_Preg.Size = new System.Drawing.Size(55, 48);
             this.lab_Preg.TabIndex = 0;
-            this.lab_Preg.Text = "Preg.";
+            this.lab_Preg.Text = "Ques";
             this.lab_Preg.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tbx_Preg
@@ -433,13 +431,14 @@
             this.tbx_Preg.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbx_Preg.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbx_Preg.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(24)))));
-            this.tbx_Preg.Location = new System.Drawing.Point(79, 10);
+            this.tbx_Preg.Location = new System.Drawing.Point(81, 10);
+            this.tbx_Preg.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.tbx_Preg.Multiline = true;
             this.tbx_Preg.Name = "tbx_Preg";
             this.tbx_Preg.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.tbx_Preg.Size = new System.Drawing.Size(208, 42);
+            this.tbx_Preg.Size = new System.Drawing.Size(204, 42);
             this.tbx_Preg.TabIndex = 1;
-            this.tbx_Preg.Text = "A que edad murió Jesus?";
+            this.tbx_Preg.Text = "Como empieza el libro de Genesis?";
             this.tbx_Preg.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tbx_Preg_MouseClick);
             // 
             // lab_a
@@ -454,6 +453,68 @@
             this.lab_a.TabIndex = 2;
             this.lab_a.Text = "a)";
             this.lab_a.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // tableLayoutPanel11
+            // 
+            this.tableLayoutPanel11.ColumnCount = 3;
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel11.Controls.Add(this.lbx_Dificultad, 2, 0);
+            this.tableLayoutPanel11.Controls.Add(this.tbx_Pasage, 1, 0);
+            this.tableLayoutPanel11.Controls.Add(this.tbx_Resp, 0, 0);
+            this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel11.Location = new System.Drawing.Point(79, 250);
+            this.tableLayoutPanel11.Name = "tableLayoutPanel11";
+            this.tableLayoutPanel11.RowCount = 1;
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(208, 40);
+            this.tableLayoutPanel11.TabIndex = 11;
+            // 
+            // lbx_Dificultad
+            // 
+            this.lbx_Dificultad.AllowDrop = true;
+            this.lbx_Dificultad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.lbx_Dificultad.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbx_Dificultad.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.lbx_Dificultad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(24)))));
+            this.lbx_Dificultad.FormattingEnabled = true;
+            this.lbx_Dificultad.ItemHeight = 31;
+            this.lbx_Dificultad.Items.AddRange(new object[] {
+            "Easy",
+            "Normal",
+            "Hard"});
+            this.lbx_Dificultad.Location = new System.Drawing.Point(127, 3);
+            this.lbx_Dificultad.Name = "lbx_Dificultad";
+            this.lbx_Dificultad.ScrollAlwaysVisible = true;
+            this.lbx_Dificultad.Size = new System.Drawing.Size(78, 34);
+            this.lbx_Dificultad.TabIndex = 5;
+            // 
+            // tbx_Pasage
+            // 
+            this.tbx_Pasage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.tbx_Pasage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbx_Pasage.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbx_Pasage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(24)))));
+            this.tbx_Pasage.Location = new System.Drawing.Point(44, 3);
+            this.tbx_Pasage.Name = "tbx_Pasage";
+            this.tbx_Pasage.Size = new System.Drawing.Size(77, 36);
+            this.tbx_Pasage.TabIndex = 12;
+            this.tbx_Pasage.Text = "Gn 1:1";
+            this.tbx_Pasage.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tbx_Pasage_MouseClick);
+            // 
+            // tbx_Resp
+            // 
+            this.tbx_Resp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.tbx_Resp.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbx_Resp.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbx_Resp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(24)))));
+            this.tbx_Resp.Location = new System.Drawing.Point(3, 3);
+            this.tbx_Resp.Name = "tbx_Resp";
+            this.tbx_Resp.Size = new System.Drawing.Size(35, 36);
+            this.tbx_Resp.TabIndex = 11;
+            this.tbx_Resp.Text = "b";
+            this.tbx_Resp.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tbx_Resp_MouseClick);
             // 
             // tlyo_AddQuest
             // 
@@ -600,6 +661,8 @@
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 88.88889F));
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.555555F));
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel9.Controls.Add(this.lbx_Dificuldad_Setting, 1, 6);
+            this.tableLayoutPanel9.Controls.Add(this.label6, 1, 5);
             this.tableLayoutPanel9.Controls.Add(this.label4, 1, 3);
             this.tableLayoutPanel9.Controls.Add(this.label2, 1, 1);
             this.tableLayoutPanel9.Controls.Add(this.lbx_Rounds, 1, 2);
@@ -618,9 +681,45 @@
             this.tableLayoutPanel9.Size = new System.Drawing.Size(306, 293);
             this.tableLayoutPanel9.TabIndex = 5;
             // 
+            // lbx_Dificuldad_Setting
+            // 
+            this.lbx_Dificuldad_Setting.AllowDrop = true;
+            this.lbx_Dificuldad_Setting.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.lbx_Dificuldad_Setting.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbx_Dificuldad_Setting.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbx_Dificuldad_Setting.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(24)))));
+            this.lbx_Dificuldad_Setting.FormattingEnabled = true;
+            this.lbx_Dificuldad_Setting.ItemHeight = 48;
+            this.lbx_Dificuldad_Setting.Items.AddRange(new object[] {
+            "All",
+            "Easy",
+            "Normal",
+            "Hard"});
+            this.lbx_Dificuldad_Setting.Location = new System.Drawing.Point(19, 250);
+            this.lbx_Dificuldad_Setting.Name = "lbx_Dificuldad_Setting";
+            this.lbx_Dificuldad_Setting.ScrollAlwaysVisible = true;
+            this.lbx_Dificuldad_Setting.Size = new System.Drawing.Size(265, 40);
+            this.lbx_Dificuldad_Setting.TabIndex = 5;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label6.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Bold);
+            this.label6.ForeColor = System.Drawing.Color.Brown;
+            this.label6.Location = new System.Drawing.Point(19, 199);
+            this.label6.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(268, 48);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "Degree of Difficulty ";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label4.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.Brown;
@@ -630,11 +729,12 @@
             this.label4.Size = new System.Drawing.Size(268, 48);
             this.label4.TabIndex = 7;
             this.label4.Text = "Time to Answer";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label2.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.Brown;
@@ -644,19 +744,18 @@
             this.label2.Size = new System.Drawing.Size(268, 48);
             this.label2.TabIndex = 6;
             this.label2.Text = "How many round?";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lbx_Rounds
             // 
             this.lbx_Rounds.AllowDrop = true;
             this.lbx_Rounds.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.lbx_Rounds.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbx_Rounds.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbx_Rounds.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbx_Rounds.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(24)))));
             this.lbx_Rounds.FormattingEnabled = true;
-            this.lbx_Rounds.ItemHeight = 58;
+            this.lbx_Rounds.ItemHeight = 48;
             this.lbx_Rounds.Items.AddRange(new object[] {
-            "0",
             "1",
             "3",
             "5",
@@ -693,10 +792,10 @@
             this.lbx_time2Answer.AllowDrop = true;
             this.lbx_time2Answer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.lbx_time2Answer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbx_time2Answer.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbx_time2Answer.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbx_time2Answer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(24)))));
             this.lbx_time2Answer.FormattingEnabled = true;
-            this.lbx_time2Answer.ItemHeight = 58;
+            this.lbx_time2Answer.ItemHeight = 48;
             this.lbx_time2Answer.Items.AddRange(new object[] {
             "05",
             "06",
@@ -768,6 +867,7 @@
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.label5.Location = new System.Drawing.Point(162, 0);
             this.label5.Name = "label5";
+            this.label5.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
             this.label5.Size = new System.Drawing.Size(100, 42);
             this.label5.TabIndex = 7;
             this.label5.Text = "Seconds";
@@ -793,18 +893,6 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(424, 729);
             this.tableLayoutPanel2.TabIndex = 0;
-            // 
-            // Pxb_Logo
-            // 
-            this.Pxb_Logo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Pxb_Logo.Image = ((System.Drawing.Image)(resources.GetObject("Pxb_Logo.Image")));
-            this.Pxb_Logo.Location = new System.Drawing.Point(3, 3);
-            this.Pxb_Logo.Name = "Pxb_Logo";
-            this.Pxb_Logo.Size = new System.Drawing.Size(418, 176);
-            this.Pxb_Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.Pxb_Logo.TabIndex = 12;
-            this.Pxb_Logo.TabStop = false;
             // 
             // tableLayoutPanel5
             // 
@@ -869,6 +957,18 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
+            // Pxb_Logo
+            // 
+            this.Pxb_Logo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Pxb_Logo.Image = ((System.Drawing.Image)(resources.GetObject("Pxb_Logo.Image")));
+            this.Pxb_Logo.Location = new System.Drawing.Point(3, 3);
+            this.Pxb_Logo.Name = "Pxb_Logo";
+            this.Pxb_Logo.Size = new System.Drawing.Size(418, 176);
+            this.Pxb_Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Pxb_Logo.TabIndex = 12;
+            this.Pxb_Logo.TabStop = false;
+            // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -882,6 +982,7 @@
             this.Name = "Settings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Questions focusedBible";
+            this.TopMost = true;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Settings_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -890,6 +991,8 @@
             this.gbx_AddQuest.ResumeLayout(false);
             this.tableLayoutPanel8.ResumeLayout(false);
             this.tableLayoutPanel8.PerformLayout();
+            this.tableLayoutPanel11.ResumeLayout(false);
+            this.tableLayoutPanel11.PerformLayout();
             this.tlyo_AddQuest.ResumeLayout(false);
             this.tlyo_AddQuest.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
@@ -902,10 +1005,10 @@
             this.tableLayoutPanel10.ResumeLayout(false);
             this.tableLayoutPanel10.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Pxb_Logo)).EndInit();
             this.tableLayoutPanel5.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Pxb_Logo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -958,5 +1061,10 @@
         private System.Windows.Forms.GroupBox gbx_Settings;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
+        private System.Windows.Forms.TextBox tbx_Pasage;
+        public System.Windows.Forms.ListBox lbx_Dificultad;
+        private System.Windows.Forms.Label label6;
+        public System.Windows.Forms.ListBox lbx_Dificuldad_Setting;
     }
 }

@@ -18,10 +18,13 @@ namespace capaPresentacion
 {
     public partial class P_focusedBibles : Form
     {
-        public P_focusedBibles(string player1 = "Player One", string player2 = "Player Two", int numRounds = 0, int time2Answer = 20)
+        public P_focusedBibles(string player1 = "Player One", string player2 = "Player Two", 
+            int numRounds = 0, int time2Answer = 20, int Rounds = 1, string difficulty = "Normal")
         {
+            this.difficulty = difficulty;
             this.player1 = player1;
             this.player2 = player2;
+            this.Rounds = Rounds;
             this.numRounds = numRounds;
             this.time2Answer = time2Answer;
             InitializeComponent();
@@ -44,17 +47,26 @@ namespace capaPresentacion
         int countUp = 0;
         int countDownTimer = 3;
         int countDownTimer2;
+        int countDownTimer3 = 2;
         int score_1 = 0;
         int lifes_1 = 3;
         int score_2 = 0;
         int lifes_2 = 3;
         int turno = 1;
+        int round = 1;
+        int Rounds;
+        string difficulty;
+        string banner;
+        int wins_01 = 0;
+        int wins_02 = 0;
+        bool restart = false;
         int enumerate = 1; // para ponerle número a las preguntas
         string[] comodin50_1 = new string[] { "0", "+1", "+2", "+3" };
         string[] comodin50_2 = new string[] { "0", "+1", "+2", "+3" };
         char[] desaparecer50 = new char[] { 'a', 'b', 'c', 'd' };
         int countDownComodin_1 = 2;
-        int countDownComodin_2 = 2;
+        int countDownComodin_2 = 3;
+        Banners Banner;
         Settings settings = new Settings();
         E_focusedBible objEntidad = new E_focusedBible();
         N_focusedBible objNego = new N_focusedBible();
@@ -65,10 +77,19 @@ namespace capaPresentacion
 
         private void P_focusedBibles_Load(object sender, EventArgs e)
         {
+            lab_Wins_P1.Text = Convert.ToString(wins_01);
+            lab_Wins_P2.Text = Convert.ToString(wins_02);
+            tlyo_Wins_P1.Visible = true;
+            tlyo_Wins_P2.Visible = false;
+            lab_Rounds_Left.Text = round + "/" + Rounds;
+            lab_Difficulty.Text = difficulty;
+            lab_LifesNum.Text = Convert.ToString(lifes_1);
+            lab_LifesNum2.Text = Convert.ToString(lifes_2);
             lab_Player1.Text = player1;
             lab_Player2.Text = player2;
             countDownTimer2 = time2Answer;
             Timer_2Answer.Start();
+            banner = "Round" + round;
             reproducirSonido("levelclearer.wav", true);
             noRepetir = new int[objNego.N_NumFilas()]; // el tamaño es el tamaño del numero de filas
             listarFocusedBible(objEntidad);
@@ -101,7 +122,7 @@ namespace capaPresentacion
         {
             Random random = new Random();
 
-            if (countUp == noRepetir.Length)
+            if (countUp == noRepetir.Length)  // si se acaban las preguntas, se acaba el juego
             {
                 DialogResult respuesta = MessageBox.Show("The Game has Finished!\nDo you want to Play Again!", "Game Over", MessageBoxButtons.YesNo);
                 if (respuesta == DialogResult.Yes)
@@ -238,7 +259,41 @@ namespace capaPresentacion
             }
         }
 
+        void BannerStart(string banner)
+        {
+            Timer_2Answer.Stop();
+            sonido.Stop();
+            this.banner = banner;
+            Banner = new Banners(banner);
+            Banner.Show();
+            Timer_Banner.Start();
+            if ( banner == "Round " + round)  // solo se reproduce el sonido si es un cambio de round
+            {
+                reproducirSonido("start-ready-go.wav", false);
+            }
+        }
 
+        void StartAgan()
+        {
+            if (round == Rounds && banner != "Round " + round) // significa que el juego ha terminado
+            {
+                Timer_2Answer.Stop();
+                sonido.Stop();
+
+                DialogResult respuesta = MessageBox.Show("Do you want to Play Again?", "Game Over", MessageBoxButtons.YesNo);
+                if (respuesta == DialogResult.Yes)
+                {
+                    reproducirSonido("start-ready-go.wav", false);
+                    Thread.Sleep(700);
+                    restart = true;
+                    reset_PlayAgain();
+                }
+                else
+                {
+                    Application.Exit();
+                }
+            }
+        }
 
         void perder_Ganar()
         {
@@ -249,45 +304,48 @@ namespace capaPresentacion
                 reproducirSonido("game-over.wav", false);
 
 
-                //condicion para saber quien perdió
-                if (turno == 1)
+                if (round == Rounds) // si es el ultimo round
                 {
-                    MessageBox.Show(lab_Player1.Text + " Lose!\n\n" + lab_Player2.Text + " Wins\nLifes: " + lifes_2 + "\nScore: " + score_2);
+                    Thread.Sleep(1500);
 
-                    sonido.Stop();
-                    Timer_2Answer.Stop(); //detener conteo
-
-                    DialogResult respuesta = MessageBox.Show("Do you want to Play Again?", "Game Over", MessageBoxButtons.YesNo);
-                    if (respuesta == DialogResult.Yes)
+                    //condicion para saber quien perdió
+                    if (turno == 1)
                     {
-                        reproducirSonido("start-ready-go.wav", false);
-                        reset_PlayAgain();
+                        //MessageBox.Show(lab_Player1.Text + " Lose!\n\n" + lab_Player2.Text + " Wins\nLifes: " + lifes_2 + "\nScore: " + score_2);
+                        BannerStart(lab_Player2.Text + " Wins");
                     }
                     else
                     {
-                        Application.Exit();
+                        //MessageBox.Show(lab_Player1.Text + " Lose!\n\n" + lab_Player2.Text + " Wins\nLifes: " + lifes_2 + "\nScore: " + score_2);
+                        BannerStart(lab_Player1.Text + " Wins");
                     }
                 }
                 else
                 {
-                    MessageBox.Show(lab_Player2.Text + " Lose!\n\n" + lab_Player1.Text + " Wins\nLifes: " + lifes_1 + "\nScore: " + score_1);
-
-                    sonido.Stop();
-                    Timer_2Answer.Stop(); //detener conteo
-
-                    DialogResult respuesta = MessageBox.Show("Do you want to Play Again?", "Game Over", MessageBoxButtons.YesNo);
-                    if (respuesta == DialogResult.Yes)
-                    {
-                        reproducirSonido("start-ready-go.wav", false);
-                        reset_PlayAgain();
-                    }
-                    else
-                    {
-                        Application.Exit();
-                    }
+                    ChangeRound();
                 }
             }
         }
+        void ChangeRound()
+        {
+            round++;
+            lab_Rounds_Left.Text = round + "/" + Rounds;
+
+            if(turno == 1)
+            {
+                wins_02++;
+                lab_Wins_P2.Text = Convert.ToString(wins_02);
+            }
+            else
+            {
+                wins_01++;
+                lab_Wins_P1.Text = Convert.ToString(wins_01);
+            }
+
+            reset_PlayAgain();
+            BannerStart("Round " + round);
+        }
+
         void reset_PlayAgain()
         {
             Timer_2Answer.Stop(); //detener conteo
@@ -295,15 +353,37 @@ namespace capaPresentacion
             countUp = 0;
             countDownTimer = 3;
             countDownTimer2 = time2Answer;
+            countDownTimer3 = 2;
 
-            score_1 = 0;
+            if (restart == true)
+            {
+                restart = false;
+                round = 1;
+                turno = 1;
+                wins_01 = 0;
+                wins_02 = 0;
+                score_1 = 0;
+                score_2 = 0;
+                lab_Rounds_Left.Text = round + "/" + Rounds;
+                lab_Wins_P1.Text = Convert.ToString(wins_01);
+                lab_Wins_P2.Text = Convert.ToString(wins_02);
+            }
+
             lifes_1 = 3;
-            score_2 = 0;
             lifes_2 = 3;
-            turno = 1;
             enumerate = 1; // para ponerle número a las preguntas
             countDownComodin_1 = 2;
             countDownComodin_2 = 2;
+
+            Timer_2Answer.Start();
+
+            if (banner == lab_Player1.Text + " Wins" || banner == lab_Player2.Text + " Wins")
+            {
+                AfterCountDown(true);
+                banner = "Round" + round; // resetear banner
+            }
+            
+
 
             lab_LifesNum.Text = Convert.ToString(lifes_1);
             lab_LifesNum2.Text = Convert.ToString(lifes_2);
@@ -497,11 +577,13 @@ namespace capaPresentacion
                 lab_LifesNum.ForeColor = Color.Brown;
                 lab_Score.ForeColor = Color.FromArgb(135, 135, 135);
                 lab_ScoreNum.ForeColor = Color.FromArgb(228, 161, 24);
+                tlyo_Wins_P1.Visible = true;
 
                 lab_Lifes2.ForeColor = Color.FromArgb(237, 237, 237);
                 lab_LifesNum2.ForeColor = Color.FromArgb(237, 237, 237);
                 lab_Score2.ForeColor = Color.FromArgb(237, 237, 237);
                 lab_ScoreNum2.ForeColor = Color.FromArgb(237, 237, 237);
+                tlyo_Wins_P2.Visible = false;
             }
             else // si el turno es 2
             {
@@ -509,11 +591,13 @@ namespace capaPresentacion
                 lab_LifesNum2.ForeColor = Color.Brown;
                 lab_Score2.ForeColor = Color.FromArgb(135, 135, 135);
                 lab_ScoreNum2.ForeColor = Color.FromArgb(228, 161, 24);
+                tlyo_Wins_P2.Visible = true;
 
                 lab_Lifes.ForeColor = Color.FromArgb(237, 237, 237);
                 lab_LifesNum.ForeColor = Color.FromArgb(237, 237, 237);
                 lab_Score.ForeColor = Color.FromArgb(237, 237, 237);
                 lab_ScoreNum.ForeColor = Color.FromArgb(237, 237, 237);
+                tlyo_Wins_P1.Visible = false;
             }
         }
         void cambioDeTurno(int turno, bool answerCorrect) // si el turno es uno y la respuesta fue correcta
@@ -720,26 +804,45 @@ namespace capaPresentacion
                 countDown.Stop();
                 lab_Anuncios.Text = "";
 
-                answerOriginalColor(); // aqui cambian las respuestas al color original
-                listarFocusedBible(objEntidad); //lista las preguntas y respuestas
-                uncheckRbtn(); //desmarca las respuestas
-                makeVisibleRbtn_andEnabled();//pone las resuestas visibles y abilitadas
-                focoRbtn(); // se pone el foco las respuestas para poder seleccionarlas con el teclado
-
-                bloquear_Btn_Submit();
-
-                if (turno == 1)
+                if(banner == lab_Player1.Text + " Wins" || banner == lab_Player2.Text + " Wins")
                 {
-                    activarComidin(1);
-                    PlayerFocus(1);
-                    reproducirSonido("levelclearer.wav", true);
+
                 }
                 else
                 {
-                    activarComidin(2);
-                    PlayerFocus(2);
-                    reproducirSonido("levelclearer.wav", true);
+                    AfterCountDown();
                 }
+                
+            }
+        }
+
+        void AfterCountDown(bool restart = false)
+        {
+            if (restart == true)
+            {
+                Thread.Sleep(1500);
+            }
+            
+            answerOriginalColor(); // aqui cambian las respuestas al color original
+            listarFocusedBible(objEntidad); //lista las preguntas y respuestas
+            uncheckRbtn(); //desmarca las respuestas
+            makeVisibleRbtn_andEnabled();//pone las resuestas visibles y abilitadas
+            focoRbtn(); // se pone el foco las respuestas para poder seleccionarlas con el teclado
+
+            bloquear_Btn_Submit();
+
+
+            if (turno == 1)
+            {
+                activarComidin(1);
+                PlayerFocus(1);
+                reproducirSonido("levelclearer.wav", true);
+            }
+            else
+            {
+                activarComidin(2);
+                PlayerFocus(2);
+                reproducirSonido("levelclearer.wav", true);
             }
         }
 
@@ -902,6 +1005,9 @@ namespace capaPresentacion
 
         private void OpenSettings()
         {
+            settings.numRounds = Rounds;
+            settings.difficulty = difficulty;
+            settings.time2Answer = time2Answer;
             // mostrar los nombres que estan jugando
             settings.tbx_Player1.Text = lab_Player1.Text;
             settings.tbx_Player2.Text = lab_Player2.Text;
@@ -970,11 +1076,28 @@ namespace capaPresentacion
 
         private void P_focusedBibles_Activated(object sender, EventArgs e)
         {
+           
             Timer_2Answer.Start();
 
             if (sonido != null)
             {
                 sonido.PlayLooping();
+            }
+        }
+
+        private void Timer_Banner_Tick(object sender, EventArgs e)
+        {
+            
+            if (countDownTimer3 != 0)
+            {
+                countDownTimer3--;
+            }
+            else
+            {
+                Banner.Hide();
+                countDownTimer3 = 3;
+                Timer_Banner.Stop();
+                StartAgan();
             }
         }
     }

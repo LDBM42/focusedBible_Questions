@@ -60,13 +60,28 @@
             this.lab_50_1 = new System.Windows.Forms.Label();
             this.pbx_50_2 = new System.Windows.Forms.PictureBox();
             this.lab_50_2 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lab_Difficulty = new System.Windows.Forms.Label();
             this.btn_Exit = new System.Windows.Forms.Button();
+            this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
+            this.lab_Rounds_Left = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tlyo_Respuestas = new System.Windows.Forms.TableLayoutPanel();
             this.lab_Anuncios = new System.Windows.Forms.Label();
+            this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
+            this.tlyo_Wins_P2 = new System.Windows.Forms.TableLayoutPanel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lab_Wins_P2 = new System.Windows.Forms.Label();
+            this.tlyo_Wins_P1 = new System.Windows.Forms.TableLayoutPanel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lab_Wins_P1 = new System.Windows.Forms.Label();
             this.countDown = new System.Windows.Forms.Timer(this.components);
             this.Timer_2Answer = new System.Windows.Forms.Timer(this.components);
+            this.Timer_Banner = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
@@ -79,9 +94,15 @@
             this.tableLayoutPanel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_50_1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_50_2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tableLayoutPanel9.SuspendLayout();
+            this.tableLayoutPanel12.SuspendLayout();
+            this.tableLayoutPanel11.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tlyo_Respuestas.SuspendLayout();
+            this.tableLayoutPanel13.SuspendLayout();
+            this.tlyo_Wins_P2.SuspendLayout();
+            this.tlyo_Wins_P1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lab_Pregunta
@@ -90,10 +111,10 @@
             this.lab_Pregunta.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lab_Pregunta.Font = new System.Drawing.Font("Rockwell", 35F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lab_Pregunta.ForeColor = System.Drawing.Color.Brown;
-            this.lab_Pregunta.Location = new System.Drawing.Point(123, 73);
-            this.lab_Pregunta.Margin = new System.Windows.Forms.Padding(123, 0, 123, 0);
+            this.lab_Pregunta.Location = new System.Drawing.Point(114, 0);
+            this.lab_Pregunta.Margin = new System.Windows.Forms.Padding(0);
             this.lab_Pregunta.Name = "lab_Pregunta";
-            this.lab_Pregunta.Size = new System.Drawing.Size(1046, 220);
+            this.lab_Pregunta.Size = new System.Drawing.Size(1054, 214);
             this.lab_Pregunta.TabIndex = 0;
             this.lab_Pregunta.Text = "Pregunta Aleatoria, Pregunta Alea";
             this.lab_Pregunta.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -108,7 +129,7 @@
             this.rbtn_a.Location = new System.Drawing.Point(3, 3);
             this.rbtn_a.Name = "rbtn_a";
             this.rbtn_a.Padding = new System.Windows.Forms.Padding(170, 0, 0, 0);
-            this.rbtn_a.Size = new System.Drawing.Size(631, 27);
+            this.rbtn_a.Size = new System.Drawing.Size(888, 27);
             this.rbtn_a.TabIndex = 0;
             this.rbtn_a.TabStop = true;
             this.rbtn_a.Text = "a) Respuesta a";
@@ -126,7 +147,7 @@
             this.rbtn_b.Location = new System.Drawing.Point(3, 36);
             this.rbtn_b.Name = "rbtn_b";
             this.rbtn_b.Padding = new System.Windows.Forms.Padding(170, 0, 0, 0);
-            this.rbtn_b.Size = new System.Drawing.Size(631, 27);
+            this.rbtn_b.Size = new System.Drawing.Size(888, 27);
             this.rbtn_b.TabIndex = 1;
             this.rbtn_b.TabStop = true;
             this.rbtn_b.Text = "b) Respuesta b";
@@ -144,7 +165,7 @@
             this.rbtn_c.Location = new System.Drawing.Point(3, 69);
             this.rbtn_c.Name = "rbtn_c";
             this.rbtn_c.Padding = new System.Windows.Forms.Padding(170, 0, 0, 0);
-            this.rbtn_c.Size = new System.Drawing.Size(631, 27);
+            this.rbtn_c.Size = new System.Drawing.Size(888, 27);
             this.rbtn_c.TabIndex = 2;
             this.rbtn_c.TabStop = true;
             this.rbtn_c.Text = "c) Respuesta c";
@@ -162,7 +183,7 @@
             this.rbtn_d.Location = new System.Drawing.Point(3, 102);
             this.rbtn_d.Name = "rbtn_d";
             this.rbtn_d.Padding = new System.Windows.Forms.Padding(170, 0, 0, 0);
-            this.rbtn_d.Size = new System.Drawing.Size(631, 30);
+            this.rbtn_d.Size = new System.Drawing.Size(888, 30);
             this.rbtn_d.TabIndex = 3;
             this.rbtn_d.TabStop = true;
             this.rbtn_d.Text = "d) Respuesta d";
@@ -243,9 +264,9 @@
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.lab_Pregunta, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel4, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel13, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -476,6 +497,7 @@
             this.tableLayoutPanel10.Controls.Add(this.lab_50_1, 2, 1);
             this.tableLayoutPanel10.Controls.Add(this.pbx_50_2, 3, 1);
             this.tableLayoutPanel10.Controls.Add(this.lab_50_2, 4, 1);
+            this.tableLayoutPanel10.Controls.Add(this.pictureBox2, 1, 0);
             this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel10.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
@@ -544,13 +566,23 @@
             this.lab_50_2.Text = "+3";
             this.lab_50_2.Visible = false;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(91, 3);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox2.TabIndex = 19;
+            this.pictureBox2.TabStop = false;
+            // 
             // tableLayoutPanel9
             // 
             this.tableLayoutPanel9.ColumnCount = 2;
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel9.Controls.Add(this.tableLayoutPanel12, 1, 0);
             this.tableLayoutPanel9.Controls.Add(this.btn_Exit, 1, 1);
             this.tableLayoutPanel9.Controls.Add(this.btn_Submit, 0, 1);
+            this.tableLayoutPanel9.Controls.Add(this.tableLayoutPanel11, 0, 0);
             this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel9.Location = new System.Drawing.Point(453, 3);
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
@@ -560,6 +592,48 @@
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel9.Size = new System.Drawing.Size(379, 283);
             this.tableLayoutPanel9.TabIndex = 0;
+            // 
+            // tableLayoutPanel12
+            // 
+            this.tableLayoutPanel12.ColumnCount = 1;
+            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel12.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel12.Controls.Add(this.lab_Difficulty, 0, 1);
+            this.tableLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel12.Location = new System.Drawing.Point(192, 3);
+            this.tableLayoutPanel12.Name = "tableLayoutPanel12";
+            this.tableLayoutPanel12.RowCount = 2;
+            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel12.Size = new System.Drawing.Size(184, 107);
+            this.tableLayoutPanel12.TabIndex = 4;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Font = new System.Drawing.Font("Rockwell", 20F);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(178, 53);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Difficulty";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lab_Difficulty
+            // 
+            this.lab_Difficulty.AutoSize = true;
+            this.lab_Difficulty.BackColor = System.Drawing.Color.Transparent;
+            this.lab_Difficulty.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lab_Difficulty.Font = new System.Drawing.Font("Rockwell", 20F);
+            this.lab_Difficulty.ForeColor = System.Drawing.Color.Brown;
+            this.lab_Difficulty.Location = new System.Drawing.Point(3, 53);
+            this.lab_Difficulty.Name = "lab_Difficulty";
+            this.lab_Difficulty.Size = new System.Drawing.Size(178, 54);
+            this.lab_Difficulty.TabIndex = 1;
+            this.lab_Difficulty.Text = "Normal";
             // 
             // btn_Exit
             // 
@@ -577,12 +651,54 @@
             this.btn_Exit.Click += new System.EventHandler(this.btn_Exit_Click);
             this.btn_Exit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.btn_Exit_KeyPress);
             // 
+            // tableLayoutPanel11
+            // 
+            this.tableLayoutPanel11.ColumnCount = 1;
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel11.Controls.Add(this.lab_Rounds_Left, 0, 1);
+            this.tableLayoutPanel11.Controls.Add(this.label4, 0, 0);
+            this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel11.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel11.Name = "tableLayoutPanel11";
+            this.tableLayoutPanel11.RowCount = 2;
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(183, 107);
+            this.tableLayoutPanel11.TabIndex = 3;
+            // 
+            // lab_Rounds_Left
+            // 
+            this.lab_Rounds_Left.AutoSize = true;
+            this.lab_Rounds_Left.BackColor = System.Drawing.Color.Transparent;
+            this.lab_Rounds_Left.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lab_Rounds_Left.Font = new System.Drawing.Font("Rockwell", 20F);
+            this.lab_Rounds_Left.ForeColor = System.Drawing.Color.Brown;
+            this.lab_Rounds_Left.Location = new System.Drawing.Point(3, 53);
+            this.lab_Rounds_Left.Name = "lab_Rounds_Left";
+            this.lab_Rounds_Left.Size = new System.Drawing.Size(177, 54);
+            this.lab_Rounds_Left.TabIndex = 19;
+            this.lab_Rounds_Left.Text = "1/5";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label4.Font = new System.Drawing.Font("Rockwell", 20F);
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.label4.Location = new System.Drawing.Point(3, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(177, 53);
+            this.label4.TabIndex = 19;
+            this.label4.Text = "Round";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // tableLayoutPanel4
             // 
             this.tableLayoutPanel4.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tableLayoutPanel4.ColumnCount = 2;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel4.Controls.Add(this.tlyo_Respuestas, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.lab_Anuncios, 1, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -609,7 +725,7 @@
             this.tlyo_Respuestas.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tlyo_Respuestas.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tlyo_Respuestas.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tlyo_Respuestas.Size = new System.Drawing.Size(637, 135);
+            this.tlyo_Respuestas.Size = new System.Drawing.Size(894, 135);
             this.tlyo_Respuestas.TabIndex = 0;
             // 
             // lab_Anuncios
@@ -617,13 +733,128 @@
             this.lab_Anuncios.AutoSize = true;
             this.lab_Anuncios.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lab_Anuncios.Font = new System.Drawing.Font("Rockwell", 35F);
-            this.lab_Anuncios.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.lab_Anuncios.Location = new System.Drawing.Point(646, 0);
+            this.lab_Anuncios.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(24)))));
+            this.lab_Anuncios.Location = new System.Drawing.Point(903, 0);
             this.lab_Anuncios.Name = "lab_Anuncios";
             this.lab_Anuncios.Padding = new System.Windows.Forms.Padding(0, 0, 170, 0);
-            this.lab_Anuncios.Size = new System.Drawing.Size(637, 141);
+            this.lab_Anuncios.Size = new System.Drawing.Size(380, 141);
             this.lab_Anuncios.TabIndex = 8;
             this.lab_Anuncios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // tableLayoutPanel13
+            // 
+            this.tableLayoutPanel13.ColumnCount = 7;
+            this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 1F));
+            this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7F));
+            this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 1F));
+            this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 82F));
+            this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 1F));
+            this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7F));
+            this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 1F));
+            this.tableLayoutPanel13.Controls.Add(this.tlyo_Wins_P2, 5, 0);
+            this.tableLayoutPanel13.Controls.Add(this.tlyo_Wins_P1, 1, 0);
+            this.tableLayoutPanel13.Controls.Add(this.lab_Pregunta, 3, 0);
+            this.tableLayoutPanel13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel13.Location = new System.Drawing.Point(3, 76);
+            this.tableLayoutPanel13.Name = "tableLayoutPanel13";
+            this.tableLayoutPanel13.RowCount = 1;
+            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel13.Size = new System.Drawing.Size(1286, 214);
+            this.tableLayoutPanel13.TabIndex = 4;
+            // 
+            // tlyo_Wins_P2
+            // 
+            this.tlyo_Wins_P2.BackColor = System.Drawing.Color.White;
+            this.tlyo_Wins_P2.ColumnCount = 1;
+            this.tlyo_Wins_P2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlyo_Wins_P2.Controls.Add(this.label3, 0, 0);
+            this.tlyo_Wins_P2.Controls.Add(this.lab_Wins_P2, 0, 1);
+            this.tlyo_Wins_P2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlyo_Wins_P2.Location = new System.Drawing.Point(1183, 3);
+            this.tlyo_Wins_P2.Name = "tlyo_Wins_P2";
+            this.tlyo_Wins_P2.RowCount = 5;
+            this.tlyo_Wins_P2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tlyo_Wins_P2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tlyo_Wins_P2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tlyo_Wins_P2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tlyo_Wins_P2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tlyo_Wins_P2.Size = new System.Drawing.Size(84, 208);
+            this.tlyo_Wins_P2.TabIndex = 3;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label3.Font = new System.Drawing.Font("Rockwell", 20F);
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.label3.Location = new System.Drawing.Point(3, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(78, 41);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "Wins:";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lab_Wins_P2
+            // 
+            this.lab_Wins_P2.AutoSize = true;
+            this.lab_Wins_P2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lab_Wins_P2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lab_Wins_P2.Font = new System.Drawing.Font("Rockwell", 30F);
+            this.lab_Wins_P2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(24)))));
+            this.lab_Wins_P2.Location = new System.Drawing.Point(3, 41);
+            this.lab_Wins_P2.Name = "lab_Wins_P2";
+            this.lab_Wins_P2.Size = new System.Drawing.Size(78, 41);
+            this.lab_Wins_P2.TabIndex = 18;
+            this.lab_Wins_P2.Text = "0";
+            this.lab_Wins_P2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // tlyo_Wins_P1
+            // 
+            this.tlyo_Wins_P1.BackColor = System.Drawing.Color.White;
+            this.tlyo_Wins_P1.ColumnCount = 1;
+            this.tlyo_Wins_P1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlyo_Wins_P1.Controls.Add(this.label2, 0, 0);
+            this.tlyo_Wins_P1.Controls.Add(this.lab_Wins_P1, 0, 1);
+            this.tlyo_Wins_P1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlyo_Wins_P1.Location = new System.Drawing.Point(15, 3);
+            this.tlyo_Wins_P1.Name = "tlyo_Wins_P1";
+            this.tlyo_Wins_P1.RowCount = 5;
+            this.tlyo_Wins_P1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tlyo_Wins_P1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tlyo_Wins_P1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tlyo_Wins_P1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tlyo_Wins_P1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tlyo_Wins_P1.Size = new System.Drawing.Size(84, 208);
+            this.tlyo_Wins_P1.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Font = new System.Drawing.Font("Rockwell", 20F);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.label2.Location = new System.Drawing.Point(3, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(78, 41);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "Wins:";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lab_Wins_P1
+            // 
+            this.lab_Wins_P1.AutoSize = true;
+            this.lab_Wins_P1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lab_Wins_P1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lab_Wins_P1.Font = new System.Drawing.Font("Rockwell", 30F);
+            this.lab_Wins_P1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(24)))));
+            this.lab_Wins_P1.Location = new System.Drawing.Point(3, 41);
+            this.lab_Wins_P1.Name = "lab_Wins_P1";
+            this.lab_Wins_P1.Size = new System.Drawing.Size(78, 41);
+            this.lab_Wins_P1.TabIndex = 18;
+            this.lab_Wins_P1.Text = "0";
+            this.lab_Wins_P1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // countDown
             // 
@@ -634,6 +865,11 @@
             // 
             this.Timer_2Answer.Interval = 1000;
             this.Timer_2Answer.Tick += new System.EventHandler(this.Timer_2Answer_Tick);
+            // 
+            // Timer_Banner
+            // 
+            this.Timer_Banner.Interval = 1000;
+            this.Timer_Banner.Tick += new System.EventHandler(this.Timer_Banner_Tick);
             // 
             // P_focusedBibles
             // 
@@ -664,11 +900,21 @@
             this.tableLayoutPanel10.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_50_1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_50_2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.tableLayoutPanel9.ResumeLayout(false);
+            this.tableLayoutPanel12.ResumeLayout(false);
+            this.tableLayoutPanel12.PerformLayout();
+            this.tableLayoutPanel11.ResumeLayout(false);
+            this.tableLayoutPanel11.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             this.tlyo_Respuestas.ResumeLayout(false);
             this.tlyo_Respuestas.PerformLayout();
+            this.tableLayoutPanel13.ResumeLayout(false);
+            this.tlyo_Wins_P2.ResumeLayout(false);
+            this.tlyo_Wins_P2.PerformLayout();
+            this.tlyo_Wins_P1.ResumeLayout(false);
+            this.tlyo_Wins_P1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -712,6 +958,21 @@
         private System.Windows.Forms.PictureBox Btn_Settings;
         private System.Windows.Forms.Label lab_Anuncios;
         private System.Windows.Forms.Timer Timer_2Answer;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel12;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel13;
+        private System.Windows.Forms.TableLayoutPanel tlyo_Wins_P1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lab_Wins_P1;
+        private System.Windows.Forms.Label lab_Rounds_Left;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TableLayoutPanel tlyo_Wins_P2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lab_Wins_P2;
+        private System.Windows.Forms.Label lab_Difficulty;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Timer Timer_Banner;
     }
 }
 

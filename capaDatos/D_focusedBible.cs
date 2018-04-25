@@ -31,7 +31,7 @@ namespace capaDatos
 
         public void D_insertar(E_focusedBible preg) //insertar Datos (recibe la clase E_Empleados como parametro)
         {
-            SqlCommand cmd = new SqlCommand("sp_insert", cn);
+            SqlCommand cmd = new SqlCommand("sp_insert01", cn);
             cmd.CommandType = CommandType.StoredProcedure;
             //llenado de los parametros del procedimiento almacenado (estos se colocan con "@" 
             //y se llenan con el valor ingresado despues de la coma.  "@preg", preg.a
@@ -41,6 +41,8 @@ namespace capaDatos
             cmd.Parameters.AddWithValue("@c", preg.c);
             cmd.Parameters.AddWithValue("@d", preg.d);
             cmd.Parameters.AddWithValue("@resp", preg.resp);
+            cmd.Parameters.AddWithValue("@pasage", preg.pasage);
+            cmd.Parameters.AddWithValue("@dificultad", preg.dificultad);
 
             if (cn.State == ConnectionState.Open) cn.Close();
 

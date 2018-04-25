@@ -15,8 +15,11 @@ namespace capaPresentacion
 {
     public partial class Settings : Form
     {
-        public Settings()
+        public Settings(int numRounds = 1, int time2Answer = 20, string difficulty = "All")
         {
+            this.numRounds = numRounds;
+            this.time2Answer = time2Answer;
+            this.difficulty = difficulty;
             InitializeComponent();
         }
 
@@ -25,8 +28,9 @@ namespace capaPresentacion
         P_focusedBibles PfocusedB;
         string p1_Name;
         string p2_Name;
-        int numRounds;
-        int time2Answer;
+        public string difficulty;
+        public int numRounds;
+        public int time2Answer;
         int[] noQuestions;
 
 
@@ -43,7 +47,7 @@ namespace capaPresentacion
                 existe.Close();
             }
 
-            PfocusedB = new P_focusedBibles(p1_Name, p2_Name, numRounds, time2Answer);
+            PfocusedB = new P_focusedBibles(p1_Name, p2_Name, numRounds, time2Answer, numRounds, difficulty);
             this.Hide();
             PfocusedB.Show();
 
@@ -51,6 +55,7 @@ namespace capaPresentacion
 
         public void Change_Settings()
         {
+            difficulty = lbx_Dificuldad_Setting.Text;
             p1_Name = tbx_Player1.Text;
             p2_Name = tbx_Player2.Text;
             numRounds = Convert.ToInt32(lbx_Rounds.Text);
@@ -66,6 +71,8 @@ namespace capaPresentacion
             objEntidad.c = tbx_c.Text;
             objEntidad.d = tbx_d.Text;
             objEntidad.resp = Convert.ToChar(tbx_Resp.Text);
+            objEntidad.pasage = tbx_Pasage.Text;
+            objEntidad.dificultad = lbx_Dificultad.Text;
 
             objNego.N_Insertar(objEntidad);
 
@@ -163,10 +170,11 @@ namespace capaPresentacion
 
         private void btn_NewQuests_Click(object sender, EventArgs e)
         {
-            if(!(tlyo_AddQuest.Visible && gbx_AddQuest.Visible))
+            if (!(tlyo_AddQuest.Visible && gbx_AddQuest.Visible))
             {
                 tlyo_AddQuest.Visible = true;
                 gbx_AddQuest.Visible = true;
+                tbx_Preg.Focus();
             }
             else
             {
@@ -183,12 +191,14 @@ namespace capaPresentacion
 
                 tlyo_AddQuest.Visible = false;
                 gbx_AddQuest.Visible = false;
+                tbx_Player1.Focus();
             }
             
         }
 
         private void NumberOfQuestions()
-        {noQuestions = new int[objNego.N_NumFilas()]; // el tamaño es el tamaño del numero de filas
+        {
+            noQuestions = new int[objNego.N_NumFilas()]; // el tamaño es el tamaño del numero de filas
 
             if (noQuestions.Length + 1 >= 100)
             {
@@ -246,8 +256,10 @@ namespace capaPresentacion
         {
             NumberOfQuestions();
 
-            lbx_Rounds.Text = "0";
-            lbx_time2Answer.Text = "20";
+            lbx_Dificuldad_Setting.Text = difficulty;
+            lbx_Dificultad.Text = "Normal";
+            lbx_Rounds.Text = Convert.ToString(numRounds);
+            lbx_time2Answer.Text = Convert.ToString(time2Answer);
             numRounds = Convert.ToInt32(lbx_Rounds.Text);
             time2Answer = Convert.ToInt32(lbx_time2Answer.Text);
         }
@@ -259,12 +271,14 @@ namespace capaPresentacion
                 tlyo_Settings.Visible = true;
                 gbx_Settings.Visible = true;
                 btn_Settings.Text = "Hide Settings";
+                lbx_Rounds.Focus();
             }
             else
             {
                 tlyo_Settings.Visible = false;
                 gbx_Settings.Visible = false;
                 btn_Settings.Text = "Show Settings";
+                tbx_Player1.Focus();
             }
         }
 
@@ -274,6 +288,11 @@ namespace capaPresentacion
             {
                 Btn_Cancel.PerformClick();
             }
+        }
+
+        private void tbx_Pasage_MouseClick(object sender, MouseEventArgs e)
+        {
+            tbx_Pasage.SelectAll();
         }
     }
 }

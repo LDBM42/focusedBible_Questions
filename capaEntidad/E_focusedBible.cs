@@ -15,5 +15,7 @@ namespace capaEntidad
         public string c { get; set; }
         public string d { get; set; }
         public char resp { get; set; }
+        public string pasage { get; set; }
+        public string dificultad { get; set; }
     }
 }
