@@ -294,5 +294,41 @@ namespace capaPresentacion
         {
             tbx_Pasage.SelectAll();
         }
+
+        private void lbx_Rounds_Leave(object sender, EventArgs e)
+        {
+            //para poder cambiar el tamaño de la fuente hay que instanciarla y pasarle los parametros siguientes.
+            lbx_Rounds.Font = new Font(lbx_Rounds.Font.Name, 15, lbx_Rounds.Font.Style, lbx_Rounds.Font.Unit);
+        }
+
+        private void lbx_time2Answer_Leave(object sender, EventArgs e)
+        {
+            //para poder cambiar el tamaño de la fuente hay que instanciarla y pasarle los parametros siguientes.
+            lbx_time2Answer.Font = new Font(lbx_time2Answer.Font.Name, 15, lbx_time2Answer.Font.Style, lbx_time2Answer.Font.Unit);
+        }
+
+        private void lbx_Dificuldad_Setting_Leave(object sender, EventArgs e)
+        {
+            //para poder cambiar el tamaño de la fuente hay que instanciarla y pasarle los parametros siguientes.
+            lbx_Dificuldad_Setting.Font = new Font(lbx_Dificuldad_Setting.Font.Name, 15, lbx_Dificuldad_Setting.Font.Style, lbx_Dificuldad_Setting.Font.Unit);
+        }
+
+        private void lbx_Rounds_Enter(object sender, EventArgs e)
+        {
+            //para poder cambiar el tamaño de la fuente hay que instanciarla y pasarle los parametros siguientes.
+            lbx_Rounds.Font = new Font(lbx_Rounds.Font.Name, 31.89f, lbx_Rounds.Font.Style, lbx_Rounds.Font.Unit);
+        }
+
+        private void lbx_time2Answer_Enter(object sender, EventArgs e)
+        {
+            lbx_time2Answer.Font = new Font(lbx_time2Answer.Font.Name, 31.89f, lbx_time2Answer.Font.Style, lbx_time2Answer.Font.Unit);
+
+        }
+
+        private void lbx_Dificuldad_Setting_Enter(object sender, EventArgs e)
+        {
+            lbx_Dificuldad_Setting.Font = new Font(lbx_Dificuldad_Setting.Font.Name, 31.89f, lbx_Dificuldad_Setting.Font.Style, lbx_Dificuldad_Setting.Font.Unit);
+
+        }
     }
 }

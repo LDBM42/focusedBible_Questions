@@ -39,7 +39,9 @@ namespace capaPresentacion
         int numRounds;
         int time2Answer;
         SoundPlayer sonido;
-        int[] noRepetir;
+        int? [] noRepetir;
+        int? [] noRepetir_PorDificultad; // para que no se repitan cuando se eligen solo x dificultad
+        E_focusedBible [] lista_porDificultad; // Para almacenar la lista completa y asi evitar que se repitan
         int numeroPrueba;
         int click50_1 = 0; // para saber si el jugador 1 ya ha entrado al evento click de el comodin 50%
         int click50_2 = 0; // para saber si el jugador 1 ya ha entrado al evento click de el comodin 50%
@@ -82,6 +84,7 @@ namespace capaPresentacion
             tlyo_Wins_P1.Visible = true;
             tlyo_Wins_P2.Visible = false;
             lab_Rounds_Left.Text = round + "/" + Rounds;
+            lab_Rounds_Right.Text = round + "/" + Rounds;
             lab_Difficulty.Text = difficulty;
             lab_LifesNum.Text = Convert.ToString(lifes_1);
             lab_LifesNum2.Text = Convert.ToString(lifes_2);
@@ -91,33 +94,73 @@ namespace capaPresentacion
             Timer_2Answer.Start();
             banner = "Round" + round;
             reproducirSonido("levelclearer.wav", true);
-            noRepetir = new int[objNego.N_NumFilas()]; // el tamaño es el tamaño del numero de filas
+            objEntidad.dificultad = difficulty;
+            noRepetir = new int? [objNego.N_NumFilas()]; // el tamaño es el tamaño del numero de filas
+            noRepetir_PorDificultad = new int? [objNego.N_NumFilas_PorDificultad(objEntidad)]; // el tamaño es el tamaño del numero de filas
+            lista_porDificultad = new E_focusedBible [objNego.N_NumFilas_PorDificultad(objEntidad)];
+            Llenar_listaPorDificultad(objEntidad);
             listarFocusedBible(objEntidad);
             focoRbtn();
             bloquear_Btn_Submit();
         }
 
+        void Llenar_listaPorDificultad(E_focusedBible dificultad)
+        {
+            DataTable dt2 = objNego.N_listadoPor_Dificultad(dificultad);
 
+            // llena todos los atributos de cada objeto del arreglo, creando así una copia de la tabla
+            for (int i = 0; i < noRepetir_PorDificultad.Length; i++)
+            {
+                dificultad = new E_focusedBible(); // para que se cree un nuevo objeto para cada posición
 
+                dificultad.codPreg = Convert.ToInt32(dt2.Rows[i]["codPreg"].ToString());
+                dificultad.preg = dt2.Rows[i]["preg"].ToString();
+                dificultad.a = dt2.Rows[i]["a"].ToString();
+                dificultad.b = dt2.Rows[i]["b"].ToString();
+                dificultad.c = dt2.Rows[i]["c"].ToString();
+                dificultad.d = dt2.Rows[i]["d"].ToString();
+                dificultad.resp = Convert.ToChar(dt2.Rows[i]["resp"].ToString());
+                dificultad.pasage = dt2.Rows[i]["pasage"].ToString();
+                dificultad.dificultad = dt2.Rows[i]["dificultad"].ToString();
 
+                lista_porDificultad[i] = dificultad;
+            }
+            
+        }
         void listarFocusedBible(E_focusedBible preg)
         {
-            randomQuestions();
 
-            DataTable dt = objNego.N_listado(preg);
-
-            if (dt.Rows.Count > 0)
+            if (difficulty == "All")
             {
-                lab_Pregunta.Text = Convert.ToString(enumerate) + ". " + dt.Rows[0]["preg"].ToString();
-                rbtn_a.Text = "a)   " + dt.Rows[0]["a"].ToString();
-                rbtn_b.Text = "b)   " + dt.Rows[0]["b"].ToString();
-                rbtn_c.Text = "c)   " + dt.Rows[0]["c"].ToString();
-                rbtn_d.Text = "d)   " + dt.Rows[0]["d"].ToString();
-                preg.resp = Convert.ToChar(dt.Rows[0]["resp"].ToString());
+                randomQuestions();
+
+                DataTable dt = objNego.N_listado(preg);
+
+                if (dt.Rows.Count > 0)
+                {
+                    lab_Pregunta.Text = Convert.ToString(enumerate) + ". " + dt.Rows[0]["preg"].ToString();
+                    rbtn_a.Text = "a)   " + dt.Rows[0]["a"].ToString();
+                    rbtn_b.Text = "b)   " + dt.Rows[0]["b"].ToString();
+                    rbtn_c.Text = "c)   " + dt.Rows[0]["c"].ToString();
+                    rbtn_d.Text = "d)   " + dt.Rows[0]["d"].ToString();
+                    preg.resp = Convert.ToChar(dt.Rows[0]["resp"].ToString());
+                }
+            }
+            else
+            {
+                randomQuestions_PorDificultad();
+
+                lab_Pregunta.Text = Convert.ToString(enumerate) + ". " + lista_porDificultad[numeroPrueba].preg;
+                rbtn_a.Text = "a)   " + lista_porDificultad[numeroPrueba].a;
+                rbtn_b.Text = "b)   " + lista_porDificultad[numeroPrueba].b;
+                rbtn_c.Text = "c)   " + lista_porDificultad[numeroPrueba].c;
+                rbtn_d.Text = "d)   " + lista_porDificultad[numeroPrueba].d;
+                preg.resp = lista_porDificultad[numeroPrueba].resp;
             }
 
             enumerate++;
         }
+
         void randomQuestions()
         {
             Random random = new Random();
@@ -127,6 +170,7 @@ namespace capaPresentacion
                 DialogResult respuesta = MessageBox.Show("The Game has Finished!\nDo you want to Play Again!", "Game Over", MessageBoxButtons.YesNo);
                 if (respuesta == DialogResult.Yes)
                 {
+                    restart = true;
                     reset_PlayAgain();
                 }
                 else
@@ -161,7 +205,41 @@ namespace capaPresentacion
                 }
             }
         }
+        void randomQuestions_PorDificultad()
+        {
+            Random random2 = new Random();
 
+            perder_Ganar();
+
+            while (true)
+            {
+                // numeros aleatorios desde el 1 hasta el tamaño del arreglo
+                numeroPrueba = random2.Next(0, noRepetir_PorDificultad.Length);
+                // si existe el código dentro del arreglo se agrega al arreglo, si no existe se crea el random
+                if (Array.Exists(noRepetir_PorDificultad, codPreg => codPreg == numeroPrueba))
+                {
+                    if (countUp == noRepetir_PorDificultad.Length)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        continue;
+                    }
+                }
+                else //si el código no eiste en el arreglo
+                {
+                    noRepetir_PorDificultad[i] = numeroPrueba; //agregar código al arreglo para que nunca se repitan
+
+                    // un numeros aleatorios del 1 al numero de filas se almacena como indice
+                    //lista_porDificultad[numeroPrueba];
+
+                    i++;
+                    countUp++;
+                    break;
+                }
+            }
+        }
 
 
 
@@ -221,6 +299,7 @@ namespace capaPresentacion
             if (turno == 1)
             {
                 countDown.Start();
+
                 turno = 2; //Player 2
             }
             else
@@ -231,7 +310,6 @@ namespace capaPresentacion
 
             btn_Submit.Enabled = false;
         }
-
 
 
         private void reproducirSonido(string nombreArchivo, bool loop)
@@ -259,8 +337,10 @@ namespace capaPresentacion
             }
         }
 
+
         void BannerStart(string banner)
         {
+            Thread.Sleep(2000);
             Timer_2Answer.Stop();
             sonido.Stop();
             this.banner = banner;
@@ -272,15 +352,14 @@ namespace capaPresentacion
                 reproducirSonido("start-ready-go.wav", false);
             }
         }
-
         void StartAgan()
         {
-            if (round == Rounds && banner != "Round " + round) // significa que el juego ha terminado
+            if ((round == Rounds && banner != "Round " + round) || ((countUp == noRepetir_PorDificultad.Length) && (difficulty != "All"))) // significa que el juego ha terminado
             {
                 Timer_2Answer.Stop();
                 sonido.Stop();
 
-                DialogResult respuesta = MessageBox.Show("Do you want to Play Again?", "Game Over", MessageBoxButtons.YesNo);
+                DialogResult respuesta = MessageBox.Show("The Game has Finished!\nDo you want to Play Again?", "Game Over", MessageBoxButtons.YesNo);
                 if (respuesta == DialogResult.Yes)
                 {
                     reproducirSonido("start-ready-go.wav", false);
@@ -294,11 +373,10 @@ namespace capaPresentacion
                 }
             }
         }
-
         void perder_Ganar()
         {
             //condicion para perder
-            if (lifes_1 == 0 || lifes_2 == 0)
+            if (lifes_1 == 0 || lifes_2 == 0 || ((countUp == noRepetir_PorDificultad.Length)&&(difficulty != "All")))
             {
                 Timer_2Answer.Stop(); //detener conteo
                 reproducirSonido("game-over.wav", false);
@@ -321,6 +399,28 @@ namespace capaPresentacion
                     }
                 }
                 else
+                    if(((countUp == noRepetir_PorDificultad.Length) && (difficulty != "All"))) // si se acaban las preguntas, se acaba el juego
+                {
+                    Thread.Sleep(1500);
+
+                    //condicion para saber quien perdió
+                    if (score_1 == score_2)
+                    {
+                        BannerStart("It's a Draw!");
+                    }
+                    else
+                        if (score_2 > score_1)
+                    {
+                        //MessageBox.Show(lab_Player1.Text + " Lose!\n\n" + lab_Player2.Text + " Wins\nLifes: " + lifes_2 + "\nScore: " + score_2);
+                        BannerStart(lab_Player2.Text + " Wins");
+                    }
+                    else
+                    {
+                        //MessageBox.Show(lab_Player1.Text + " Lose!\n\n" + lab_Player2.Text + " Wins\nLifes: " + lifes_2 + "\nScore: " + score_2);
+                        BannerStart(lab_Player1.Text + " Wins");
+                    }
+                }
+                else
                 {
                     ChangeRound();
                 }
@@ -330,8 +430,9 @@ namespace capaPresentacion
         {
             round++;
             lab_Rounds_Left.Text = round + "/" + Rounds;
+            lab_Rounds_Right.Text = round + "/" + Rounds;
 
-            if(turno == 1)
+            if (turno == 1)
             {
                 wins_02++;
                 lab_Wins_P2.Text = Convert.ToString(wins_02);
@@ -345,12 +446,9 @@ namespace capaPresentacion
             reset_PlayAgain();
             BannerStart("Round " + round);
         }
-
         void reset_PlayAgain()
         {
             Timer_2Answer.Stop(); //detener conteo
-            i = 0;
-            countUp = 0;
             countDownTimer = 3;
             countDownTimer2 = time2Answer;
             countDownTimer3 = 2;
@@ -358,6 +456,10 @@ namespace capaPresentacion
             if (restart == true)
             {
                 restart = false;
+
+                i = 0;
+                countUp = 0;
+                enumerate = 1; // para ponerle número a las preguntas
                 round = 1;
                 turno = 1;
                 wins_01 = 0;
@@ -365,19 +467,22 @@ namespace capaPresentacion
                 score_1 = 0;
                 score_2 = 0;
                 lab_Rounds_Left.Text = round + "/" + Rounds;
+                lab_Rounds_Right.Text = round + "/" + Rounds;
                 lab_Wins_P1.Text = Convert.ToString(wins_01);
                 lab_Wins_P2.Text = Convert.ToString(wins_02);
+
+                Array.Clear(noRepetir, 0, noRepetir.Length); // vaciar arreglo
+                Array.Clear(noRepetir_PorDificultad , 0, noRepetir_PorDificultad.Length); // vaciar arreglo
             }
 
             lifes_1 = 3;
             lifes_2 = 3;
-            enumerate = 1; // para ponerle número a las preguntas
             countDownComodin_1 = 2;
             countDownComodin_2 = 2;
 
             Timer_2Answer.Start();
 
-            if (banner == lab_Player1.Text + " Wins" || banner == lab_Player2.Text + " Wins")
+            if (banner == lab_Player1.Text + " Wins" || banner == lab_Player2.Text + " Wins" || banner == "It's a Draw!")
             {
                 AfterCountDown(true);
                 banner = "Round" + round; // resetear banner
@@ -394,7 +499,6 @@ namespace capaPresentacion
             lab_50_1.Text = "+3";
             lab_50_2.Text = "+3";
 
-            Array.Clear(noRepetir, 0, noRepetir.Length); // vaciar arreglo
         }
 
 
@@ -504,10 +608,16 @@ namespace capaPresentacion
             if (answer == 0)
             {
                 correctAnswer();
+                
                 reproducirSonido("retro-lose.wav", false);
                 lab_Anuncios.ForeColor = Color.Brown;
                 lab_Anuncios.Text = "Wrong Answer";
-                cambioDeTurno(turno, false);
+
+                if (countUp != noRepetir_PorDificultad.Length)
+                {
+                    cambioDeTurno(turno, false);
+                }
+                
             }
             else
             {
@@ -515,7 +625,11 @@ namespace capaPresentacion
                 correctAnswerSound();
                 lab_Anuncios.ForeColor = Color.FromArgb(228, 161, 24);
                 lab_Anuncios.Text = "Correct Answer";
-                cambioDeTurno(turno, true);
+
+                if (countUp != noRepetir_PorDificultad.Length)
+                {
+                    cambioDeTurno(turno, true);
+                }
             }
 
         }
@@ -805,8 +919,12 @@ namespace capaPresentacion
                 lab_Anuncios.Text = "";
 
                 if(banner == lab_Player1.Text + " Wins" || banner == lab_Player2.Text + " Wins")
+                {               
+                }
+                else
+                    if (((countUp == noRepetir_PorDificultad.Length) && (difficulty != "All")))
                 {
-
+                    perder_Ganar();
                 }
                 else
                 {
@@ -941,9 +1059,6 @@ namespace capaPresentacion
             }
 
         }
-
-
-
         void bloquear_Btn_Submit() // para hacer el submit solo si se ha elegido una respuesta
         {
             if (rbtn_a.Checked == true)

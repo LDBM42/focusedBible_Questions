@@ -1,0 +1,83 @@
+[33mcommit 2ab167587d381cc4a7ec852deb989166280b8437[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: Luis David Betances M <david_bm42@hotmail.com>
+Date:   Sun Apr 22 01:31:29 2018 -0400
+
+    New Questions and Time2Answer
+
+[33mcommit de799960ec2db675cbc9af59dc8d166f3c90a87c[m
+Author: Luis David Betances M <david_bm42@hotmail.com>
+Date:   Sat Apr 21 07:13:26 2018 -0400
+
+    Functionality to add new Questions
+
+[33mcommit 22bf29f718f9fc33ed67065559de89823b596e78[m
+Author: Luis David Betances M <david_bm42@hotmail.com>
+Date:   Sat Apr 7 00:48:25 2018 -0400
+
+    Agregar sonidos al juego 01
+
+[33mcommit 99012a54dc62065e6038e219282da2a7be80be8a[m
+Author: Luis David Betances M <david_bm42@hotmail.com>
+Date:   Thu Apr 5 19:33:37 2018 -0400
+
+    mejoras a capa presentacion_manejo por teclado y optimizaciones
+
+[33mcommit a59431cd304330ed18fa601dc9452af1c85d6479[m
+Author: Luis David Betances M <david_bm42@hotmail.com>
+Date:   Thu Apr 5 04:54:11 2018 -0400
+
+    programa optimizado (visualmente y con validaciones)
+
+[33mcommit 764d2619433f5d69020c5ac55d9e7a0ee3ce48ac[m
+Author: Luis David Betances M <david_bm42@hotmail.com>
+Date:   Wed Apr 4 18:13:27 2018 -0400
+
+    Capa Presentacion players Diseno terminado
+
+[33mcommit 5a584f4d284eb7a9e0c7d905daf17051302cae6d[m
+Author: Luis David Betances M <david_bm42@hotmail.com>
+Date:   Wed Apr 4 18:11:23 2018 -0400
+
+    Creacion de Form para agregar nombres jugadores
+
+[33mcommit 084dc46031a2b1d2da95342b22c35e9adafda16f[m
+Author: Luis David Betances M <david_bm42@hotmail.com>
+Date:   Wed Apr 4 17:20:01 2018 -0400
+
+    Programa Funcional, Cambio de turno Completo
+
+[33mcommit 4a1a9b45fcc606382ee2ac7e6a86ef24c4b94977[m
+Author: Luis David Betances M <david_bm42@hotmail.com>
+Date:   Wed Apr 4 16:49:42 2018 -0400
+
+    mejora de apariencia y cambio de turno(foco)
+
+[33mcommit 7ad470f4de25c9e6bd45351697ae97e0dab687d8[m
+Author: Luis David Betances M <david_bm42@hotmail.com>
+Date:   Wed Apr 4 13:58:40 2018 -0400
+
+    nombre arreglado de Solucion
+
+[33mcommit 67854397b5215d938f906d2561d7c43e46ecab97[m
+Author: Luis David Betances M <david_bm42@hotmail.com>
+Date:   Wed Apr 4 13:48:14 2018 -0400
+
+    cambio de nombre a Solucion
+
+[33mcommit eaf1db914860c319e113e9abfb6ace0a0671450e[m
+Author: Luis David Betances M <david_bm42@hotmail.com>
+Date:   Wed Apr 4 13:43:56 2018 -0400
+
+    Etapa Inicial, Preguntas y Respuestas
+
+[33mcommit 3d65f48c53761c3cf7d8ebf23a58639a3984cc0a[m
+Author: Luis David Betances M. <david_bm42@hotmail.com>
+Date:   Wed Apr 4 13:37:22 2018 -0400
+
+    Agregar archivos de proyecto.
+
+[33mcommit 4b1dd7cae4a773d44cd0ae5fec887bb0b4f711fc[m
+Author: Luis David Betances M. <david_bm42@hotmail.com>
+Date:   Wed Apr 4 13:37:20 2018 -0400
+
+    Agregar .gitignore y .gitattributes.

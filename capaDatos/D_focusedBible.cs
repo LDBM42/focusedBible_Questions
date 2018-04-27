@@ -17,6 +17,18 @@ namespace capaDatos
         SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["sqlconex"].ConnectionString);
         E_focusedBible preg = new E_focusedBible();
 
+        //public DataTable D_listadoPor_Dificultad(E_focusedBible preg)
+        //{
+        //    SqlCommand cmd = new SqlCommand("sp_listarPor_Dificultad", cn);
+        //    cmd.CommandType = CommandType.StoredProcedure;
+        //    cmd.Parameters.AddWithValue("@codPreg", preg.codPreg);
+        //    cmd.Parameters.AddWithValue("@dificultad", preg.dificultad);
+        //    SqlDataAdapter da = new SqlDataAdapter(cmd);
+        //    DataTable dt = new DataTable();
+        //    da.Fill(dt);
+        //    return dt;
+        //}
+
         public DataTable D_listado(E_focusedBible preg)
         {
             SqlCommand cmd = new SqlCommand("sp_listar", cn);
@@ -62,8 +74,32 @@ namespace capaDatos
             return dt.Rows.Count;//Devuelve el total de filas
         }
 
+        public int D_NumFilas_PorDificultad(E_focusedBible preg)
+        {
+            if(preg.dificultad == "All")
+            {
+                preg.dificultad = "Easy";
+            }
+            SqlCommand cmd = new SqlCommand("sp_listarPor_Dificultad", cn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@dificultad", preg.dificultad);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt.Rows.Count;//Devuelve el total de filas
+        }
 
+        public DataTable D_listadoPor_Dificultad(E_focusedBible preg)
+        {
+            SqlCommand cmd = new SqlCommand("sp_listarPor_Dificultad", cn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@dificultad", preg.dificultad);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
     }
 
-    
+
 }

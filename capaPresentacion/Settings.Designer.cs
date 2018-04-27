@@ -75,11 +75,11 @@
             this.lbx_time2Answer = new System.Windows.Forms.ListBox();
             this.label5 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.Pxb_Logo = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.btn_Exit = new System.Windows.Forms.Button();
             this.Btn_Cancel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.Pxb_Logo = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
@@ -94,9 +94,9 @@
             this.tableLayoutPanel9.SuspendLayout();
             this.tableLayoutPanel10.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Pxb_Logo)).BeginInit();
             this.tableLayoutPanel5.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Pxb_Logo)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_submit
@@ -488,7 +488,7 @@
             this.lbx_Dificultad.Name = "lbx_Dificultad";
             this.lbx_Dificultad.ScrollAlwaysVisible = true;
             this.lbx_Dificultad.Size = new System.Drawing.Size(78, 34);
-            this.lbx_Dificultad.TabIndex = 5;
+            this.lbx_Dificultad.TabIndex = 2;
             // 
             // tbx_Pasage
             // 
@@ -499,7 +499,7 @@
             this.tbx_Pasage.Location = new System.Drawing.Point(44, 3);
             this.tbx_Pasage.Name = "tbx_Pasage";
             this.tbx_Pasage.Size = new System.Drawing.Size(77, 36);
-            this.tbx_Pasage.TabIndex = 12;
+            this.tbx_Pasage.TabIndex = 1;
             this.tbx_Pasage.Text = "Gn 1:1";
             this.tbx_Pasage.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tbx_Pasage_MouseClick);
             // 
@@ -512,7 +512,7 @@
             this.tbx_Resp.Location = new System.Drawing.Point(3, 3);
             this.tbx_Resp.Name = "tbx_Resp";
             this.tbx_Resp.Size = new System.Drawing.Size(35, 36);
-            this.tbx_Resp.TabIndex = 11;
+            this.tbx_Resp.TabIndex = 0;
             this.tbx_Resp.Text = "b";
             this.tbx_Resp.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tbx_Resp_MouseClick);
             // 
@@ -595,7 +595,7 @@
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel7.Size = new System.Drawing.Size(312, 178);
-            this.tableLayoutPanel7.TabIndex = 2;
+            this.tableLayoutPanel7.TabIndex = 0;
             // 
             // btn_Settings
             // 
@@ -650,17 +650,16 @@
             this.gbx_Settings.Location = new System.Drawing.Point(66, 228);
             this.gbx_Settings.Name = "gbx_Settings";
             this.gbx_Settings.Size = new System.Drawing.Size(312, 314);
-            this.gbx_Settings.TabIndex = 6;
+            this.gbx_Settings.TabIndex = 0;
             this.gbx_Settings.TabStop = false;
             this.gbx_Settings.Visible = false;
             // 
             // tableLayoutPanel9
             // 
             this.tableLayoutPanel9.ColumnCount = 3;
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.555555F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.555554F));
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 88.88889F));
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.555555F));
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.555554F));
             this.tableLayoutPanel9.Controls.Add(this.lbx_Dificuldad_Setting, 1, 6);
             this.tableLayoutPanel9.Controls.Add(this.label6, 1, 5);
             this.tableLayoutPanel9.Controls.Add(this.label4, 1, 3);
@@ -671,35 +670,37 @@
             this.tableLayoutPanel9.Location = new System.Drawing.Point(3, 18);
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
             this.tableLayoutPanel9.RowCount = 7;
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.669985F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66602F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66602F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66602F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66602F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66602F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.99992F));
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.68F));
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.44F));
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18F));
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.44F));
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18F));
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.44F));
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18F));
             this.tableLayoutPanel9.Size = new System.Drawing.Size(306, 293);
-            this.tableLayoutPanel9.TabIndex = 5;
+            this.tableLayoutPanel9.TabIndex = 0;
             // 
             // lbx_Dificuldad_Setting
             // 
             this.lbx_Dificuldad_Setting.AllowDrop = true;
             this.lbx_Dificuldad_Setting.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.lbx_Dificuldad_Setting.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbx_Dificuldad_Setting.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbx_Dificuldad_Setting.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
             this.lbx_Dificuldad_Setting.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(24)))));
             this.lbx_Dificuldad_Setting.FormattingEnabled = true;
-            this.lbx_Dificuldad_Setting.ItemHeight = 48;
+            this.lbx_Dificuldad_Setting.ItemHeight = 29;
             this.lbx_Dificuldad_Setting.Items.AddRange(new object[] {
             "All",
             "Easy",
             "Normal",
             "Hard"});
-            this.lbx_Dificuldad_Setting.Location = new System.Drawing.Point(19, 250);
+            this.lbx_Dificuldad_Setting.Location = new System.Drawing.Point(19, 240);
             this.lbx_Dificuldad_Setting.Name = "lbx_Dificuldad_Setting";
             this.lbx_Dificuldad_Setting.ScrollAlwaysVisible = true;
-            this.lbx_Dificuldad_Setting.Size = new System.Drawing.Size(265, 40);
+            this.lbx_Dificuldad_Setting.Size = new System.Drawing.Size(265, 50);
             this.lbx_Dificuldad_Setting.TabIndex = 5;
+            this.lbx_Dificuldad_Setting.Enter += new System.EventHandler(this.lbx_Dificuldad_Setting_Enter);
+            this.lbx_Dificuldad_Setting.Leave += new System.EventHandler(this.lbx_Dificuldad_Setting_Leave);
             // 
             // label6
             // 
@@ -708,11 +709,11 @@
             this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label6.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Bold);
             this.label6.ForeColor = System.Drawing.Color.Brown;
-            this.label6.Location = new System.Drawing.Point(19, 199);
+            this.label6.Location = new System.Drawing.Point(19, 195);
             this.label6.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(268, 48);
-            this.label6.TabIndex = 8;
+            this.label6.Size = new System.Drawing.Size(268, 42);
+            this.label6.TabIndex = 4;
             this.label6.Text = "Degree of Difficulty ";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -723,11 +724,11 @@
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label4.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.Brown;
-            this.label4.Location = new System.Drawing.Point(19, 103);
+            this.label4.Location = new System.Drawing.Point(19, 101);
             this.label4.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(268, 48);
-            this.label4.TabIndex = 7;
+            this.label4.Size = new System.Drawing.Size(268, 42);
+            this.label4.TabIndex = 2;
             this.label4.Text = "Time to Answer";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -741,8 +742,8 @@
             this.label2.Location = new System.Drawing.Point(19, 7);
             this.label2.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(268, 48);
-            this.label2.TabIndex = 6;
+            this.label2.Size = new System.Drawing.Size(268, 42);
+            this.label2.TabIndex = 0;
             this.label2.Text = "How many round?";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -751,10 +752,10 @@
             this.lbx_Rounds.AllowDrop = true;
             this.lbx_Rounds.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.lbx_Rounds.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbx_Rounds.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbx_Rounds.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
             this.lbx_Rounds.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(24)))));
             this.lbx_Rounds.FormattingEnabled = true;
-            this.lbx_Rounds.ItemHeight = 48;
+            this.lbx_Rounds.ItemHeight = 29;
             this.lbx_Rounds.Items.AddRange(new object[] {
             "1",
             "3",
@@ -766,11 +767,13 @@
             "15",
             "17",
             "19"});
-            this.lbx_Rounds.Location = new System.Drawing.Point(19, 58);
+            this.lbx_Rounds.Location = new System.Drawing.Point(19, 52);
             this.lbx_Rounds.Name = "lbx_Rounds";
             this.lbx_Rounds.ScrollAlwaysVisible = true;
-            this.lbx_Rounds.Size = new System.Drawing.Size(265, 42);
-            this.lbx_Rounds.TabIndex = 4;
+            this.lbx_Rounds.Size = new System.Drawing.Size(265, 46);
+            this.lbx_Rounds.TabIndex = 1;
+            this.lbx_Rounds.Enter += new System.EventHandler(this.lbx_Rounds_Enter);
+            this.lbx_Rounds.Leave += new System.EventHandler(this.lbx_Rounds_Leave);
             // 
             // tableLayoutPanel10
             // 
@@ -780,22 +783,23 @@
             this.tableLayoutPanel10.Controls.Add(this.lbx_time2Answer, 0, 0);
             this.tableLayoutPanel10.Controls.Add(this.label5, 1, 0);
             this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel10.Location = new System.Drawing.Point(19, 154);
+            this.tableLayoutPanel10.Location = new System.Drawing.Point(19, 146);
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
             this.tableLayoutPanel10.RowCount = 1;
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(265, 42);
-            this.tableLayoutPanel10.TabIndex = 8;
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(265, 46);
+            this.tableLayoutPanel10.TabIndex = 3;
             // 
             // lbx_time2Answer
             // 
             this.lbx_time2Answer.AllowDrop = true;
             this.lbx_time2Answer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.lbx_time2Answer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbx_time2Answer.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbx_time2Answer.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
             this.lbx_time2Answer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(24)))));
             this.lbx_time2Answer.FormattingEnabled = true;
-            this.lbx_time2Answer.ItemHeight = 48;
+            this.lbx_time2Answer.ItemHeight = 29;
             this.lbx_time2Answer.Items.AddRange(new object[] {
             "05",
             "06",
@@ -856,8 +860,10 @@
             this.lbx_time2Answer.Location = new System.Drawing.Point(3, 3);
             this.lbx_time2Answer.Name = "lbx_time2Answer";
             this.lbx_time2Answer.ScrollAlwaysVisible = true;
-            this.lbx_time2Answer.Size = new System.Drawing.Size(153, 36);
-            this.lbx_time2Answer.TabIndex = 6;
+            this.lbx_time2Answer.Size = new System.Drawing.Size(153, 40);
+            this.lbx_time2Answer.TabIndex = 0;
+            this.lbx_time2Answer.Enter += new System.EventHandler(this.lbx_time2Answer_Enter);
+            this.lbx_time2Answer.Leave += new System.EventHandler(this.lbx_time2Answer_Leave);
             // 
             // label5
             // 
@@ -868,8 +874,8 @@
             this.label5.Location = new System.Drawing.Point(162, 0);
             this.label5.Name = "label5";
             this.label5.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.label5.Size = new System.Drawing.Size(100, 42);
-            this.label5.TabIndex = 7;
+            this.label5.Size = new System.Drawing.Size(100, 46);
+            this.label5.TabIndex = 1;
             this.label5.Text = "Seconds";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -893,6 +899,18 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(424, 729);
             this.tableLayoutPanel2.TabIndex = 0;
+            // 
+            // Pxb_Logo
+            // 
+            this.Pxb_Logo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Pxb_Logo.Image = ((System.Drawing.Image)(resources.GetObject("Pxb_Logo.Image")));
+            this.Pxb_Logo.Location = new System.Drawing.Point(3, 3);
+            this.Pxb_Logo.Name = "Pxb_Logo";
+            this.Pxb_Logo.Size = new System.Drawing.Size(418, 176);
+            this.Pxb_Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Pxb_Logo.TabIndex = 12;
+            this.Pxb_Logo.TabStop = false;
             // 
             // tableLayoutPanel5
             // 
@@ -957,18 +975,6 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
-            // Pxb_Logo
-            // 
-            this.Pxb_Logo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Pxb_Logo.Image = ((System.Drawing.Image)(resources.GetObject("Pxb_Logo.Image")));
-            this.Pxb_Logo.Location = new System.Drawing.Point(3, 3);
-            this.Pxb_Logo.Name = "Pxb_Logo";
-            this.Pxb_Logo.Size = new System.Drawing.Size(418, 176);
-            this.Pxb_Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.Pxb_Logo.TabIndex = 12;
-            this.Pxb_Logo.TabStop = false;
-            // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1005,10 +1011,10 @@
             this.tableLayoutPanel10.ResumeLayout(false);
             this.tableLayoutPanel10.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Pxb_Logo)).EndInit();
             this.tableLayoutPanel5.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Pxb_Logo)).EndInit();
             this.ResumeLayout(false);
 
         }
