@@ -56,35 +56,41 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
+            this.Lab_Passage_Shown_2 = new System.Windows.Forms.Label();
             this.pbx_50_1 = new System.Windows.Forms.PictureBox();
             this.lab_50_1 = new System.Windows.Forms.Label();
             this.pbx_50_2 = new System.Windows.Forms.PictureBox();
             this.lab_50_2 = new System.Windows.Forms.Label();
+            this.pbx_Passage_1 = new System.Windows.Forms.PictureBox();
+            this.lab_Passage_1 = new System.Windows.Forms.Label();
+            this.lab_Passage_2 = new System.Windows.Forms.Label();
+            this.pbx_Passage_2 = new System.Windows.Forms.PictureBox();
+            this.Lab_Passage_Shown_1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
             this.lab_Difficulty = new System.Windows.Forms.Label();
             this.btn_Exit = new System.Windows.Forms.Button();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
-            this.lab_Rounds_Left = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tlyo_Respuestas = new System.Windows.Forms.TableLayoutPanel();
             this.lab_Anuncios = new System.Windows.Forms.Label();
             this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
             this.tlyo_Wins_P2 = new System.Windows.Forms.TableLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
             this.lab_Wins_P2 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lab_Rounds_Right = new System.Windows.Forms.Label();
             this.tlyo_Wins_P1 = new System.Windows.Forms.TableLayoutPanel();
+            this.lab_Rounds_Left = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.lab_Wins_P1 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
             this.countDown = new System.Windows.Forms.Timer(this.components);
             this.Timer_2Answer = new System.Windows.Forms.Timer(this.components);
             this.Timer_Banner = new System.Windows.Forms.Timer(this.components);
-            this.label5 = new System.Windows.Forms.Label();
-            this.lab_Rounds_Right = new System.Windows.Forms.Label();
-            this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
@@ -97,6 +103,8 @@
             this.tableLayoutPanel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_50_1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_50_2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbx_Passage_1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbx_Passage_2)).BeginInit();
             this.tableLayoutPanel9.SuspendLayout();
             this.tableLayoutPanel12.SuspendLayout();
             this.tableLayoutPanel11.SuspendLayout();
@@ -495,28 +503,49 @@
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel10.Controls.Add(this.pbx_50_1, 1, 1);
-            this.tableLayoutPanel10.Controls.Add(this.lab_50_1, 2, 1);
-            this.tableLayoutPanel10.Controls.Add(this.pbx_50_2, 3, 1);
-            this.tableLayoutPanel10.Controls.Add(this.lab_50_2, 4, 1);
+            this.tableLayoutPanel10.Controls.Add(this.Lab_Passage_Shown_2, 3, 0);
+            this.tableLayoutPanel10.Controls.Add(this.pbx_50_1, 1, 2);
+            this.tableLayoutPanel10.Controls.Add(this.lab_50_1, 2, 2);
+            this.tableLayoutPanel10.Controls.Add(this.pbx_50_2, 3, 2);
+            this.tableLayoutPanel10.Controls.Add(this.lab_50_2, 4, 2);
+            this.tableLayoutPanel10.Controls.Add(this.pbx_Passage_1, 1, 1);
+            this.tableLayoutPanel10.Controls.Add(this.lab_Passage_1, 2, 1);
+            this.tableLayoutPanel10.Controls.Add(this.lab_Passage_2, 4, 1);
+            this.tableLayoutPanel10.Controls.Add(this.pbx_Passage_2, 3, 1);
+            this.tableLayoutPanel10.Controls.Add(this.Lab_Passage_Shown_1, 1, 0);
             this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel10.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
-            this.tableLayoutPanel10.RowCount = 3;
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 27.72277F));
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.9802F));
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.29703F));
+            this.tableLayoutPanel10.RowCount = 4;
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.94077F));
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 29.91116F));
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 29.91116F));
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.23692F));
             this.tableLayoutPanel10.Size = new System.Drawing.Size(444, 283);
             this.tableLayoutPanel10.TabIndex = 14;
+            // 
+            // Lab_Passage_Shown_2
+            // 
+            this.Lab_Passage_Shown_2.AutoSize = true;
+            this.Lab_Passage_Shown_2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Lab_Passage_Shown_2.Font = new System.Drawing.Font("Rockwell", 15F);
+            this.Lab_Passage_Shown_2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(24)))));
+            this.Lab_Passage_Shown_2.Location = new System.Drawing.Point(265, 0);
+            this.Lab_Passage_Shown_2.Margin = new System.Windows.Forms.Padding(0, 0, 0, 15);
+            this.Lab_Passage_Shown_2.Name = "Lab_Passage_Shown_2";
+            this.Lab_Passage_Shown_2.Size = new System.Drawing.Size(111, 41);
+            this.Lab_Passage_Shown_2.TabIndex = 24;
+            this.Lab_Passage_Shown_2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Lab_Passage_Shown_2.Visible = false;
             // 
             // pbx_50_1
             // 
             this.pbx_50_1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pbx_50_1.Image = global::capaPresentacion.Properties.Resources._50_percent;
-            this.pbx_50_1.Location = new System.Drawing.Point(88, 78);
+            this.pbx_50_1.Location = new System.Drawing.Point(88, 140);
             this.pbx_50_1.Margin = new System.Windows.Forms.Padding(0);
             this.pbx_50_1.Name = "pbx_50_1";
-            this.pbx_50_1.Size = new System.Drawing.Size(111, 147);
+            this.pbx_50_1.Size = new System.Drawing.Size(111, 84);
             this.pbx_50_1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbx_50_1.TabIndex = 0;
             this.pbx_50_1.TabStop = false;
@@ -530,7 +559,7 @@
             this.lab_50_1.AutoSize = true;
             this.lab_50_1.Font = new System.Drawing.Font("Rockwell", 20F);
             this.lab_50_1.ForeColor = System.Drawing.Color.Brown;
-            this.lab_50_1.Location = new System.Drawing.Point(199, 112);
+            this.lab_50_1.Location = new System.Drawing.Point(199, 143);
             this.lab_50_1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 40);
             this.lab_50_1.Name = "lab_50_1";
             this.lab_50_1.Size = new System.Drawing.Size(58, 38);
@@ -541,10 +570,10 @@
             // 
             this.pbx_50_2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pbx_50_2.Image = global::capaPresentacion.Properties.Resources._50_percent;
-            this.pbx_50_2.Location = new System.Drawing.Point(265, 78);
+            this.pbx_50_2.Location = new System.Drawing.Point(265, 140);
             this.pbx_50_2.Margin = new System.Windows.Forms.Padding(0);
             this.pbx_50_2.Name = "pbx_50_2";
-            this.pbx_50_2.Size = new System.Drawing.Size(111, 147);
+            this.pbx_50_2.Size = new System.Drawing.Size(111, 84);
             this.pbx_50_2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbx_50_2.TabIndex = 17;
             this.pbx_50_2.TabStop = false;
@@ -559,13 +588,82 @@
             this.lab_50_2.AutoSize = true;
             this.lab_50_2.Font = new System.Drawing.Font("Rockwell", 20F);
             this.lab_50_2.ForeColor = System.Drawing.Color.Brown;
-            this.lab_50_2.Location = new System.Drawing.Point(376, 112);
+            this.lab_50_2.Location = new System.Drawing.Point(376, 143);
             this.lab_50_2.Margin = new System.Windows.Forms.Padding(0, 0, 0, 40);
             this.lab_50_2.Name = "lab_50_2";
             this.lab_50_2.Size = new System.Drawing.Size(58, 38);
             this.lab_50_2.TabIndex = 18;
             this.lab_50_2.Text = "+3";
             this.lab_50_2.Visible = false;
+            // 
+            // pbx_Passage_1
+            // 
+            this.pbx_Passage_1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbx_Passage_1.Image = global::capaPresentacion.Properties.Resources.Passage_Mouse_Leave;
+            this.pbx_Passage_1.Location = new System.Drawing.Point(91, 59);
+            this.pbx_Passage_1.Name = "pbx_Passage_1";
+            this.pbx_Passage_1.Size = new System.Drawing.Size(105, 78);
+            this.pbx_Passage_1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbx_Passage_1.TabIndex = 19;
+            this.pbx_Passage_1.TabStop = false;
+            this.pbx_Passage_1.Click += new System.EventHandler(this.pbx_Passage_1_Click);
+            this.pbx_Passage_1.MouseEnter += new System.EventHandler(this.pbx_Passage_1_MouseEnter);
+            this.pbx_Passage_1.MouseLeave += new System.EventHandler(this.pbx_Passage_1_MouseLeave);
+            // 
+            // lab_Passage_1
+            // 
+            this.lab_Passage_1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lab_Passage_1.AutoSize = true;
+            this.lab_Passage_1.Font = new System.Drawing.Font("Rockwell", 20F);
+            this.lab_Passage_1.ForeColor = System.Drawing.Color.Brown;
+            this.lab_Passage_1.Location = new System.Drawing.Point(199, 59);
+            this.lab_Passage_1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 40);
+            this.lab_Passage_1.Name = "lab_Passage_1";
+            this.lab_Passage_1.Size = new System.Drawing.Size(58, 38);
+            this.lab_Passage_1.TabIndex = 20;
+            this.lab_Passage_1.Text = "+3";
+            // 
+            // lab_Passage_2
+            // 
+            this.lab_Passage_2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lab_Passage_2.AutoSize = true;
+            this.lab_Passage_2.Font = new System.Drawing.Font("Rockwell", 20F);
+            this.lab_Passage_2.ForeColor = System.Drawing.Color.Brown;
+            this.lab_Passage_2.Location = new System.Drawing.Point(376, 59);
+            this.lab_Passage_2.Margin = new System.Windows.Forms.Padding(0, 0, 0, 40);
+            this.lab_Passage_2.Name = "lab_Passage_2";
+            this.lab_Passage_2.Size = new System.Drawing.Size(58, 38);
+            this.lab_Passage_2.TabIndex = 21;
+            this.lab_Passage_2.Text = "+3";
+            this.lab_Passage_2.Visible = false;
+            // 
+            // pbx_Passage_2
+            // 
+            this.pbx_Passage_2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbx_Passage_2.Image = global::capaPresentacion.Properties.Resources.Passage_Mouse_Leave;
+            this.pbx_Passage_2.Location = new System.Drawing.Point(268, 59);
+            this.pbx_Passage_2.Name = "pbx_Passage_2";
+            this.pbx_Passage_2.Size = new System.Drawing.Size(105, 78);
+            this.pbx_Passage_2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbx_Passage_2.TabIndex = 22;
+            this.pbx_Passage_2.TabStop = false;
+            this.pbx_Passage_2.Visible = false;
+            this.pbx_Passage_2.Click += new System.EventHandler(this.pbx_Passage_2_Click);
+            this.pbx_Passage_2.MouseEnter += new System.EventHandler(this.pbx_Passage_2_MouseEnter);
+            this.pbx_Passage_2.MouseLeave += new System.EventHandler(this.pbx_Passage_2_MouseLeave);
+            // 
+            // Lab_Passage_Shown_1
+            // 
+            this.Lab_Passage_Shown_1.AutoSize = true;
+            this.Lab_Passage_Shown_1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Lab_Passage_Shown_1.Font = new System.Drawing.Font("Rockwell", 15F);
+            this.Lab_Passage_Shown_1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(24)))));
+            this.Lab_Passage_Shown_1.Location = new System.Drawing.Point(88, 0);
+            this.Lab_Passage_Shown_1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 15);
+            this.Lab_Passage_Shown_1.Name = "Lab_Passage_Shown_1";
+            this.Lab_Passage_Shown_1.Size = new System.Drawing.Size(111, 41);
+            this.Lab_Passage_Shown_1.TabIndex = 23;
+            this.Lab_Passage_Shown_1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // tableLayoutPanel9
             // 
@@ -599,20 +697,6 @@
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel12.Size = new System.Drawing.Size(184, 107);
             this.tableLayoutPanel12.TabIndex = 4;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Rockwell", 20F);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.label1.Location = new System.Drawing.Point(3, 53);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(177, 54);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Difficulty";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // lab_Difficulty
             // 
@@ -658,33 +742,19 @@
             this.tableLayoutPanel11.Size = new System.Drawing.Size(183, 107);
             this.tableLayoutPanel11.TabIndex = 3;
             // 
-            // lab_Rounds_Left
+            // label1
             // 
-            this.lab_Rounds_Left.AutoSize = true;
-            this.lab_Rounds_Left.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.lab_Rounds_Left.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lab_Rounds_Left.Font = new System.Drawing.Font("Rockwell", 30F);
-            this.lab_Rounds_Left.ForeColor = System.Drawing.Color.Brown;
-            this.lab_Rounds_Left.Location = new System.Drawing.Point(3, 123);
-            this.lab_Rounds_Left.Name = "lab_Rounds_Left";
-            this.lab_Rounds_Left.Size = new System.Drawing.Size(78, 41);
-            this.lab_Rounds_Left.TabIndex = 19;
-            this.lab_Rounds_Left.Text = "1/5";
-            this.lab_Rounds_Left.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label4.Font = new System.Drawing.Font("Rockwell", 20F);
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.label4.Location = new System.Drawing.Point(3, 82);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(78, 41);
-            this.label4.TabIndex = 19;
-            this.label4.Text = "Round";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Font = new System.Drawing.Font("Rockwell", 20F);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.label1.Location = new System.Drawing.Point(3, 53);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(177, 54);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Difficulty";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // tableLayoutPanel4
             // 
@@ -757,6 +827,19 @@
             this.tableLayoutPanel13.Size = new System.Drawing.Size(1286, 214);
             this.tableLayoutPanel13.TabIndex = 4;
             // 
+            // tableLayoutPanel15
+            // 
+            this.tableLayoutPanel15.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tableLayoutPanel15.ColumnCount = 1;
+            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel15.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel15.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel15.Name = "tableLayoutPanel15";
+            this.tableLayoutPanel15.RowCount = 1;
+            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel15.Size = new System.Drawing.Size(6, 208);
+            this.tableLayoutPanel15.TabIndex = 19;
+            // 
             // tlyo_Wins_P2
             // 
             this.tlyo_Wins_P2.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -806,70 +889,6 @@
             this.lab_Wins_P2.Text = "0";
             this.lab_Wins_P2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // tlyo_Wins_P1
-            // 
-            this.tlyo_Wins_P1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.tlyo_Wins_P1.ColumnCount = 1;
-            this.tlyo_Wins_P1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlyo_Wins_P1.Controls.Add(this.lab_Rounds_Left, 0, 3);
-            this.tlyo_Wins_P1.Controls.Add(this.label2, 0, 0);
-            this.tlyo_Wins_P1.Controls.Add(this.label4, 0, 2);
-            this.tlyo_Wins_P1.Controls.Add(this.lab_Wins_P1, 0, 1);
-            this.tlyo_Wins_P1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlyo_Wins_P1.Location = new System.Drawing.Point(15, 3);
-            this.tlyo_Wins_P1.Name = "tlyo_Wins_P1";
-            this.tlyo_Wins_P1.RowCount = 5;
-            this.tlyo_Wins_P1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tlyo_Wins_P1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tlyo_Wins_P1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tlyo_Wins_P1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tlyo_Wins_P1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tlyo_Wins_P1.Size = new System.Drawing.Size(84, 208);
-            this.tlyo_Wins_P1.TabIndex = 2;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("Rockwell", 20F);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.label2.Location = new System.Drawing.Point(3, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 41);
-            this.label2.TabIndex = 15;
-            this.label2.Text = "Wins:";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            // 
-            // lab_Wins_P1
-            // 
-            this.lab_Wins_P1.AutoSize = true;
-            this.lab_Wins_P1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.lab_Wins_P1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lab_Wins_P1.Font = new System.Drawing.Font("Rockwell", 30F);
-            this.lab_Wins_P1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(24)))));
-            this.lab_Wins_P1.Location = new System.Drawing.Point(3, 41);
-            this.lab_Wins_P1.Name = "lab_Wins_P1";
-            this.lab_Wins_P1.Size = new System.Drawing.Size(78, 41);
-            this.lab_Wins_P1.TabIndex = 18;
-            this.lab_Wins_P1.Text = "0";
-            this.lab_Wins_P1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // countDown
-            // 
-            this.countDown.Interval = 1000;
-            this.countDown.Tick += new System.EventHandler(this.countDown_Tick);
-            // 
-            // Timer_2Answer
-            // 
-            this.Timer_2Answer.Interval = 1000;
-            this.Timer_2Answer.Tick += new System.EventHandler(this.Timer_2Answer_Tick);
-            // 
-            // Timer_Banner
-            // 
-            this.Timer_Banner.Interval = 1000;
-            this.Timer_Banner.Tick += new System.EventHandler(this.Timer_Banner_Tick);
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -898,6 +917,83 @@
             this.lab_Rounds_Right.Text = "1/5";
             this.lab_Rounds_Right.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // tlyo_Wins_P1
+            // 
+            this.tlyo_Wins_P1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tlyo_Wins_P1.ColumnCount = 1;
+            this.tlyo_Wins_P1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlyo_Wins_P1.Controls.Add(this.lab_Rounds_Left, 0, 3);
+            this.tlyo_Wins_P1.Controls.Add(this.label2, 0, 0);
+            this.tlyo_Wins_P1.Controls.Add(this.label4, 0, 2);
+            this.tlyo_Wins_P1.Controls.Add(this.lab_Wins_P1, 0, 1);
+            this.tlyo_Wins_P1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlyo_Wins_P1.Location = new System.Drawing.Point(15, 3);
+            this.tlyo_Wins_P1.Name = "tlyo_Wins_P1";
+            this.tlyo_Wins_P1.RowCount = 5;
+            this.tlyo_Wins_P1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tlyo_Wins_P1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tlyo_Wins_P1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tlyo_Wins_P1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tlyo_Wins_P1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tlyo_Wins_P1.Size = new System.Drawing.Size(84, 208);
+            this.tlyo_Wins_P1.TabIndex = 2;
+            // 
+            // lab_Rounds_Left
+            // 
+            this.lab_Rounds_Left.AutoSize = true;
+            this.lab_Rounds_Left.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lab_Rounds_Left.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lab_Rounds_Left.Font = new System.Drawing.Font("Rockwell", 30F);
+            this.lab_Rounds_Left.ForeColor = System.Drawing.Color.Brown;
+            this.lab_Rounds_Left.Location = new System.Drawing.Point(3, 123);
+            this.lab_Rounds_Left.Name = "lab_Rounds_Left";
+            this.lab_Rounds_Left.Size = new System.Drawing.Size(78, 41);
+            this.lab_Rounds_Left.TabIndex = 19;
+            this.lab_Rounds_Left.Text = "1/5";
+            this.lab_Rounds_Left.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Font = new System.Drawing.Font("Rockwell", 20F);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.label2.Location = new System.Drawing.Point(3, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(78, 41);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "Wins:";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label4.Font = new System.Drawing.Font("Rockwell", 20F);
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.label4.Location = new System.Drawing.Point(3, 82);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(78, 41);
+            this.label4.TabIndex = 19;
+            this.label4.Text = "Round";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
+            // lab_Wins_P1
+            // 
+            this.lab_Wins_P1.AutoSize = true;
+            this.lab_Wins_P1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lab_Wins_P1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lab_Wins_P1.Font = new System.Drawing.Font("Rockwell", 30F);
+            this.lab_Wins_P1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(24)))));
+            this.lab_Wins_P1.Location = new System.Drawing.Point(3, 41);
+            this.lab_Wins_P1.Name = "lab_Wins_P1";
+            this.lab_Wins_P1.Size = new System.Drawing.Size(78, 41);
+            this.lab_Wins_P1.TabIndex = 18;
+            this.lab_Wins_P1.Text = "0";
+            this.lab_Wins_P1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // tableLayoutPanel14
             // 
             this.tableLayoutPanel14.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -911,18 +1007,20 @@
             this.tableLayoutPanel14.Size = new System.Drawing.Size(10, 208);
             this.tableLayoutPanel14.TabIndex = 4;
             // 
-            // tableLayoutPanel15
+            // countDown
             // 
-            this.tableLayoutPanel15.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.tableLayoutPanel15.ColumnCount = 1;
-            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel15.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel15.Name = "tableLayoutPanel15";
-            this.tableLayoutPanel15.RowCount = 1;
-            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel15.Size = new System.Drawing.Size(6, 208);
-            this.tableLayoutPanel15.TabIndex = 19;
+            this.countDown.Interval = 1000;
+            this.countDown.Tick += new System.EventHandler(this.countDown_Tick);
+            // 
+            // Timer_2Answer
+            // 
+            this.Timer_2Answer.Interval = 1000;
+            this.Timer_2Answer.Tick += new System.EventHandler(this.Timer_2Answer_Tick);
+            // 
+            // Timer_Banner
+            // 
+            this.Timer_Banner.Interval = 1000;
+            this.Timer_Banner.Tick += new System.EventHandler(this.Timer_Banner_Tick);
             // 
             // P_focusedBibles
             // 
@@ -953,6 +1051,8 @@
             this.tableLayoutPanel10.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_50_1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_50_2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbx_Passage_1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbx_Passage_2)).EndInit();
             this.tableLayoutPanel9.ResumeLayout(false);
             this.tableLayoutPanel12.ResumeLayout(false);
             this.tableLayoutPanel12.PerformLayout();
@@ -1028,6 +1128,12 @@
         private System.Windows.Forms.Label lab_Rounds_Right;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel14;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel15;
+        private System.Windows.Forms.PictureBox pbx_Passage_1;
+        private System.Windows.Forms.Label lab_Passage_1;
+        private System.Windows.Forms.Label lab_Passage_2;
+        private System.Windows.Forms.PictureBox pbx_Passage_2;
+        private System.Windows.Forms.Label Lab_Passage_Shown_1;
+        private System.Windows.Forms.Label Lab_Passage_Shown_2;
     }
 }
 

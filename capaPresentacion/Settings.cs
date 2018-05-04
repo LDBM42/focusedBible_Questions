@@ -330,5 +330,63 @@ namespace capaPresentacion
             lbx_Dificuldad_Setting.Font = new Font(lbx_Dificuldad_Setting.Font.Name, 31.89f, lbx_Dificuldad_Setting.Font.Style, lbx_Dificuldad_Setting.Font.Unit);
 
         }
+
+        private void lbx_Rounds_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // 'e' almacena la tecla presionada
+            if (e.KeyChar == (char)27) //si la tecla pesionada es igual a ESC (27)
+            {
+                Btn_Cancel.PerformClick();
+            }
+            else
+                if (e.KeyChar == (char)13) //si la tecla pesionada es igual a ENTER (13)
+            {
+                e.Handled = true; //.Handled significa que nosotros nos haremos cargo del codigo
+                                  //al ser true, evita que apareca la tecla presionada
+                lbx_time2Answer.Focus();
+            }
+        }
+
+        private void lbx_time2Answer_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // 'e' almacena la tecla presionada
+            if (e.KeyChar == (char)27) //si la tecla pesionada es igual a ESC (27)
+            {
+                Btn_Cancel.PerformClick();
+            }
+            else
+                if (e.KeyChar == (char)13) //si la tecla pesionada es igual a ENTER (13)
+            {
+                e.Handled = true; //.Handled significa que nosotros nos haremos cargo del codigo
+                                  //al ser true, evita que apareca la tecla presionada
+                lbx_Dificuldad_Setting.Focus();
+            }
+        }
+
+        private void lbx_Dificuldad_Setting_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // 'e' almacena la tecla presionada
+            if (e.KeyChar == (char)27) //si la tecla pesionada es igual a ESC (27)
+            {
+                Btn_Cancel.PerformClick();
+            }
+            else
+                if (e.KeyChar == (char)13) //si la tecla pesionada es igual a ENTER (13)
+            {
+                e.Handled = true; //.Handled significa que nosotros nos haremos cargo del codigo
+                                  //al ser true, evita que apareca la tecla presionada
+                tbx_Player1.Focus();
+            }
+        }
+
+        // para que se escriba N/A como pasage sin no ponen nada
+        private void tbx_Pasage_TextChanged(object sender, EventArgs e)
+        {
+            if (tbx_Pasage.Text == "")
+            {
+                tbx_Pasage.Text = "N/A";
+                tbx_Pasage.SelectAll();
+            }
+        }
     }
 }

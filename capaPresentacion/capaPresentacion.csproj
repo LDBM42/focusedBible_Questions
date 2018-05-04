@@ -124,6 +124,9 @@
     <None Include="Resources\50-percent_MouseOn.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\Passage_Mouse_Leave.png" />
+    <Content Include="Resources\Passage_Mouse_On.png" />
+    <Content Include="Resources\Passage_N_A.png" />
     <Content Include="Resources\Settings_MouseUp.png" />
     <Content Include="Resources\Settings.png" />
   </ItemGroup>

@@ -18,7 +18,7 @@ namespace capaPresentacion
 {
     public partial class P_focusedBibles : Form
     {
-        public P_focusedBibles(string player1 = "Player One", string player2 = "Player Two", 
+        public P_focusedBibles(string player1 = "Player One", string player2 = "Player Two",
             int numRounds = 0, int time2Answer = 20, int Rounds = 1, string difficulty = "Normal")
         {
             this.difficulty = difficulty;
@@ -34,17 +34,21 @@ namespace capaPresentacion
 
 
         //variables
+        int timeToIncrease = 15;
         string player1;
         string player2;
         int numRounds;
         int time2Answer;
         SoundPlayer sonido;
-        int? [] noRepetir;
-        int? [] noRepetir_PorDificultad; // para que no se repitan cuando se eligen solo x dificultad
-        E_focusedBible [] lista_porDificultad; // Para almacenar la lista completa y asi evitar que se repitan
+        int?[] noRepetir;
+        int?[] noRepetir_PorDificultad; // para que no se repitan cuando se eligen solo x dificultad
+        E_focusedBible[] lista_porDificultad; // Para almacenar la lista completa y asi evitar que se repitan
         int numeroPrueba;
         int click50_1 = 0; // para saber si el jugador 1 ya ha entrado al evento click de el comodin 50%
         int click50_2 = 0; // para saber si el jugador 1 ya ha entrado al evento click de el comodin 50%
+        int clickPassage_1 = 0; // para saber si el jugador 1 ya ha entrado al evento click de el Passage_1
+        int clickPassage_2 = 0; // para saber si el jugador 1 ya ha entrado al evento click de el Passage_1
+        string passage = "";
         int i = 0;
         int countUp = 0;
         int countDownTimer = 3;
@@ -65,9 +69,13 @@ namespace capaPresentacion
         int enumerate = 1; // para ponerle número a las preguntas
         string[] comodin50_1 = new string[] { "0", "+1", "+2", "+3" };
         string[] comodin50_2 = new string[] { "0", "+1", "+2", "+3" };
+        string[] comodinPassage_1 = new string[] { "0", "+1", "+2", "+3" };
+        string[] comodinPassage_2 = new string[] { "0", "+1", "+2", "+3" };
         char[] desaparecer50 = new char[] { 'a', 'b', 'c', 'd' };
-        int countDownComodin_1 = 2;
+        int countDownComodin_1 = 3;
         int countDownComodin_2 = 3;
+        int countDownPassage_1 = 3;
+        int countDownPassage_2 = 3;
         Banners Banner;
         Settings settings = new Settings();
         E_focusedBible objEntidad = new E_focusedBible();
@@ -79,6 +87,7 @@ namespace capaPresentacion
 
         private void P_focusedBibles_Load(object sender, EventArgs e)
         {
+            this.AddOwnedForm(settings); //indica que este va a ser el papa del form settings
             lab_Wins_P1.Text = Convert.ToString(wins_01);
             lab_Wins_P2.Text = Convert.ToString(wins_02);
             tlyo_Wins_P1.Visible = true;
@@ -95,9 +104,9 @@ namespace capaPresentacion
             banner = "Round" + round;
             reproducirSonido("levelclearer.wav", true);
             objEntidad.dificultad = difficulty;
-            noRepetir = new int? [objNego.N_NumFilas()]; // el tamaño es el tamaño del numero de filas
-            noRepetir_PorDificultad = new int? [objNego.N_NumFilas_PorDificultad(objEntidad)]; // el tamaño es el tamaño del numero de filas
-            lista_porDificultad = new E_focusedBible [objNego.N_NumFilas_PorDificultad(objEntidad)];
+            noRepetir = new int?[objNego.N_NumFilas()]; // el tamaño es el tamaño del numero de filas
+            noRepetir_PorDificultad = new int?[objNego.N_NumFilas_PorDificultad(objEntidad)]; // el tamaño es el tamaño del numero de filas
+            lista_porDificultad = new E_focusedBible[objNego.N_NumFilas_PorDificultad(objEntidad)];
             Llenar_listaPorDificultad(objEntidad);
             listarFocusedBible(objEntidad);
             focoRbtn();
@@ -125,11 +134,10 @@ namespace capaPresentacion
 
                 lista_porDificultad[i] = dificultad;
             }
-            
+
         }
         void listarFocusedBible(E_focusedBible preg)
         {
-
             if (difficulty == "All")
             {
                 randomQuestions();
@@ -144,6 +152,7 @@ namespace capaPresentacion
                     rbtn_c.Text = "c)   " + dt.Rows[0]["c"].ToString();
                     rbtn_d.Text = "d)   " + dt.Rows[0]["d"].ToString();
                     preg.resp = Convert.ToChar(dt.Rows[0]["resp"].ToString());
+                    passage = dt.Rows[0]["pasage"].ToString();
                 }
             }
             else
@@ -156,8 +165,10 @@ namespace capaPresentacion
                 rbtn_c.Text = "c)   " + lista_porDificultad[numeroPrueba].c;
                 rbtn_d.Text = "d)   " + lista_porDificultad[numeroPrueba].d;
                 preg.resp = lista_porDificultad[numeroPrueba].resp;
+                passage = lista_porDificultad[numeroPrueba].pasage;
             }
 
+            bockPassage(); //si no existe pasage de referencia, se bloquea este comodin
             enumerate++;
         }
 
@@ -172,6 +183,7 @@ namespace capaPresentacion
                 {
                     restart = true;
                     reset_PlayAgain();
+                    Banner.Hide();
                 }
                 else
                 {
@@ -257,7 +269,8 @@ namespace capaPresentacion
                 {
                     lab_correctWrong(0);
                 }
-            } else
+            }
+            else
                 if (rbtn_b.Checked == true)
             {
                 if (objEntidad.resp == 'b')
@@ -293,7 +306,7 @@ namespace capaPresentacion
                     lab_correctWrong(0);
                 }
             }
-            
+
 
             // Cambio de Jugador
             if (turno == 1)
@@ -347,7 +360,7 @@ namespace capaPresentacion
             Banner = new Banners(banner);
             Banner.Show();
             Timer_Banner.Start();
-            if ( banner == "Round " + round)  // solo se reproduce el sonido si es un cambio de round
+            if (banner == "Round " + round)  // solo se reproduce el sonido si es un cambio de round
             {
                 reproducirSonido("start-ready-go.wav", false);
             }
@@ -366,6 +379,8 @@ namespace capaPresentacion
                     Thread.Sleep(700);
                     restart = true;
                     reset_PlayAgain();
+                    Banner.Hide();
+
                 }
                 else
                 {
@@ -376,7 +391,7 @@ namespace capaPresentacion
         void perder_Ganar()
         {
             //condicion para perder
-            if (lifes_1 == 0 || lifes_2 == 0 || ((countUp == noRepetir_PorDificultad.Length)&&(difficulty != "All")))
+            if (lifes_1 == 0 || lifes_2 == 0 || ((countUp == noRepetir_PorDificultad.Length) && (difficulty != "All")))
             {
                 Timer_2Answer.Stop(); //detener conteo
                 reproducirSonido("game-over.wav", false);
@@ -399,7 +414,7 @@ namespace capaPresentacion
                     }
                 }
                 else
-                    if(((countUp == noRepetir_PorDificultad.Length) && (difficulty != "All"))) // si se acaban las preguntas, se acaba el juego
+                    if (((countUp == noRepetir_PorDificultad.Length) && (difficulty != "All"))) // si se acaban las preguntas, se acaba el juego
                 {
                     Thread.Sleep(1500);
 
@@ -466,19 +481,23 @@ namespace capaPresentacion
                 wins_02 = 0;
                 score_1 = 0;
                 score_2 = 0;
+                passage = "";
                 lab_Rounds_Left.Text = round + "/" + Rounds;
                 lab_Rounds_Right.Text = round + "/" + Rounds;
                 lab_Wins_P1.Text = Convert.ToString(wins_01);
                 lab_Wins_P2.Text = Convert.ToString(wins_02);
 
                 Array.Clear(noRepetir, 0, noRepetir.Length); // vaciar arreglo
-                Array.Clear(noRepetir_PorDificultad , 0, noRepetir_PorDificultad.Length); // vaciar arreglo
+                Array.Clear(noRepetir_PorDificultad, 0, noRepetir_PorDificultad.Length); // vaciar arreglo
             }
 
             lifes_1 = 3;
             lifes_2 = 3;
-            countDownComodin_1 = 2;
-            countDownComodin_2 = 2;
+            countDownComodin_1 = 3;
+            countDownComodin_2 = 3;
+            countDownPassage_1 = 3;
+            countDownPassage_2 = 3;
+            Lab_Passage_Shown_1.Text = "";
 
             Timer_2Answer.Start();
 
@@ -487,7 +506,7 @@ namespace capaPresentacion
                 AfterCountDown(true);
                 banner = "Round" + round; // resetear banner
             }
-            
+
 
 
             lab_LifesNum.Text = Convert.ToString(lifes_1);
@@ -498,7 +517,19 @@ namespace capaPresentacion
 
             lab_50_1.Text = "+3";
             lab_50_2.Text = "+3";
+            pbx_50_1.Enabled = true;
+            pbx_50_2.Enabled = true;
+            lab_50_1.Enabled = true;
+            lab_50_2.Enabled = true;
 
+            lab_Passage_1.Text = "+3";
+            lab_Passage_2.Text = "+3";
+            pbx_Passage_1.Enabled = true;
+            pbx_Passage_2.Enabled = true;
+            lab_Passage_1.Enabled = true;
+            lab_Passage_2.Enabled = true;
+            pbx_Passage_1.Image = Properties.Resources.Passage_Mouse_Leave;
+            pbx_Passage_2.Image = Properties.Resources.Passage_Mouse_Leave;
         }
 
 
@@ -608,7 +639,7 @@ namespace capaPresentacion
             if (answer == 0)
             {
                 correctAnswer();
-                
+
                 reproducirSonido("retro-lose.wav", false);
                 lab_Anuncios.ForeColor = Color.Brown;
                 lab_Anuncios.Text = "Wrong Answer";
@@ -617,7 +648,7 @@ namespace capaPresentacion
                 {
                     cambioDeTurno(turno, false);
                 }
-                
+
             }
             else
             {
@@ -655,6 +686,12 @@ namespace capaPresentacion
         {
             if (turno == 1)
             {
+                // si hay cambio de turno y pasage no es igual a N/A o "", Ni se ha acabado el comodin passage
+                if (passage != "N/A" && passage != "" && lab_Passage_1.Text != "0")
+                {
+                    lab_Passage_1.Enabled = true;
+                }
+
                 //para poder cambiar el tamaño de la fuente hay que instanciarla y pasarle los parametros siguientes.
                 lab_Player1.Font = new Font(lab_Player1.Font.Name, 20, lab_Player1.Font.Style, lab_Player1.Font.Unit);
                 //para cambiar el color a gris
@@ -672,6 +709,12 @@ namespace capaPresentacion
             }
             else // si el turno es 2
             {
+                // si hay cambio de turno y pasage no es igual a N/A o "", Ni se ha acabado el comodin passage
+                if (passage != "N/A" && passage != "" && lab_Passage_2.Text != "0")
+                {
+                    lab_Passage_2.Enabled = true;
+                }
+
                 lab_Player2.Font = new Font(lab_Player2.Font.Name, 20, lab_Player2.Font.Style, lab_Player2.Font.Unit);
                 lab_Player2.ForeColor = Color.FromArgb(228, 161, 24);
 
@@ -717,14 +760,29 @@ namespace capaPresentacion
         void cambioDeTurno(int turno, bool answerCorrect) // si el turno es uno y la respuesta fue correcta
         {
             // para desactivar el 50% si ya se ha acabado
-            if (lab_50_1.Text == "0")
+            if (turno == 1 && lab_50_1.Text == "0")
             {
+                lab_50_1.Enabled = false;
                 pbx_50_1.Enabled = false;
             }
             else
-                if (lab_50_2.Text == "0")
+                if (turno == 2 && lab_50_2.Text == "0")
             {
+                lab_50_2.Enabled = false;
                 pbx_50_2.Enabled = false;
+            }
+
+            // para desactivar el comodinPassage si ya se ha acabado
+            if (turno == 1 && lab_Passage_1.Text == "0")
+            {
+                lab_Passage_1.Enabled = false;
+                pbx_Passage_1.Enabled = false;
+            }
+            else
+                if (turno == 2 && lab_Passage_2.Text == "0")
+            {
+                lab_Passage_2.Enabled = false;
+                pbx_Passage_2.Enabled = false;
             }
 
             //Codigo del metodo
@@ -732,6 +790,11 @@ namespace capaPresentacion
             {
                 click50_2 = 0; // reiniciar a 0 para poder usar el comodin 50% en su proximo turno
                 pbx_50_2.Enabled = true; // activar comodin anterior al cambiar de turno
+
+                clickPassage_2 = 0; // reiniciar a 0 para poder usar el comodin Passage en su proximo turno
+                pbx_Passage_2.Enabled = true; // activar comodin anterior al cambiar de turno
+                Lab_Passage_Shown_2.Text = "";
+                pbx_Passage_2.Image = Properties.Resources.Passage_Mouse_Leave; // volver a cargar imagen inicial
 
                 if (answerCorrect == true)
                 {
@@ -749,6 +812,11 @@ namespace capaPresentacion
             {
                 click50_1 = 0; // reiniciar a 0 para poder usar el comodin 50% en su proximo turno
                 pbx_50_1.Enabled = true; // activar comodin anterior al cambiar de turno
+
+                clickPassage_1 = 0; // reiniciar a 0 para poder usar el comodin Passage en su proximo turno
+                pbx_Passage_1.Enabled = true; // activar comodin anterior al cambiar de turno
+                Lab_Passage_Shown_1.Text = "";
+                pbx_Passage_1.Image = Properties.Resources.Passage_Mouse_Leave; // volver a cargar imagen inicial
 
                 if (answerCorrect == true)
                 {
@@ -779,11 +847,11 @@ namespace capaPresentacion
                 salir = MessageBox.Show(lab_Player2.Text + ", Are Sure you want to Exit?", "Warning", MessageBoxButtons.YesNo);
             }
 
-            if(salir == DialogResult.Yes)
+            if (salir == DialogResult.Yes)
             {
                 Application.Exit();
-            }          
-            
+            }
+
         }
 
 
@@ -791,7 +859,10 @@ namespace capaPresentacion
 
         private void pbx_50_MouseEnter(object sender, EventArgs e)
         {
-            pbx_50_1.Image = Properties.Resources._50_percent_MouseOn;
+            if (lab_50_1.Text != "0")
+            {
+                pbx_50_1.Image = Properties.Resources._50_percent_MouseOn;
+            }
         }
         private void pbx_50_MouseLeave(object sender, EventArgs e)
         {
@@ -801,8 +872,8 @@ namespace capaPresentacion
         {
             if (lab_50_1.Text != "0")
             {
-                lab_50_1.Text = comodin50_1[countDownComodin_1];
                 countDownComodin_1--;
+                lab_50_1.Text = comodin50_1[countDownComodin_1];
                 random50();
                 pbx_50_1.Enabled = false;
                 focoRbtn();
@@ -811,9 +882,13 @@ namespace capaPresentacion
                 uncheckRbtn();
             }
         }
+
         private void pbx_50_2_MouseEnter(object sender, EventArgs e)
         {
-            pbx_50_2.Image = Properties.Resources._50_percent_MouseOn;
+            if (lab_50_2.Text != "0")
+            {
+                pbx_50_2.Image = Properties.Resources._50_percent_MouseOn;
+            }
         }
         private void pbx_50_2_MouseLeave(object sender, EventArgs e)
         {
@@ -823,8 +898,8 @@ namespace capaPresentacion
         {
             if (lab_50_2.Text != "0")
             {
-                lab_50_2.Text = comodin50_2[countDownComodin_2];
                 countDownComodin_2--;
+                lab_50_2.Text = comodin50_2[countDownComodin_2];
                 random50();
                 pbx_50_2.Enabled = false;
                 focoRbtn();
@@ -856,14 +931,14 @@ namespace capaPresentacion
             int i = 0;
             int indice;
 
-            while(i != 2)
+            while (i != 2)
             {
                 indice = random.Next(0, 3);
                 if (objEntidad.resp != desaparecer50[indice])
                 {
-                    if(desaparecer50[indice] == 'a')
+                    if (desaparecer50[indice] == 'a')
                     {
-                        if(rbtn_a.Visible == true) // condicion para saber si ya se ha vuelto invisible,
+                        if (rbtn_a.Visible == true) // condicion para saber si ya se ha vuelto invisible,
                                                     //para que no lo cuente denuevo
                         {
                             rbtn_a.Enabled = false;
@@ -908,7 +983,7 @@ namespace capaPresentacion
 
         private void countDown_Tick(object sender, EventArgs e)
         {
-            if(countDownTimer != 1)
+            if (countDownTimer != 1)
             {
                 countDownTimer--;
             }
@@ -918,8 +993,8 @@ namespace capaPresentacion
                 countDown.Stop();
                 lab_Anuncios.Text = "";
 
-                if(banner == lab_Player1.Text + " Wins" || banner == lab_Player2.Text + " Wins")
-                {               
+                if (banner == lab_Player1.Text + " Wins" || banner == lab_Player2.Text + " Wins")
+                {
                 }
                 else
                     if (((countUp == noRepetir_PorDificultad.Length) && (difficulty != "All")))
@@ -930,7 +1005,7 @@ namespace capaPresentacion
                 {
                     AfterCountDown();
                 }
-                
+
             }
         }
 
@@ -940,7 +1015,7 @@ namespace capaPresentacion
             {
                 Thread.Sleep(1500);
             }
-            
+
             answerOriginalColor(); // aqui cambian las respuestas al color original
             listarFocusedBible(objEntidad); //lista las preguntas y respuestas
             uncheckRbtn(); //desmarca las respuestas
@@ -953,12 +1028,14 @@ namespace capaPresentacion
             if (turno == 1)
             {
                 activarComidin(1);
+                activarPassage(1);
                 PlayerFocus(1);
                 reproducirSonido("levelclearer.wav", true);
             }
             else
             {
                 activarComidin(2);
+                activarPassage(2);
                 PlayerFocus(2);
                 reproducirSonido("levelclearer.wav", true);
             }
@@ -992,7 +1069,7 @@ namespace capaPresentacion
             selectAnswer(e);
         }
 
-    
+
 
         void selectAnswer(KeyPressEventArgs e)
         {
@@ -1003,17 +1080,17 @@ namespace capaPresentacion
             }
             else
                 if (e.KeyChar == (char)13 && btn_Submit.Enabled == true) //si la tecla pesionada es igual a ENTER (13)
+            {
+                // si el foco esta en exit entonces se da clic a Exit, pero si esta en otro lado, da clic en Submit
+                if (btn_Exit.Focused == true)
                 {
-                    // si el foco esta en exit entonces se da clic a Exit, pero si esta en otro lado, da clic en Submit
-                    if (btn_Exit.Focused == true)
-                    {
-                        btn_Exit.PerformClick();
-                    }
-                    else
-                    {
-                        btn_Submit.PerformClick();
-                    }
+                    btn_Exit.PerformClick();
                 }
+                else
+                {
+                    btn_Submit.PerformClick();
+                }
+            }
             else
                 if ((e.KeyChar == (char)49 || e.KeyChar == (char)97 || e.KeyChar == (char)65) && rbtn_a.Visible == true)
             {
@@ -1048,13 +1125,43 @@ namespace capaPresentacion
                 if (turno == 1 && click50_1 == 0)
                 {
                     click50_1++;
+                    pbx_50_MouseEnter(this, new EventArgs());
                     pbx_50_Click(this, new EventArgs());
+                    Thread.Sleep(200);
+                    pbx_50_MouseLeave(this, new EventArgs());
                 }
                 else
-                    if(turno == 2 && click50_2 == 0)
+                    if (turno == 2 && click50_2 == 0)
                 {
                     click50_2++;
+                    pbx_50_2_MouseEnter(this, new EventArgs());
                     pbx_50_2_Click(this, new EventArgs());
+                    Thread.Sleep(200);
+                    pbx_50_2_MouseLeave(this, new EventArgs());
+                }
+            }
+            else
+                if ((e.KeyChar == (char)42 || e.KeyChar == (char)43)) // signos '*' y '+' para el comodin Passage
+            {
+                if (passage != "N/A" && passage != "") // solo da click si existe algun pasaje
+                {
+                    if (turno == 1 && clickPassage_1 == 0)
+                    {
+                        clickPassage_1++;
+                        pbx_Passage_1_MouseEnter(this, new EventArgs());
+                        pbx_Passage_1_Click(this, new EventArgs());
+                        Thread.Sleep(200);
+                        pbx_Passage_1_MouseLeave(this, new EventArgs());
+                    }
+                    else
+                    if (turno == 2 && clickPassage_2 == 0)
+                    {
+                        clickPassage_2++;
+                        pbx_Passage_2_MouseEnter(this, new EventArgs());
+                        pbx_Passage_2_Click(this, new EventArgs());
+                        Thread.Sleep(200);
+                        pbx_Passage_2_MouseLeave(this, new EventArgs());
+                    }
                 }
             }
 
@@ -1092,7 +1199,7 @@ namespace capaPresentacion
         private void rbtn_a_CheckedChanged(object sender, EventArgs e)
         {
             if (btn_Submit.Enabled == false)
-            btn_Submit.Enabled = true;
+                btn_Submit.Enabled = true;
         }
         private void rbtn_b_CheckedChanged(object sender, EventArgs e)
         {
@@ -1117,7 +1224,6 @@ namespace capaPresentacion
         {
             OpenSettings();
         }
-
         private void OpenSettings()
         {
             settings.numRounds = Rounds;
@@ -1137,12 +1243,12 @@ namespace capaPresentacion
                 if (existe != null)
 
                 {
-                    settings.Show();
+                    settings.ShowDialog();
                 }
             }
             catch (Exception)
             {
-                settings.Show();
+                settings.ShowDialog();
             }
 
         }
@@ -1154,6 +1260,9 @@ namespace capaPresentacion
         {
             Btn_Settings.Image = Properties.Resources.Settings;
         }
+
+
+
 
         private void Timer_2Answer_Tick(object sender, EventArgs e)
         {
@@ -1182,7 +1291,6 @@ namespace capaPresentacion
                 }
             }
         }
-
         private void RestartTimer_2Answer()
         {
             Timer_2Answer.Stop();
@@ -1191,7 +1299,6 @@ namespace capaPresentacion
 
         private void P_focusedBibles_Activated(object sender, EventArgs e)
         {
-           
             Timer_2Answer.Start();
 
             if (sonido != null)
@@ -1202,17 +1309,131 @@ namespace capaPresentacion
 
         private void Timer_Banner_Tick(object sender, EventArgs e)
         {
-            
+
             if (countDownTimer3 != 0)
             {
                 countDownTimer3--;
             }
             else
             {
-                Banner.Hide();
+                if (banner == "Round " + round)  // solo se reproduce el sonido si es un cambio de round
+                {
+                    Banner.Hide();
+                }
                 countDownTimer3 = 3;
                 Timer_Banner.Stop();
                 StartAgan();
+            }
+        }
+
+
+
+        private void pbx_Passage_1_MouseEnter(object sender, EventArgs e)
+        {
+            if (lab_Passage_1.Text != "0")
+            {
+                pbx_Passage_1.Image = Properties.Resources.Passage_Mouse_On;
+            }
+        }
+        private void pbx_Passage_1_MouseLeave(object sender, EventArgs e)
+        {
+            pbx_Passage_1.Image = Properties.Resources.Passage_Mouse_Leave;
+        }
+        private void pbx_Passage_1_Click(object sender, EventArgs e)
+        {
+            if (lab_Passage_1.Text != "0")
+            {
+                countDownPassage_1--;
+                lab_Passage_1.Text = comodinPassage_1[countDownPassage_1];
+                ShowPassage(1);
+                increaseTime2Answer(timeToIncrease); // incrementa 'x' segundos el time2Answer de ese turno
+                pbx_Passage_1.Enabled = false;
+            }
+        }
+
+        private void pbx_Passage_2_MouseEnter(object sender, EventArgs e)
+        {
+            if (lab_Passage_2.Text != "0")
+            {
+                pbx_Passage_2.Image = Properties.Resources.Passage_Mouse_On;
+            }
+        }
+        private void pbx_Passage_2_MouseLeave(object sender, EventArgs e)
+        {
+            pbx_Passage_2.Image = Properties.Resources.Passage_Mouse_Leave;
+        }
+        private void pbx_Passage_2_Click(object sender, EventArgs e)
+        {
+            if (lab_Passage_2.Text != "0")
+            {
+                countDownPassage_2--;
+                lab_Passage_2.Text = comodinPassage_2[countDownPassage_2];
+                ShowPassage(2);
+                increaseTime2Answer(timeToIncrease); // incrementa 'x' segundos el time2Answer de ese turno
+                pbx_Passage_2.Enabled = false;
+            }
+        }
+
+        void ShowPassage(int turno)
+        {
+            if (turno == 1)
+            {
+                Lab_Passage_Shown_1.Text = passage;
+                Lab_Passage_Shown_2.Text = "";
+            }
+            else
+            {
+                Lab_Passage_Shown_2.Text = passage;
+                Lab_Passage_Shown_1.Text = "";
+            }
+        }
+        void activarPassage(int turno)
+        {
+            if (turno == 1)
+            {
+                pbx_Passage_2.Visible = false;
+                lab_Passage_2.Visible = false;
+                Lab_Passage_Shown_2.Visible = false;
+                pbx_Passage_1.Visible = true;
+                lab_Passage_1.Visible = true;
+                Lab_Passage_Shown_1.Visible = true;
+            }
+            else
+            {
+                pbx_Passage_1.Visible = false;
+                lab_Passage_1.Visible = false;
+                Lab_Passage_Shown_1.Visible = false;
+                pbx_Passage_2.Visible = true;
+                lab_Passage_2.Visible = true;
+                Lab_Passage_Shown_2.Visible = true;
+            }
+        }
+        void increaseTime2Answer(int timeToIncrease) //aumenta el tiempo 'x' segundos al elegir el comodin Passage
+        {
+            countDownTimer2 += timeToIncrease;
+        }
+
+        void bockPassage()
+        {
+            if (passage == "N/A" || passage == "")
+            {
+                if (turno == 1 && lab_Passage_1.Text != "0") // si es el turno 1 y no se han acabado
+                {
+                    Lab_Passage_Shown_1.Text = "";
+                    pbx_Passage_1.Image = Properties.Resources.Passage_N_A;
+                    //lab_Passage_1.Text = comodinPassage_1[countDownPassage_1];
+                    pbx_Passage_1.Enabled = false;
+                    lab_Passage_1.Enabled = false;
+                }
+                else
+                if (turno == 2 && lab_Passage_2.Text != "0") // si es el turno 2 y no se han acabado
+                {
+                    Lab_Passage_Shown_2.Text = "";
+                    pbx_Passage_2.Image = Properties.Resources.Passage_N_A;
+                    //lab_Passage_1.Text = comodinPassage_2[countDownPassage_2];
+                    pbx_Passage_2.Enabled = false;
+                    lab_Passage_2.Enabled = false;
+                }
             }
         }
     }

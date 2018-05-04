@@ -502,6 +502,7 @@
             this.tbx_Pasage.TabIndex = 1;
             this.tbx_Pasage.Text = "Gn 1:1";
             this.tbx_Pasage.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tbx_Pasage_MouseClick);
+            this.tbx_Pasage.TextChanged += new System.EventHandler(this.tbx_Pasage_TextChanged);
             // 
             // tbx_Resp
             // 
@@ -700,6 +701,7 @@
             this.lbx_Dificuldad_Setting.Size = new System.Drawing.Size(265, 50);
             this.lbx_Dificuldad_Setting.TabIndex = 5;
             this.lbx_Dificuldad_Setting.Enter += new System.EventHandler(this.lbx_Dificuldad_Setting_Enter);
+            this.lbx_Dificuldad_Setting.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.lbx_Dificuldad_Setting_KeyPress);
             this.lbx_Dificuldad_Setting.Leave += new System.EventHandler(this.lbx_Dificuldad_Setting_Leave);
             // 
             // label6
@@ -773,6 +775,7 @@
             this.lbx_Rounds.Size = new System.Drawing.Size(265, 46);
             this.lbx_Rounds.TabIndex = 1;
             this.lbx_Rounds.Enter += new System.EventHandler(this.lbx_Rounds_Enter);
+            this.lbx_Rounds.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.lbx_Rounds_KeyPress);
             this.lbx_Rounds.Leave += new System.EventHandler(this.lbx_Rounds_Leave);
             // 
             // tableLayoutPanel10
@@ -787,7 +790,7 @@
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
             this.tableLayoutPanel10.RowCount = 1;
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 46F));
             this.tableLayoutPanel10.Size = new System.Drawing.Size(265, 46);
             this.tableLayoutPanel10.TabIndex = 3;
             // 
@@ -863,6 +866,7 @@
             this.lbx_time2Answer.Size = new System.Drawing.Size(153, 40);
             this.lbx_time2Answer.TabIndex = 0;
             this.lbx_time2Answer.Enter += new System.EventHandler(this.lbx_time2Answer_Enter);
+            this.lbx_time2Answer.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.lbx_time2Answer_KeyPress);
             this.lbx_time2Answer.Leave += new System.EventHandler(this.lbx_time2Answer_Leave);
             // 
             // label5
@@ -988,7 +992,6 @@
             this.Name = "Settings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Questions focusedBible";
-            this.TopMost = true;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Settings_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
