@@ -59,6 +59,13 @@
             this.tlyo_AddQuest = new System.Windows.Forms.TableLayoutPanel();
             this.lab_NoQuest = new System.Windows.Forms.Label();
             this.lab_Quest = new System.Windows.Forms.Label();
+            this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
+            this.btn_how2Play = new System.Windows.Forms.Button();
+            this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
+            this.lab_User = new System.Windows.Forms.Label();
+            this.btn_Logout = new System.Windows.Forms.Button();
+            this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
+            this.btn_newUser = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.btn_Settings = new System.Windows.Forms.Button();
@@ -87,6 +94,9 @@
             this.tableLayoutPanel8.SuspendLayout();
             this.tableLayoutPanel11.SuspendLayout();
             this.tlyo_AddQuest.SuspendLayout();
+            this.tableLayoutPanel12.SuspendLayout();
+            this.tableLayoutPanel13.SuspendLayout();
+            this.tableLayoutPanel14.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.tlyo_Settings.SuspendLayout();
@@ -112,7 +122,7 @@
             this.btn_submit.TabIndex = 1;
             this.btn_submit.Text = "Start New Game";
             this.btn_submit.UseVisualStyleBackColor = false;
-            this.btn_submit.Click += new System.EventHandler(this.button1_Click);
+            this.btn_submit.Click += new System.EventHandler(this.btn_submit_Click);
             // 
             // lab_Player1H
             // 
@@ -210,6 +220,7 @@
             this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel6, 1, 3);
             this.tableLayoutPanel4.Controls.Add(this.gbx_AddQuest, 1, 2);
             this.tableLayoutPanel4.Controls.Add(this.tlyo_AddQuest, 1, 1);
+            this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel12, 1, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(863, 3);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
@@ -563,6 +574,121 @@
             this.lab_Quest.Text = "Add Question No.";
             this.lab_Quest.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
+            // tableLayoutPanel12
+            // 
+            this.tableLayoutPanel12.ColumnCount = 3;
+            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel12.Controls.Add(this.btn_how2Play, 2, 1);
+            this.tableLayoutPanel12.Controls.Add(this.tableLayoutPanel13, 1, 1);
+            this.tableLayoutPanel12.Controls.Add(this.tableLayoutPanel14, 1, 2);
+            this.tableLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel12.Location = new System.Drawing.Point(45, 2);
+            this.tableLayoutPanel12.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tableLayoutPanel12.Name = "tableLayoutPanel12";
+            this.tableLayoutPanel12.RowCount = 3;
+            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel12.Size = new System.Drawing.Size(313, 178);
+            this.tableLayoutPanel12.TabIndex = 15;
+            // 
+            // btn_how2Play
+            // 
+            this.btn_how2Play.BackColor = System.Drawing.Color.White;
+            this.btn_how2Play.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_how2Play.FlatAppearance.BorderSize = 0;
+            this.btn_how2Play.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_how2Play.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Bold);
+            this.btn_how2Play.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(24)))));
+            this.btn_how2Play.Image = ((System.Drawing.Image)(resources.GetObject("btn_how2Play.Image")));
+            this.btn_how2Play.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_how2Play.Location = new System.Drawing.Point(252, 43);
+            this.btn_how2Play.Name = "btn_how2Play";
+            this.btn_how2Play.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btn_how2Play.Size = new System.Drawing.Size(58, 74);
+            this.btn_how2Play.TabIndex = 14;
+            this.btn_how2Play.UseVisualStyleBackColor = false;
+            this.btn_how2Play.Click += new System.EventHandler(this.btn_how2Play_Click);
+            // 
+            // tableLayoutPanel13
+            // 
+            this.tableLayoutPanel13.ColumnCount = 1;
+            this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel13.Controls.Add(this.lab_User, 0, 0);
+            this.tableLayoutPanel13.Controls.Add(this.btn_Logout, 0, 1);
+            this.tableLayoutPanel13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel13.Location = new System.Drawing.Point(65, 43);
+            this.tableLayoutPanel13.Name = "tableLayoutPanel13";
+            this.tableLayoutPanel13.RowCount = 2;
+            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel13.Size = new System.Drawing.Size(181, 74);
+            this.tableLayoutPanel13.TabIndex = 17;
+            // 
+            // lab_User
+            // 
+            this.lab_User.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lab_User.AutoSize = true;
+            this.lab_User.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.lab_User.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.lab_User.Location = new System.Drawing.Point(54, 4);
+            this.lab_User.Name = "lab_User";
+            this.lab_User.Size = new System.Drawing.Size(73, 29);
+            this.lab_User.TabIndex = 15;
+            this.lab_User.Text = "User:";
+            this.lab_User.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // btn_Logout
+            // 
+            this.btn_Logout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.btn_Logout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.btn_Logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Logout.Font = new System.Drawing.Font("Rockwell", 10F, System.Drawing.FontStyle.Bold);
+            this.btn_Logout.ForeColor = System.Drawing.Color.White;
+            this.btn_Logout.Image = global::capaPresentacion.Properties.Resources.logout;
+            this.btn_Logout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Logout.Location = new System.Drawing.Point(29, 40);
+            this.btn_Logout.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.btn_Logout.Name = "btn_Logout";
+            this.btn_Logout.Size = new System.Drawing.Size(122, 34);
+            this.btn_Logout.TabIndex = 16;
+            this.btn_Logout.Text = "      Logout";
+            this.btn_Logout.UseVisualStyleBackColor = false;
+            this.btn_Logout.Click += new System.EventHandler(this.btn_Logout_Click);
+            // 
+            // tableLayoutPanel14
+            // 
+            this.tableLayoutPanel14.ColumnCount = 1;
+            this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel14.Controls.Add(this.btn_newUser, 0, 0);
+            this.tableLayoutPanel14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel14.Location = new System.Drawing.Point(62, 120);
+            this.tableLayoutPanel14.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel14.Name = "tableLayoutPanel14";
+            this.tableLayoutPanel14.RowCount = 2;
+            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 32F));
+            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 68F));
+            this.tableLayoutPanel14.Size = new System.Drawing.Size(187, 58);
+            this.tableLayoutPanel14.TabIndex = 18;
+            // 
+            // btn_newUser
+            // 
+            this.btn_newUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.btn_newUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(24)))));
+            this.btn_newUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_newUser.Font = new System.Drawing.Font("Rockwell", 10F, System.Drawing.FontStyle.Bold);
+            this.btn_newUser.ForeColor = System.Drawing.Color.White;
+            this.btn_newUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_newUser.Location = new System.Drawing.Point(32, 3);
+            this.btn_newUser.Name = "btn_newUser";
+            this.btn_newUser.Size = new System.Drawing.Size(122, 12);
+            this.btn_newUser.TabIndex = 16;
+            this.btn_newUser.Text = "New User";
+            this.btn_newUser.UseVisualStyleBackColor = false;
+            this.btn_newUser.Click += new System.EventHandler(this.btn_newUser_Click);
+            // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 3;
@@ -909,9 +1035,9 @@
             this.Pxb_Logo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Pxb_Logo.Image = ((System.Drawing.Image)(resources.GetObject("Pxb_Logo.Image")));
-            this.Pxb_Logo.Location = new System.Drawing.Point(3, 3);
+            this.Pxb_Logo.Location = new System.Drawing.Point(3, 4);
             this.Pxb_Logo.Name = "Pxb_Logo";
-            this.Pxb_Logo.Size = new System.Drawing.Size(418, 176);
+            this.Pxb_Logo.Size = new System.Drawing.Size(418, 175);
             this.Pxb_Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Pxb_Logo.TabIndex = 12;
             this.Pxb_Logo.TabStop = false;
@@ -993,6 +1119,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Questions focusedBible";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Activated += new System.EventHandler(this.Settings_Activated);
             this.Load += new System.EventHandler(this.Settings_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
@@ -1004,6 +1131,10 @@
             this.tableLayoutPanel11.PerformLayout();
             this.tlyo_AddQuest.ResumeLayout(false);
             this.tlyo_AddQuest.PerformLayout();
+            this.tableLayoutPanel12.ResumeLayout(false);
+            this.tableLayoutPanel13.ResumeLayout(false);
+            this.tableLayoutPanel13.PerformLayout();
+            this.tableLayoutPanel14.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel7.ResumeLayout(false);
             this.tlyo_Settings.ResumeLayout(false);
@@ -1035,7 +1166,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
-        private System.Windows.Forms.Button btn_Exit;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.Button btn_NewQuests;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
@@ -1075,5 +1205,13 @@
         public System.Windows.Forms.ListBox lbx_Dificultad;
         private System.Windows.Forms.Label label6;
         public System.Windows.Forms.ListBox lbx_Dificuldad_Setting;
+        private System.Windows.Forms.Button btn_how2Play;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel12;
+        private System.Windows.Forms.Label lab_User;
+        private System.Windows.Forms.Button btn_Logout;
+        private System.Windows.Forms.Button btn_Exit;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel13;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel14;
+        private System.Windows.Forms.Button btn_newUser;
     }
 }

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2042
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "capaEntidad", "capaEntidad\capaEntidad.csproj", "{CAD12AFB-2D8E-4E24-B505-4B2BFD136A84}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "capaNegocio", "capaNegocio\capaNegocio.csproj", "{6D584920-0B44-4220-B19F-59CC14396E55}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "capaPresentacion", "capaPresentacion\capaPresentacion.csproj", "{737ADE3F-5DD4-4279-AC2E-52CF2DD7821D}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "focusedBible Setup", "focusedBible Setup.vdproj", "{2F985C7E-B587-4A05-A6FB-DD597F897F14}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,8 +35,13 @@ Global
 		{737ADE3F-5DD4-4279-AC2E-52CF2DD7821D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{737ADE3F-5DD4-4279-AC2E-52CF2DD7821D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{737ADE3F-5DD4-4279-AC2E-52CF2DD7821D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F985C7E-B587-4A05-A6FB-DD597F897F14}.Debug|Any CPU.ActiveCfg = Debug
+		{2F985C7E-B587-4A05-A6FB-DD597F897F14}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CE2EC9B8-65FC-4B47-A7B5-1238BBB78812}
 	EndGlobalSection
 EndGlobal

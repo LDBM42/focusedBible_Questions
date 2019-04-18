@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace capaPresentacion
@@ -16,7 +13,17 @@ namespace capaPresentacion
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Settings());
+
+
+            P_Login login = new P_Login();
+            login.ShowDialog();
+
+            //
+            // Si el login es correcto, procedo con la apertura normal
+            // de la aplicacion
+            //
+            if (login.DialogResult == DialogResult.OK)
+                Application.Run(new Settings());
         }
     }
 }

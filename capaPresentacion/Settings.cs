@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 using capaEntidad;
 using capaNegocio;
+using capaDatos;
 
 namespace capaPresentacion
 {
@@ -25,7 +26,9 @@ namespace capaPresentacion
 
         E_focusedBible objEntidad = new E_focusedBible();
         N_focusedBible objNego = new N_focusedBible();
+        D_Login login = new D_Login();
         P_focusedBibles PfocusedB;
+        HowToPlay howToPlay;
         string p1_Name;
         string p2_Name;
         public string difficulty;
@@ -34,15 +37,14 @@ namespace capaPresentacion
         int[] noQuestions;
 
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btn_submit_Click(object sender, EventArgs e)
         {
             Change_Settings();
 
-            // para saber si el formulario existe, o sea si está abierto o cerrado
+            // para saber si el formulario existe, o sea, si está abierto o cerrado
             Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "P_focusedBibles").SingleOrDefault<Form>();
 
             if (existe != null)
-
             {
                 existe.Close();
             }
@@ -50,7 +52,6 @@ namespace capaPresentacion
             PfocusedB = new P_focusedBibles(p1_Name, p2_Name, numRounds, time2Answer, numRounds, difficulty);
             this.Hide();
             PfocusedB.Show();
-
         }
 
         public void Change_Settings()
@@ -262,6 +263,7 @@ namespace capaPresentacion
             lbx_time2Answer.Text = Convert.ToString(time2Answer);
             numRounds = Convert.ToInt32(lbx_Rounds.Text);
             time2Answer = Convert.ToInt32(lbx_time2Answer.Text);
+            lab_User.Text = "User: " + E_Usuario.Nombreusuario;
         }
 
         private void btn_Settings_Click(object sender, EventArgs e)
@@ -387,6 +389,78 @@ namespace capaPresentacion
                 tbx_Pasage.Text = "N/A";
                 tbx_Pasage.SelectAll();
             }
+        }
+
+        private void btn_how2Play_Click(object sender, EventArgs e)
+        {
+            howToPlay = HowToPlay.GetInscance();
+            howToPlay.Show();
+            howToPlay.BringToFront();
+        }
+
+        private void btn_Logout_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Estás seguro de cerrar sección " +
+                E_Usuario.Nombreusuario + "?", "Cerrar Sección",
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                E_Usuario.Logged = 0; // para desactivar autologgin
+                //DESLOGEARSE
+                if (!(login.AutoLoginSet(E_Usuario.Nombreusuario, E_Usuario.Password, E_Usuario.Logged) == 1))
+                {
+                    MessageBox.Show("No se pudo hacer el cerrado de sección", "Cerado Sección");
+                }
+                else
+                {
+                    OpenSettings();
+                }
+
+            }
+        }
+
+
+        private void OpenSettings()
+        {
+
+            try
+            {   // para saber si el formulario existe, o sea si está abierto o cerrado
+                Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "P_Login").SingleOrDefault<Form>();
+                Form existe2 = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "P_focusedBibles").SingleOrDefault<Form>();
+
+                if (existe != null)
+                {
+                    existe.Close();
+                }
+
+                if (existe2 != null) // para cerrar el juego, en caso de haberse iniciado
+                {
+                    existe2.Close();
+                }
+
+                P_Login login = new P_Login();
+                login.reOpened++;
+                this.Hide();
+                login.Show();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Algo salió mal, Favor intentarlo nuevamente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+        }
+
+
+
+        private void btn_newUser_Click(object sender, EventArgs e)
+        {
+            P_Usuario usuario = new P_Usuario();
+            this.Hide();
+            usuario.Show();
+        }
+
+        private void Settings_Activated(object sender, EventArgs e)
+        {
+            lab_User.Text = "User: " + E_Usuario.Nombreusuario;
         }
     }
 }

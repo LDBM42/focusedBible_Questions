@@ -1,23 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using capaEntidad;
+using capaNegocio;
+using System;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Threading;
-
 using System.Media;
-
-using capaEntidad;
-using capaNegocio;
+using System.Threading;
+using System.Windows.Forms;
 
 namespace capaPresentacion
 {
     public partial class P_focusedBibles : Form
     {
+                
         public P_focusedBibles(string player1 = "Player One", string player2 = "Player Two",
             int numRounds = 0, int time2Answer = 20, int Rounds = 1, string difficulty = "Normal")
         {
@@ -31,9 +26,7 @@ namespace capaPresentacion
         }
 
 
-
-
-        //variables
+        #region Variables y Objetos
         int timeToIncrease = 15;
         string player1;
         string player2;
@@ -80,13 +73,14 @@ namespace capaPresentacion
         Settings settings = new Settings();
         E_focusedBible objEntidad = new E_focusedBible();
         N_focusedBible objNego = new N_focusedBible();
-
-
+        HowToPlay howToPlay;
+        #endregion
 
 
 
         private void P_focusedBibles_Load(object sender, EventArgs e)
         {
+            
             this.AddOwnedForm(settings); //indica que este va a ser el papa del form settings
             lab_Wins_P1.Text = Convert.ToString(wins_01);
             lab_Wins_P2.Text = Convert.ToString(wins_02);
@@ -252,9 +246,7 @@ namespace capaPresentacion
                 }
             }
         }
-
-
-
+        
         private void btn_Submit_Click(object sender, EventArgs e)
         {
             RestartTimer_2Answer();
@@ -323,8 +315,7 @@ namespace capaPresentacion
 
             btn_Submit.Enabled = false;
         }
-
-
+        
         private void reproducirSonido(string nombreArchivo, bool loop)
         {
             if (sonido != null)
@@ -349,8 +340,7 @@ namespace capaPresentacion
                 MessageBox.Show("Error: " + ex);
             }
         }
-
-
+        
         void BannerStart(string banner)
         {
             Thread.Sleep(2000);
@@ -531,9 +521,7 @@ namespace capaPresentacion
             pbx_Passage_1.Image = Properties.Resources.Passage_Mouse_Leave;
             pbx_Passage_2.Image = Properties.Resources.Passage_Mouse_Leave;
         }
-
-
-
+        
         void uncheckRbtn()
         {
             rbtn_a.Checked = false;
@@ -577,9 +565,7 @@ namespace capaPresentacion
                 rbtn_d.Checked = false;
             }
         }
-
-
-
+        
         void correctAnswer()
         {
             if ('a' == objEntidad.resp)
@@ -831,10 +817,7 @@ namespace capaPresentacion
                 }
             }
         }
-
-
-
-
+        
         private void btn_Exit_Click(object sender, EventArgs e)
         {
             DialogResult salir;
@@ -853,10 +836,7 @@ namespace capaPresentacion
             }
 
         }
-
-
-
-
+        
         private void pbx_50_MouseEnter(object sender, EventArgs e)
         {
             if (lab_50_1.Text != "0")
@@ -979,8 +959,7 @@ namespace capaPresentacion
                 }
             }
         }
-
-
+        
         private void countDown_Tick(object sender, EventArgs e)
         {
             if (countDownTimer != 1)
@@ -1040,7 +1019,7 @@ namespace capaPresentacion
                 reproducirSonido("levelclearer.wav", true);
             }
         }
-
+        
 
 
         //eventos para seleccionar a travez del teclado
@@ -1068,8 +1047,7 @@ namespace capaPresentacion
         {
             selectAnswer(e);
         }
-
-
+        
 
         void selectAnswer(KeyPressEventArgs e)
         {
@@ -1192,9 +1170,7 @@ namespace capaPresentacion
                 btn_Submit.Enabled = false;
             }
         }
-
-
-
+        
 
         private void rbtn_a_CheckedChanged(object sender, EventArgs e)
         {
@@ -1216,9 +1192,7 @@ namespace capaPresentacion
             if (btn_Submit.Enabled == false)
                 btn_Submit.Enabled = true;
         }
-
-
-
+        
 
         private void Btn_Settings_Click(object sender, EventArgs e)
         {
@@ -1260,9 +1234,7 @@ namespace capaPresentacion
         {
             Btn_Settings.Image = Properties.Resources.Settings;
         }
-
-
-
+        
 
         private void Timer_2Answer_Tick(object sender, EventArgs e)
         {
@@ -1325,9 +1297,7 @@ namespace capaPresentacion
                 StartAgan();
             }
         }
-
-
-
+        
         private void pbx_Passage_1_MouseEnter(object sender, EventArgs e)
         {
             if (lab_Passage_1.Text != "0")
@@ -1436,5 +1406,16 @@ namespace capaPresentacion
                 }
             }
         }
+
+        private void btn_how2Play_Click(object sender, EventArgs e)
+        {
+            howToPlay = HowToPlay.GetInscance();
+            howToPlay.Show();
+            howToPlay.BringToFront();
+
+            Timer_2Answer.Stop();
+            sonido.Stop();
+        }
+
     }
 }
